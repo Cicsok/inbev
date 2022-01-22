@@ -1,0 +1,12 @@
+previewsEnabled: true
+
+services:
+  - type: web
+    name: inbev-app
+    env: node
+    plan: starter
+    buildCommand: yarn; yarn build
+    startCommand: yarn start
+    envVars:
+      - key: NODE_ENV
+        value: production
