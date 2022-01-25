@@ -1,0 +1,22 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+ my-desktop-footer{
+     margin-top:auto;
+     background-color: #BFBFBF;
+     font-family: 'Raleway', sans-serif;    
+     font-size: 37px;
+ }
+
+ .email-footer, .phone-footer{
+    font-size: 15px;
+ }
+
+ .footer-content{
+     padding: 28px 0px;
+ }
+
+ 
+
