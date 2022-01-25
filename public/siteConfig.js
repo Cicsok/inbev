@@ -10,7 +10,7 @@ const siteConfig = {
     buttonText: 'Lépj kapcsolatba velem'
   },
 
-  headerLogo: '../images/INBEVLogo.png',
+  headerLogo: 'INBEVLogo.png',
   favicon: '',
 
   homePage:{
