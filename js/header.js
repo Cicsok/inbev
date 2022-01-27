@@ -2,10 +2,10 @@ class MyHeader extends HTMLElement {
     connectedCallback(){
         const headerLogo = siteConfig.headerLogo;
         const buttonText = siteConfig.header.buttonText;
-        const page1 = siteConfig.header.page1;
-        const page2 = siteConfig.header.page2;
-        const page3 = siteConfig.header.page3;
-        const page4 = siteConfig.header.page4;
+        const homePage = siteConfig.header.homePage;
+        const introduction = siteConfig.header.introduction;
+        const referenceWorks = siteConfig.header.referenceWorks;
+        const contact = siteConfig.header.contact;
         const headerEmail = siteConfig.header.email;
         const headerPhone = siteConfig.header.phone;
         this.innerHTML = `
@@ -23,10 +23,10 @@ class MyHeader extends HTMLElement {
             <hr>
             <div class="menus-and-informations d-flex justify-content-between">
                 <div class="pages d-flex">
-                    <a href="#vmi" class="page1">` + page1 + `<a>
-                    <a href="#vmi" class="page2">` + page2 + `<a>
-                    <a href="#vmi" class="page3">` + page3 + `<a>
-                    <a href="#vmi" class="page4">` + page4 + `<a>
+                    <a href="#vmi" class="page1">` + homePage + `<a>
+                    <a href="#vmi" class="page2">` + introduction + `<a>
+                    <a href="#vmi" class="page3">` + referenceWorks + `<a>
+                    <a href="#vmi" class="page4">` + contact + `<a>
                 </div>
                 <div class="informations d-flex">
                     <div class="information1">` + headerEmail + `</div>

@@ -1,0 +1,75 @@
+.home-page{
+    background-color: #242424;
+    font-family: 'Raleway', sans-serif;    
+}
+
+/* Slider */
+.carousel-indicators >  button { 
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 100%;
+    margin-right: 10px !important;
+    background-color: rgba(0, 0, 0, 0.945) !important;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon{
+    width: 60px;
+    height: 55px;
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+}
+
+.carousel-caption{
+    
+    top: 38%;
+}
+
+.caption{
+    padding-bottom: 60px;
+    font-size: 55px;
+    color: rgba(0, 0, 0, 0.945);
+}
+
+/* Introduction */
+
+.red-line{
+    background-color: #FF0000;
+    width: 20%;
+    margin: 20px auto;
+    height: 3px !important;
+}
+
+.introduction-title{
+    color: white;
+    text-transform: uppercase;
+    font-size: 28px;
+}
+
+.image-and-text{
+    padding-top: 25px;
+    padding-bottom: 70px;
+    margin: 0 auto;
+}
+
+.image, .text{
+   border: #BFBFBF 2px solid;
+   color: white;
+}
+
+.text{
+    width: 40%;
+    text-align: center;
+    padding: 20px 40px;
+    font-size: 24px;
+    align-items: center;
+}
+
+.image{
+    background-image: url(../public/aboutMeImage.jpg);
+    background-size: cover;
+    min-height: 320px;
+    background-position: center;
+    width: 30%;
+    margin-right: 20px;
+}

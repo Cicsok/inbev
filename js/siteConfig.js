@@ -1,10 +1,10 @@
 const siteConfig = {
   companyName: 'INBE.V.',
   header:{
-    page1: 'Főoldal',
-    page2: 'Bemuatakozás',
-    page3: 'Referencia munkáim',
-    page4: 'Kapcsolat',
+    homePage: 'Főoldal',
+    introduction: 'Bemuatakozás',
+    referenceWorks: 'Referencia munkáim',
+    contact: 'Kapcsolat',
     email: 'balazs0124@gmail.com',
     phone: '+36305361223',
     buttonText: 'Lépj kapcsolatba velem'
@@ -15,11 +15,11 @@ const siteConfig = {
 
   homePage:{
     homePageIntroductionText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam felis est, rhoncus quis odio nec, tempus gravida arcu. Pellentesque eget iaculis urna, quis pharetra justo. Maecenas est tellus, consequat a odio ac, ',
+    homePageIntroductionTitle: 'Bemutatkozás',
     homePageIntroductionImage: 'images/introduction',
-    siderImage1: '',
-    siderImage2: '',
-    siderImage3: '',
-    siderImage4: '',
+    sliderImage1: 'image1.jpg',
+    sliderImage2: 'image5.jpg',
+    sliderImage3: 'image4.jpg',
   },
 
   aboutMePage:{
@@ -28,11 +28,11 @@ const siteConfig = {
   },
 
   referenceWorks:{
-    referenceWorkImage1: '',
-    referenceWorkImage2: '',
-    referenceWorkImage3: '',
-    referenceWorkImage4: '',
-    referenceWorkImage5: '',
+    referenceWorksImage1: '',
+    referenceWorksImage2: '',
+    referenceWorksImage3: '',
+    referenceWorksImage4: '',
+    referenceWorksImage5: '',
   },
 
   contact:{
@@ -48,4 +48,3 @@ const siteConfig = {
   },
 
 };
-
