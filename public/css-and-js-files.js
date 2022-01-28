@@ -20,13 +20,13 @@ function includeCss(file) {
 
 includeCss('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css');
 includeCss('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;800&display=swap');
-includeCss('header-style.css');
-includeCss('footer-style.css');
+includeCss('desktop-header-style.css');
+includeCss('desktop-footer-style.css');
 includeCss('index-style.css');
 
-includeJavasScript('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js');
 includeJavasScript('siteConfig.js');
-includeJavasScript('header.js');
+includeJavasScript('desktop-header.js');
 includeJavasScript('home-page-slider.js');
 includeJavasScript('home-page-introduction.js');
-includeJavasScript('footer.js');
+includeJavasScript('desktop-footer.js');
+includeJavasScript('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js');

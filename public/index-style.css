@@ -5,29 +5,28 @@
 
 /* Slider */
 .carousel-indicators >  button { 
-    width: 18px !important;
-    height: 18px !important;
+    width: 1.4rem !important;
+    height: 1.4rem !important;
+    margin-right: 0.625rem !important;
     border-radius: 100%;
-    margin-right: 10px !important;
     background-color: rgba(0, 0, 0, 0.945) !important;
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon{
-    width: 60px;
-    height: 55px;
+    width: 3.75rem;
+    height: 3.438rem;
     font-weight: 700;
     padding: 0;
     margin: 0;
 }
 
 .carousel-caption{
-    
     top: 38%;
 }
 
 .caption{
-    padding-bottom: 60px;
-    font-size: 55px;
+    padding-bottom: 3.75rem;
+    font-size: 3.438rem;
     color: rgba(0, 0, 0, 0.945);
 }
 
@@ -35,41 +34,43 @@
 
 .red-line{
     background-color: #FF0000;
+    opacity: 100%;
     width: 20%;
-    margin: 20px auto;
-    height: 3px !important;
+    margin: 1.25rem auto;
+    height: 0.188rem !important;
+    margin-bottom: 0.938rem;
 }
 
 .introduction-title{
     color: white;
     text-transform: uppercase;
-    font-size: 28px;
+    font-size: 1.75rem;
 }
 
 .image-and-text{
-    padding-top: 25px;
-    padding-bottom: 70px;
+    padding-top: 1.563rem;
+    padding-bottom: 4.375rem;
     margin: 0 auto;
 }
 
 .image, .text{
-   border: #BFBFBF 2px solid;
+   border: #BFBFBF 0.125rem solid;
    color: white;
 }
 
 .text{
     width: 40%;
     text-align: center;
-    padding: 20px 40px;
-    font-size: 24px;
+    padding: 1.25rem 2.5rem;
+    font-size: 1.5rem;
     align-items: center;
 }
 
 .image{
-    background-image: url(aboutMeImage.jpg);
+    background-image: url(aboutMeImage.jpg); /* !!!!!!!!!!!!*/
     background-size: cover;
-    min-height: 320px;
+    min-height: 20rem;
     background-position: center;
     width: 30%;
-    margin-right: 20px;
+    margin-right: 1.25rem;
 }

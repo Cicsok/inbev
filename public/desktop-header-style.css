@@ -1,0 +1,45 @@
+body{
+    font-family: 'Raleway', sans-serif;    
+}
+
+a, a:active, a:visited{
+    text-decoration: none;
+    color: #BFBFBF;
+}
+
+.information1, .information2{
+    color: #BFBFBF;
+}
+
+.logo-img{
+    width:13.75rem;
+}
+
+.logo-and-button{
+    margin-top: 2.313rem;
+}
+
+.my-border{
+    border: #F1BF11 solid 0.188rem;
+    color:#F1BF11 !important;
+    padding: 0.625rem;
+}
+
+.header-line{
+    opacity: 100%;
+    height: 0.25rem;
+    background-color:#BFBFBF;
+    margin: 0.938rem 0;
+}
+
+.information1{
+    margin-right: 0.938rem;
+}
+
+.page1, .page2, .page3{
+    margin-right: 0.938rem;
+}
+
+.pages, .informations{
+    margin-bottom: 1.25rem;
+}
