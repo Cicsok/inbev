@@ -1,5 +1,14 @@
 const siteConfig = {
   companyName: 'INBE.V.',
+
+  sliderHeaderNameToSliderImageMapping: {
+   'Bemuatakozás': 'image1.jpg',
+   'Referencia munkáim': 'image5.jpg',
+   'Kapcsolat':  'image4.jpg',
+  },
+
+  activeSliderImageName: 'image1.jpg',
+
   header:{
     page0: 'Főoldal',
     page1: 'Bemuatakozás',
@@ -17,6 +26,7 @@ const siteConfig = {
     homePageIntroductionText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam felis est, rhoncus quis odio nec, tempus gravida arcu. Pellentesque eget iaculis urna, quis pharetra justo. Maecenas est tellus, consequat a odio ac, ',
     homePageIntroductionTitle: 'Bemutatkozás',
     homePageIntroductionImage: 'images/introduction',
+
     sliderImage1: 'image1.jpg',
     sliderImage2: 'image5.jpg',
     sliderImage3: 'image4.jpg',
