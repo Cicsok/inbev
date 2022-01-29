@@ -2,10 +2,10 @@ class MyHeader extends HTMLElement {
     connectedCallback(){
         const headerLogo = siteConfig.headerLogo;
         const buttonText = siteConfig.header.buttonText;
-        const homePage = siteConfig.header.homePage;
-        const introduction = siteConfig.header.introduction;
-        const referenceWorks = siteConfig.header.referenceWorks;
-        const contact = siteConfig.header.contact;
+        const homePage = siteConfig.header.page0;
+        const introduction = siteConfig.header.page1;
+        const referenceWorks = siteConfig.header.page2;
+        const contact = siteConfig.header.page3;
         const headerEmail = siteConfig.header.email;
         const headerPhone = siteConfig.header.phone;
         this.innerHTML = `

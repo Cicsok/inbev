@@ -1,10 +1,10 @@
 const siteConfig = {
   companyName: 'INBE.V.',
   header:{
-    homePage: 'Főoldal',
-    introduction: 'Bemuatakozás',
-    referenceWorks: 'Referencia munkáim',
-    contact: 'Kapcsolat',
+    page0: 'Főoldal',
+    page1: 'Bemuatakozás',
+    page2: 'Referencia munkáim',
+    page3: 'Kapcsolat',
     email: 'balazs0124@gmail.com',
     phone: '+36305361223',
     buttonText: 'Lépj kapcsolatba velem'
