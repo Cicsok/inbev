@@ -2,14 +2,11 @@ class MyHomePageSlider extends HTMLElement{
     connectedCallback(){
         this.innerHTML = `
       <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>` ;
-      
+        <div class="carousel-indicators" id="carousel-indicators">
+            
+        </div>`;
       createCarouselInner();
-       this.innerHTML += `<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+       document.getElementById('carouselExampleIndicators').innerHTML += `<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
          <span class="visually-hidden">Previous</span>
        </button>
@@ -46,9 +43,7 @@ function createCarouselInnerDiv(){
   var carouselInnerDiv = createNode('div');
   carouselInnerDiv.classList.add('carousel-inner');
   carouselInnerDiv.id = 'carousel-inner';
-  console.log(parent01);
   append(parent01, carouselInnerDiv);
-  console.log(parent01);
   return parent01;
 }
 
@@ -66,22 +61,21 @@ function createCarouselImg(parent, imageName){
   carouselImg.classList.add('d-block', 'w-100', 'carousel-img');
   carouselImg.alt = '...';
   append(parent, carouselImg);
+  return carouselImg;
 }
 
 function createCarouselCaptionDiv(parent){
   const carouselCaptionDiv = createNode('div');
-  carouselCaptionDiv.classList.add('carousel-caption', 'd-felx', 'align-items-center');
+  carouselCaptionDiv.classList.add('carousel-caption', 'd-flex', 'align-items-center');
   append(parent, carouselCaptionDiv);
   return carouselCaptionDiv;
 }
 
 function createCarouselCaption(parent, headerName){
-  const carouselCaption = createNode('h3');
-  carouselCaption.classList.add('caption');
-  console.log(headerName);
+  const carouselCaption = createNode('a');
+  carouselCaption.href= '#';
+  carouselCaption.classList.add('caption', 'mx-auto');
   carouselCaption.innerHTML = headerName;
-  console.log("Parent" + parent);
-  console.dir(parent);
   append(parent, carouselCaption);
 }
 
@@ -98,8 +92,38 @@ function createCarouselInner() {
          createCarouselImg(carouselItem, actualSliderImageName);
          carouselCaptionDiv = createCarouselCaptionDiv(carouselItem);
 
-        createCarouselCaption(carouselCaptionDiv, actualHeaderName);
+         createCarouselCaption(carouselCaptionDiv, actualHeaderName);
     });
-
-    return 0;
 }
+
+function addFirstButton(parent){
+  const button = createNode('button');
+  button.type = 'button';
+  button.setAttribute('data-bs-target', '#carouselExampleIndicators');
+  button.setAttribute('data-bs-slide-to', '0');
+  button.setAttribute('aria-current', 'true');
+  button.setAttribute('aria-label', 'Slide 1');
+  button.classList.add('active');
+  append(parent, button);
+}
+
+function addButton(parent, whichButton){
+  const button = createNode('button');
+  button.type = 'button';
+  button.setAttribute('data-bs-target', '#carouselExampleIndicators');
+  button.setAttribute('data-bs-slide-to', whichButton-1);
+  button.setAttribute('aria-label', 'Slide '+whichButton);
+  append(parent, button);
+}
+
+function addCarouselIndicators(){
+  var howManyButton = Object.keys(siteConfig.sliderHeaderNameToSliderImageMapping).length;
+  for (let whichButton = 1; whichButton <= howManyButton; whichButton++) {
+    const parent = document.getElementById('carousel-indicators');
+    whichButton==1
+    ? addFirstButton(parent)
+    : addButton(parent, whichButton);
+  }
+}
+
+addCarouselIndicators();

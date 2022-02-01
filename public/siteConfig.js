@@ -2,7 +2,7 @@ const siteConfig = {
   companyName: 'INBE.V.',
 
   sliderHeaderNameToSliderImageMapping: {
-   'Bemuatakozás': 'image1.jpg',
+   'Bemutatkozás': 'image1.jpg',
    'Referencia munkáim': 'image5.jpg',
    'Kapcsolat':  'image4.jpg',
   },
@@ -11,7 +11,7 @@ const siteConfig = {
 
   header:{
     page0: 'Főoldal',
-    page1: 'Bemuatakozás',
+    page1: 'Bemutatkozás',
     page2: 'Referencia munkáim',
     page3: 'Kapcsolat',
     email: 'balazs0124@gmail.com',
@@ -26,14 +26,10 @@ const siteConfig = {
     homePageIntroductionText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam felis est, rhoncus quis odio nec, tempus gravida arcu. Pellentesque eget iaculis urna, quis pharetra justo. Maecenas est tellus, consequat a odio ac, ',
     homePageIntroductionTitle: 'Bemutatkozás',
     homePageIntroductionImage: 'images/introduction',
-
-    sliderImage1: 'image1.jpg',
-    sliderImage2: 'image5.jpg',
-    sliderImage3: 'image4.jpg',
   },
 
   aboutMePage:{
-    aboutMeImage: '',
+    aboutMeImage: 'aboutMeImage.jpg',
     aboutMeIntroductionText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam felis est, rhoncus quis odio nec, tempus gravida arcu. Pellentesque eget iaculis urna, quis pharetra justo. Maecenas est tellus, consequat a odio ac, hendrerit maximus nulla. Duis commodo ligula ut ullamcorper congue. Vivamus egestas libero mi, vitae ultrices leo dignissim nec.'
   },
 
