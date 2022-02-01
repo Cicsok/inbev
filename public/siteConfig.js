@@ -16,7 +16,7 @@ const siteConfig = {
     page3: 'Kapcsolat',
     email: 'balazs0124@gmail.com',
     phone: '+36305361223',
-    buttonText: 'Lépj kapcsolatba velem'
+    getInTouchWithMebuttonText: 'Lépj kapcsolatba velem'
   },
 
   headerLogo: 'INBEVLogo.png',
@@ -25,7 +25,7 @@ const siteConfig = {
   homePage:{
     homePageIntroductionText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam felis est, rhoncus quis odio nec, tempus gravida arcu. Pellentesque eget iaculis urna, quis pharetra justo. Maecenas est tellus, consequat a odio ac, ',
     homePageIntroductionTitle: 'Bemutatkozás',
-    homePageIntroductionImage: 'images/introduction',
+    homePageIntroductionImage: 'aboutMeImage.jpg',
   },
 
   aboutMePage:{

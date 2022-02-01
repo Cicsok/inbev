@@ -2,7 +2,7 @@ class MyHomePageIntroduction extends HTMLElement {
     connectedCallback(){
         const introductionTitle = siteConfig.homePage.homePageIntroductionTitle;
         const homePageIntroductionText = siteConfig.homePage.homePageIntroductionText;
-        const homePageIntroductionImage = siteConfig.aboutMePage.aboutMeImage;
+        const homePageIntroductionImage = siteConfig.homePage.homePageIntroductionImage;
         this.innerHTML = `
         <hr class="red-line">
         <div class="home-page-introduction">
@@ -16,8 +16,8 @@ class MyHomePageIntroduction extends HTMLElement {
                     + homePageIntroductionText +
                `</div>
             </div>
-        </div>  
-        `
+        </div>`;
+        
         document.getElementById('image').style.backgroundImage = 'url('+homePageIntroductionImage+')';
     }
 }

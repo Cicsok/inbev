@@ -5,7 +5,7 @@ class MyFooter extends HTMLElement {
         const footerPhoneNumber = siteConfig.footer.phone;
 
         this.innerHTML = `
-        <footer>
+        <footer class="d-none d-lg-block">
             <div class="footer-content d-flex justify-content-around align-items-center">
                 <div class="company-name">`
                     + companyName +
