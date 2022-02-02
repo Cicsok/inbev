@@ -37,12 +37,12 @@ function addActiveClassToFirstCarouselItem(){
 }
 
 function createCarouselInnerDiv(){
-  let parent01 = document.getElementById('carouselExampleIndicators');
+  let parent = document.getElementById('carouselExampleIndicators');
   var carouselInnerDiv = createNode('div');
   carouselInnerDiv.classList.add('carousel-inner');
   carouselInnerDiv.id = 'carousel-inner';
-  append(parent01, carouselInnerDiv);
-  return parent01;
+  append(parent, carouselInnerDiv);
+  return parent;
 }
 
 function createCarouselItem(){
@@ -104,23 +104,23 @@ function addFirstButton(parent){
   append(parent, button);
 }
 
-function addButton(parent, whichButton){
+function addButton(parent, buttonIndex){
   const button = createNode('button');
   button.type = 'button';
   button.setAttribute('data-bs-target', '#carouselExampleIndicators');
-  button.setAttribute('data-bs-slide-to', whichButton-1);
-  button.setAttribute('aria-label', 'Slide '+whichButton);
+  button.setAttribute('data-bs-slide-to', buttonIndex);
+  button.setAttribute('aria-label', 'Slide '+(buttonIndex+1));
   append(parent, button);
 }
 
 function addCarouselIndicators(){
-  var howManyButton = Object.keys(siteConfig.sliderHeaderNameToSliderImageMapping).length;
-  for (let whichButton = 1; whichButton <= howManyButton; whichButton++) {
+  const FIRST_BUTTON_INDEX = 0;
+  Object.values(siteConfig.sliderHeaderNameToSliderImageMapping).forEach((value, buttonIndex)=> {
     const parent = document.getElementById('carousel-indicators');
-    whichButton==1
+    FIRST_BUTTON_INDEX == buttonIndex
     ? addFirstButton(parent)
-    : addButton(parent, whichButton);
-  }
+    : addButton(parent, buttonIndex);
+  });
 }
 
 addCarouselIndicators();
