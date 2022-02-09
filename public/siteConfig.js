@@ -2,7 +2,7 @@ const siteConfig = {
   companyName: 'INBE.V.',
 
   sliderHeaderNameToSliderImageMapping: {
-   'Bemutatkozás': 'image1.jpg',
+   'Bemutatkozás': 'image1.jpg', 
    'Referencia munkáim': 'image5.jpg',
    'Kapcsolat':  'image4.jpg',
   },
@@ -10,16 +10,20 @@ const siteConfig = {
   activeSliderImageName: 'image1.jpg',
 
   header:{
-    page0: 'Főoldal',
-    page1: 'Bemutatkozás',
-    page2: 'Referencia munkáim',
-    page3: 'Kapcsolat',
-    email: 'balazs0124@gmail.com',
-    phone: '+36305361223',
-    getInTouchWithMebuttonText: 'Lépj kapcsolatba velem'
+    pages:{
+      homePageLink: 'Főoldal',
+      introductionLink: 'Bemutatkozás',
+      referenceWorksLink: 'Referencia munkáim',
+      contactLink: 'Kapcsolat',
+    },
+    informations:{
+      email: 'balazs0124@gmail.com',
+      phone: '+36305361223',
+    },
+    getInTouchWithMebuttonText: 'Lépj kapcsolatba velem',
+    headerLogo: 'INBEVLogo.png',
   },
 
-  headerLogo: 'INBEVLogo.png',
   favicon: '',
 
   homePage:{
@@ -46,11 +50,16 @@ const siteConfig = {
     information1: 'balazs0124@gmail.com',
     information2: '+36305361223',
     contactImage: '',
-  },
+  }
   
-  footer:{
-    email: 'balazs0124@gmail.com',
-    phone: '+36305361223',
-  },
-
 };
+
+const desktopFooter = {
+ 'Email-cím:': ['balazs0124@gmail.com', 'desktop-footer-email'],
+ 'Telefonszám:': ['+36305361223', 'desktop-footer-phone'],
+}
+
+const mobileFooter = {
+  'Email-cím:': ['balazs0124@gmail.com', 'mobile-footer-email'],
+  'Telefonszám:': ['+36305361223', 'mobile-footer-phone'],
+}

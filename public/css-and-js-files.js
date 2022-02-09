@@ -3,8 +3,8 @@ includeJavasScript('mobile-header.js');
 includeJavasScript('desktop-header.js');
 includeJavasScript('home-page-slider.js');
 includeJavasScript('home-page-introduction.js');
-includeJavasScript('desktop-footer.js');
 includeJavasScript('mobile-footer.js');
+includeJavasScript('desktop-footer.js');
 includeJavasScript('https://kit.fontawesome.com/df226d5321.js');
 includeJavasScript('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js');
 
@@ -21,7 +21,7 @@ function includeJavasScript(file) {
     var script = document.createElement('script');
     script.src = file;
     script.type = 'text/javascript';
-    script.async = true;
+    script.async = false;
 
     document.getElementsByTagName('head').item(0).appendChild(script);
 }

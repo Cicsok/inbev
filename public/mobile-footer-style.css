@@ -2,13 +2,17 @@ footer{
     background-color: #BFBFBF;
 }
 
-.mobile-email-footer, .mobile-phone-footer, .mobile-company-name{
+.mobile-footer-content{
+    padding: 2vw 0;
+}
+
+.mobile-footer-content > *{
     color: black;
     text-align: center;
     font-size: 3vw;
 }
 
 .mobile-company-name{
-    font-size: 4.5vw;
+    font-size: 4.8vw;
     font-weight: 500;
 }

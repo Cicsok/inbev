@@ -2,12 +2,8 @@ body{
     font-family: 'Raleway', sans-serif;    
 }
 
-.pages > a{
+.pages > a, .informationsDiv > div{
     text-decoration: none;
-    color: #BFBFBF;
-}
-
-.information1, .information2{
     color: #BFBFBF;
 }
 
@@ -34,15 +30,15 @@ body{
     margin: 1vw 0;
 }
 
-.information1{
+.informationsDiv > div:not(:last-child){
     margin-right: 1vw;
 }
 
-.page1, .page2, .page3{
+.pages > a:not(:last-child){
     margin-right: 1vw;
 }
 
-.pages, .informations{
+.pages, .informationsDiv{
     margin-bottom: 2vw;
     font-size: 1.3vw;
 }

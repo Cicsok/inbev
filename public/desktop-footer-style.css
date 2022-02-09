@@ -10,14 +10,14 @@ body{
      background-color: #BFBFBF;
  }
 
- .email-footer, .phone-footer{
+ .footer-content >:not(:first-child) > div{
     font-size: 1.5vw;
- }
+}
 
  .footer-content{
      padding: 3vw 0vw;
  }
 
- .company-name{
+ .desktop-company-name{
      font-size: 3vw;
  }
