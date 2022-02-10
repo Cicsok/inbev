@@ -1,30 +1,45 @@
-class MyFooter extends HTMLElement {
+class MyDesktopFooter extends HTMLElement {
     connectedCallback(){
-        this.innerHTML = `
+        initMyDesktopFooter(this);
+        createDesktopFooterInformations();
+    }
+}
+
+function initMyDesktopFooter(element){
+    element.innerHTML = `
         <footer class="d-none d-lg-block">
             <div class="footer-content d-flex justify-content-around align-items-center" id="desktop-footer-content">   
             </div>
         </footer>`;
-        addFooterInformations();
-    }
 }
 
-customElements.define('my-desktop-footer', MyFooter);
-
-function createNode(element) {
-    return document.createElement(element);
-}
-  
-function append(parent, el) {
-    return parent.appendChild(el);
+function createDesktopFooterInformations(){
+    parent = document.getElementById('desktop-footer-content');
+    createDesktopCompanyName(parent);
+    createMoreInformationsForDesktop(parent);
 }
 
-function addCompanyName(parent){
+function createDesktopCompanyName(parent){
     let companyNameContent = siteConfig.companyName;
     let companyName = createNode('div');
     companyName.classList.add('desktop-company-name');
     companyName.innerHTML = companyNameContent;
     append(parent, companyName);
+}
+
+function createMoreInformationsForDesktop(parent){
+    new Map (Object.entries(siteConfig.desktopFooter)).forEach((value)=>{
+        let informationContainer = createInformationContainer(parent, value.className);
+        new Map (Object.entries(value)).forEach((value, key)=>{
+            let isObject = typeof value == 'object' 
+            ? true 
+            : false;
+            if(isObject){
+                createTypeOfInformation(informationContainer, value.label);
+                createInformations(informationContainer, value.value);
+            }
+        })
+    })
 }
 
 function createInformationContainer(parent, className){
@@ -34,30 +49,16 @@ function createInformationContainer(parent, className){
     return informationContainer;
 }
 
-function writeTypeOfInformation(parent, typeOfInformationContent){
+function createTypeOfInformation(parent, typeOfInformationContent){
     let typeOfInformation = createNode('div');
     typeOfInformation.innerHTML = typeOfInformationContent;
     append(parent, typeOfInformation);
 }
 
-function addInformations(parent, informationContent){
+function createInformations(parent, informationContent){
     let information = createNode('div');
     information.innerHTML = informationContent;
     append(parent, information);
 }
 
-function addMoreInformations(parent){
-    new Map(Object.entries(desktopFooter)).forEach((list, typeOfInformation) =>{
-        let information = list[0];
-        let className = list[1];
-        let informationContainer = createInformationContainer(parent, className);
-        writeTypeOfInformation(informationContainer, typeOfInformation)
-        addInformations(informationContainer, information);
-    })
-}
-
-function addFooterInformations(){
-    parent = document.getElementById('desktop-footer-content');
-    addCompanyName(parent);
-    addMoreInformations(parent);
-}
+customElements.define('my-desktop-footer', MyDesktopFooter);

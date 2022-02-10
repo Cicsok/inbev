@@ -50,16 +50,35 @@ const siteConfig = {
     information1: 'balazs0124@gmail.com',
     information2: '+36305361223',
     contactImage: '',
+  },
+
+  desktopFooter:{
+    firstDesktopInformation:{
+      className: 'desktop-footer-email',
+      data:{
+        value: 'balazs0124@gmail.com',
+        label: 'Email-cím',
+      },
+    },
+    secondDesktopInformation:{
+      className: 'desktop-footer-phone',
+      data:{
+        value: '+36305361223',
+        label: 'Telefonszám',
+      },
+    }
+  },
+  
+  mobileFooter:{
+    firstMobileInformation:{
+      information: '+36305361223',
+      className: 'desktop-footer-mobile',
+    },
+    secondMobileInformation:{
+      information: 'balazs0124@gmail.com',
+      className: 'desktop-footer-mobile',
+    },
+
   }
   
 };
-
-const desktopFooter = {
- 'Email-cím:': ['balazs0124@gmail.com', 'desktop-footer-email'],
- 'Telefonszám:': ['+36305361223', 'desktop-footer-phone'],
-}
-
-const mobileFooter = {
-  'Email-cím:': ['balazs0124@gmail.com', 'mobile-footer-email'],
-  'Telefonszám:': ['+36305361223', 'mobile-footer-phone'],
-}
