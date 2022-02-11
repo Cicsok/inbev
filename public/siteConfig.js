@@ -16,6 +16,7 @@ const siteConfig = {
       referenceWorksLink: 'Referencia munkáim',
       contactLink: 'Kapcsolat',
     },
+    activePageLink: 'Főoldal',
     informations:{
       email: 'balazs0124@gmail.com',
       phone: '+36305361223',
@@ -52,31 +53,31 @@ const siteConfig = {
     contactImage: '',
   },
 
-  desktopFooter:{
-    firstDesktopInformation:{
-      className: 'desktop-footer-email',
-      data:{
-        value: 'balazs0124@gmail.com',
-        label: 'Email-cím',
-      },
+  "desktopFooter":[
+    {
+       "className":"desktop-footer-email",
+       "information":{
+          "label":"Email-cím",
+          "content":"balazs0124@gmail.com"
+       }
     },
-    secondDesktopInformation:{
-      className: 'desktop-footer-phone',
-      data:{
-        value: '+36305361223',
-        label: 'Telefonszám',
-      },
-    }
-  },
+    {
+       "className":"desktop-footer-phone",
+       "information":{
+          "label":"Telefonszám",
+          "content":"+36305361223"
+       }
+    },
+  ],
   
   mobileFooter:{
     firstMobileInformation:{
       information: '+36305361223',
-      className: 'desktop-footer-mobile',
+      className: 'mobile-footer-phone',
     },
     secondMobileInformation:{
       information: 'balazs0124@gmail.com',
-      className: 'desktop-footer-mobile',
+      className: 'mobile-footer-email',
     },
 
   }

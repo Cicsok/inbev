@@ -1,7 +1,8 @@
-class MyDesktopFooter extends HTMLElement {
+class MyDesktopFooter extends abstractFooter {
     connectedCallback(){
         initMyDesktopFooter(this);
-        createDesktopFooterInformations();
+        createCompanyName('desktop-footer-content', 'desktop-company-name');
+        createFooterInformations('desktop-footer-content');
     }
 }
 
@@ -13,52 +14,19 @@ function initMyDesktopFooter(element){
         </footer>`;
 }
 
-function createDesktopFooterInformations(){
-    parent = document.getElementById('desktop-footer-content');
-    createDesktopCompanyName(parent);
-    createMoreInformationsForDesktop(parent);
-}
-
-function createDesktopCompanyName(parent){
-    let companyNameContent = siteConfig.companyName;
-    let companyName = createNode('div');
-    companyName.classList.add('desktop-company-name');
-    companyName.innerHTML = companyNameContent;
-    append(parent, companyName);
-}
-
-function createMoreInformationsForDesktop(parent){
-    new Map (Object.entries(siteConfig.desktopFooter)).forEach((value)=>{
-        let informationContainer = createInformationContainer(parent, value.className);
-        new Map (Object.entries(value)).forEach((value, key)=>{
-            let isObject = typeof value == 'object' 
-            ? true 
-            : false;
-            if(isObject){
-                createTypeOfInformation(informationContainer, value.label);
-                createInformations(informationContainer, value.value);
-            }
-        })
-    })
-}
-
-function createInformationContainer(parent, className){
-    let informationContainer = createNode('div');
-    informationContainer.classList.add(className);
-    append(parent, informationContainer);
-    return informationContainer;
+function createMoreInformations(parent){
+    siteConfig.desktopFooter.forEach((data) => {
+        let container = createInformationContainer(parent, data.className);
+        let information = data.information;
+        createTypeOfInformation(container, information.label);
+        createInformations(container, information.content);
+})
 }
 
 function createTypeOfInformation(parent, typeOfInformationContent){
     let typeOfInformation = createNode('div');
     typeOfInformation.innerHTML = typeOfInformationContent;
     append(parent, typeOfInformation);
-}
-
-function createInformations(parent, informationContent){
-    let information = createNode('div');
-    information.innerHTML = informationContent;
-    append(parent, information);
 }
 
 customElements.define('my-desktop-footer', MyDesktopFooter);
