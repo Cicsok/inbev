@@ -8,10 +8,7 @@ switch (pathName) {
     case '/index':
     case '/':
         includeToEveryPages();
-        includeJavasScript('create-carousel-inner-for-home-page-slider-functions.js');
-        includeJavasScript('home-page-slider.js');
-        includeJavasScript('home-page-introduction.js');
-        includeCss('index-style.css');
+        includeOnlyHomePage();
         break;
     case 'about-me':
         console.log('I am on about-me page!');
@@ -61,4 +58,11 @@ function includeToEveryPages(){
     includeCss('desktop-footer-style.css');
     includeCss('mobile-footer-style.css');
     includeJavasScript('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js');
+}
+
+function includeOnlyHomePage(){
+    includeJavasScript('create-carousel-inner-for-home-page-slider-functions.js');
+    includeJavasScript('home-page-slider.js');
+    includeJavasScript('home-page-introduction.js');
+    includeCss('index-style.css');
 }
