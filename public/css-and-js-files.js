@@ -3,7 +3,6 @@ function  identifyPagePath(){
 }
 
 let pathName = identifyPagePath();
-console.log(pathName);
 switch (pathName) {
     case '/index':
     case '/':
