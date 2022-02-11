@@ -14,7 +14,7 @@ function createCol(parent){
 
 function createLogoToLink(parent){
     let logoLink = createNode('a');
-    logoLink.href =  'index';
+    logoLink.href =  'home';
     append(parent, logoLink);
     return logoLink;
 }
@@ -37,7 +37,7 @@ function createButtonDiv(parent){
 
 function createButton(parent, buttonText){
     let button = createNode('a');
-    button.href = '#';
+    button.href = 'contact';
     button.classList.add('my-border');
     button.innerHTML = buttonText;
     append(parent, button);

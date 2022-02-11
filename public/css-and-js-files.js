@@ -29,7 +29,7 @@
     includeJavasScript('create-carousel-inner-for-home-page-slider-functions.js');
     includeJavasScript('home-page-slider.js');
     includeJavasScript('home-page-introduction.js');
-    includeCss('index-style.css');
+    includeCss('home-style.css');
     includeJavasScript('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js');
 
 // }
