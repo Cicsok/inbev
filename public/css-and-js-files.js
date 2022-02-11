@@ -5,7 +5,8 @@ function  identifyPagePath(){
 let pathName = identifyPagePath();
 console.log(pathName);
 switch (pathName) {
-    case '/index' || '/':
+    case '/index':
+    case '/':
         includeToEveryPages();
         includeJavasScript('create-carousel-inner-for-home-page-slider-functions.js');
         includeJavasScript('home-page-slider.js');
@@ -23,6 +24,7 @@ switch (pathName) {
         console.log('I am on  page contact page!');
         break;
     default:
+        console.log('The path you entered does not exist!')
         break;
 }
 
