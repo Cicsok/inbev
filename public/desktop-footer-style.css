@@ -1,0 +1,23 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+ my-desktop-footer{
+     margin-top:auto;
+     font-family: 'Raleway', sans-serif;    
+     font-size: 2vw;
+     background-color: #BFBFBF;
+ }
+
+ .footer-content >:not(:first-child) > div{
+    font-size: 1.5vw;
+}
+
+ .footer-content{
+     padding: 3vw 0vw;
+ }
+
+ .desktop-company-name{
+     font-size: 3vw;
+ }

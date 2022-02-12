@@ -1,0 +1,35 @@
+.my-logo{
+    width: 30vw;
+    height: 10vw;
+}
+
+nav {
+    background-color: #242424;
+}
+
+.navbar{
+    padding: 8vw 0vw;
+}
+
+.navbar-toggler {
+    font-size: 3vw;
+    padding: 1.5vw 1.5vw;
+    border-color:#BFBFBF;
+    margin-left: 2vw;
+}
+
+.nav-link, .nav-link:active, .nav-link:visited, .nav-link:hover{
+    color:#BFBFBF;
+    text-decoration: none;
+    margin-left: 1.5vw;
+    font-size: 3vw;
+}
+
+.fa-bars{
+    color: #BFBFBF;
+    font-size: 4vw;
+}
+
+.nav-item > a:hover {
+    color: #F1BF11;
+}
