@@ -19,7 +19,7 @@ function createLogoToLink(parent){
     return logoLink;
 }
 
-function createLogoToHeader(parent){
+function addLogoToHeader(parent){
     const headerLogo = siteConfig.header.headerLogo;
     let logo = createNode('img');
     logo.classList.add('logo-img');
@@ -35,7 +35,7 @@ function createButtonDiv(parent){
     return buttonDiv;
 }
 
-function createButton(parent, buttonText){
+function addButton(parent, buttonText){
     let button = createNode('a');
     button.href = '#';
     button.classList.add('my-border');
@@ -65,22 +65,22 @@ function createHeaderPagesLink(parent, link, className){
     append(parent, page);
 }
 
-function addHeaderPagesLink(parent){
+function addInformationsToHeaderPagesLink(parent){
     new Map (Object.entries(siteConfig.header.pages)).forEach((link, className) =>{
         createHeaderPagesLink(parent, link, className);
     });
 }
 
-function createHeaderInformations(parent, informationContent, className){
+function addHeaderInformations(parent, informationContent, className){
     let information = createNode('div');
     information.classList.add(className);
     information.innerHTML = informationContent;
     append(parent, information);
 }
 
-function addHeaderInformations(parent){
+function addHeaderContentInformations(parent){
     new Map (Object.entries(siteConfig.header.informations)).forEach((information, className) =>{
-        createHeaderInformations(parent, information, className);
+        addHeaderInformations(parent, information, className);
     });
 }
 

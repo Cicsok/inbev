@@ -1,7 +1,21 @@
-class abstractFooter extends HTMLElement{
+class AbstractFooter extends HTMLElement{
     connectedCallback(){
-        createFooterInformations();
+        initFooter(this);
+        createCompanyName(getParentId(), getClassName());
+        createFooterInformations(getParentId());
     }
+}
+
+function getParentId(){
+ 
+}
+
+function getClassName(){
+
+}
+
+function initFooter(parameter){
+
 }
 
 function createFooterInformations(parentID) {

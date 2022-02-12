@@ -1,12 +1,12 @@
 function createLinksToMobileHeader(parent){
-    let activePageLink = siteConfig.header.activePageLink;
-    let linkDiv = null;
-    new Map (Object.entries(siteConfig.header.pages)).forEach((link) => {
-      link == activePageLink 
-      ? linkDiv = createFirstNavItem(parent) 
-      : linkDiv = createNavItem(parent);
-      createLinks(linkDiv, link);
-    })
+  let activePageLink = siteConfig.header.activePageLink;
+  let linkDiv = null;
+  new Map (Object.entries(siteConfig.header.pages)).forEach((link) => {
+    link == activePageLink 
+    ? linkDiv = createFirstNavItem(parent) 
+    : linkDiv = createNavItem(parent);
+    createLinks(linkDiv, link);
+  })
   }
   
   function createFirstNavItem(){

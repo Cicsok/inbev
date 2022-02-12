@@ -23,10 +23,10 @@ function createLogoAndButtonInDesktopHeader(){
     let LogoAndButtonDiv = createLogoAndButtonDiv(parent);
     let logoDiv = createCol(LogoAndButtonDiv);
     let logotoLink = createLogoToLink(logoDiv);
-    createLogoToHeader(logotoLink);
+    addLogoToHeader(logotoLink);
     let buttonDiv = createButtonDiv(LogoAndButtonDiv);
     let getInTouchWithMebuttonText = siteConfig.header.getInTouchWithMebuttonText;
-    createButton(buttonDiv, getInTouchWithMebuttonText);
+    addButton(buttonDiv, getInTouchWithMebuttonText);
 }
 
 function createLineToHeader(){
@@ -39,9 +39,9 @@ function createPagesAndInformationsToDesktopHeader(){
     let parent = document.getElementById('header-content');
     let menusAndInformationsDiv = createMenusAndInformationsDiv(parent);
     let pagesDiv = createPagesLinkDiv(menusAndInformationsDiv);
-    addHeaderPagesLink(pagesDiv);
+    addInformationsToHeaderPagesLink(pagesDiv);
     let informationsDiv = createInformationsDiv(menusAndInformationsDiv);
-    addHeaderInformations(informationsDiv);
+    addHeaderContentInformations(informationsDiv);
 }
 
 function createLineDiv(parent){

@@ -1,17 +1,21 @@
-class MyDesktopFooter extends abstractFooter {
-    connectedCallback(){
-        initMyDesktopFooter(this);
-        createCompanyName('desktop-footer-content', 'desktop-company-name');
-        createFooterInformations('desktop-footer-content');
-    }
+class MyDesktopFooter extends AbstractFooter {
+    
 }
 
-function initMyDesktopFooter(element){
+function initFooter(element){
     element.innerHTML = `
         <footer class="d-none d-lg-block">
             <div class="footer-content d-flex justify-content-around align-items-center" id="desktop-footer-content">   
             </div>
         </footer>`;
+}
+
+function getParentId(){
+    return 'desktop-footer-content';
+}
+
+function getClassName(){
+    return 'desktop-company-name';
 }
 
 function createMoreInformations(parent){
@@ -20,7 +24,7 @@ function createMoreInformations(parent){
         let information = data.information;
         createTypeOfInformation(container, information.label);
         createInformations(container, information.content);
-})
+    })
 }
 
 function createTypeOfInformation(parent, typeOfInformationContent){
