@@ -53,7 +53,7 @@ const siteConfig = {
     contactImage: "",
   },
 
-  "desktopFooter":[
+  desktopFooter:[
     {
        "className":"desktop-footer-email",
        "information":{
@@ -70,7 +70,7 @@ const siteConfig = {
     },
   ],
   
-  "mobileFooter":[
+  mobileFooter:[
     {
       information: "+36305361223",
       className: "mobile-footer-phone",

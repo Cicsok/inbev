@@ -1,7 +1,8 @@
 class MyMobileFooter extends AbstractFooter {   
     
 }
-    function initFooter(element){
+
+function initFooter(element){
     element.innerHTML = `
     <footer class="d-xs-block d-lg-none">
     <div class="mobile-footer-content justify-content-around align-items-center" id="mobile-footer-content">
