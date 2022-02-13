@@ -11,10 +11,10 @@ const siteConfig = {
 
   header:{
     pages:{
-      homePageLink: 'Főoldal',
-      introductionLink: 'Bemutatkozás',
-      referenceWorksLink: 'Referencia munkáim',
-      contactLink: 'Kapcsolat',
+      homePageLink: "Főoldal",
+      introductionLink: "Bemutatkozás",
+      referenceWorksLink: "Referencia munkáim",
+      contactLink: "Kapcsolat",
     },
     activePageLink: "Főoldal",
     informations:{
@@ -24,6 +24,14 @@ const siteConfig = {
     getInTouchWithMebuttonText: "Lépj kapcsolatba velem",
     headerLogo: "INBEVLogo.png",
   },
+
+  // don't override the slugs you can add or delete key-value pair from it when you add or delete something to header.pages!!
+  slugs: [
+    "index",
+    "about-me",
+    "reference-works",
+    "contact",
+  ],
 
   favicon: "",
 
@@ -55,18 +63,18 @@ const siteConfig = {
 
   desktopFooter:[
     {
-       "className":"desktop-footer-email",
-       "information":{
-          "label":"Email-cím",
-          "content":"balazs0124@gmail.com"
-       }
+      className: "desktop-footer-email",
+      information:{
+        label: "Email-cím",
+        content: "balazs0124@gmail.com"
+      }
     },
     {
-       "className":"desktop-footer-phone",
-       "information":{
-          "label":"Telefonszám",
-          "content":"+36305361223"
-       }
+      className: "desktop-footer-phone",
+      information:{
+        label: "Telefonszám",
+        content: "+36305361223"
+      }
     },
   ],
   

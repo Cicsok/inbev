@@ -37,7 +37,7 @@ function createButtonDiv(parent){
 
 function addButton(parent, buttonText){
     let button = createNode('a');
-    button.href = '#';
+    button.href = 'contact';
     button.classList.add('my-border');
     button.innerHTML = buttonText;
     append(parent, button);
@@ -57,17 +57,20 @@ function createPagesLinkDiv(parent){
     return pagesDiv;
 }
 
-function createHeaderPagesLink(parent, link, className){
+function createHeaderPagesLink(parent, link, className, slug){
     let page = createNode('a');
-    page.href='index.html';
+    page.href = slug;
     page.classList.add(className);
     page.innerHTML = link;
     append(parent, page);
 }
 
 function addInformationsToHeaderPagesLink(parent){
+    let slugs = siteConfig.slugs;
+    let WHICH_SLUG = 0 
     new Map (Object.entries(siteConfig.header.pages)).forEach((link, className) =>{
-        createHeaderPagesLink(parent, link, className);
+        createHeaderPagesLink(parent, link, className, slugs[WHICH_SLUG]);
+        WHICH_SLUG += 1;
     });
 }
 

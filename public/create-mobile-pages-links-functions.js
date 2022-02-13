@@ -1,11 +1,14 @@
 function createLinksToMobileHeader(parent){
   let activePageLink = siteConfig.header.activePageLink;
   let linkDiv = null;
+  let slugs = siteConfig.slugs;
+  let WHICH_SLUG = 0;
   new Map (Object.entries(siteConfig.header.pages)).forEach((link) => {
     link == activePageLink 
     ? linkDiv = createFirstNavItem(parent) 
     : linkDiv = createNavItem(parent);
-    createLinks(linkDiv, link);
+    createLinks(linkDiv, link, slugs[WHICH_SLUG]);
+    WHICH_SLUG += 1;
   })
   }
   
@@ -24,10 +27,10 @@ function createLinksToMobileHeader(parent){
     return navItem;
   }
   
-  function createLinks(parent, linkContent){
+  function createLinks(parent, linkContent, slug){
     let link = createNode('a');
     link.classList.add('nav-link');
-    link.href = '#';
+    link.href = slug;
     link.innerHTML = linkContent;
     append(parent, link);
   }
