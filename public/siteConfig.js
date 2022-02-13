@@ -11,10 +11,10 @@ const siteConfig = {
 
   header:{
     pages:{
-      homePageLink: "Főoldal",
-      introductionLink: "Bemutatkozás",
-      referenceWorksLink: "Referencia munkáim",
-      contactLink: "Kapcsolat",
+      "index": "Főoldal",
+      "about-me": "Bemutatkozás",
+      "reference-works": "Referencia munkáim",
+      "contact": "Kapcsolat",
     },
     activePageLink: "Főoldal",
     informations:{

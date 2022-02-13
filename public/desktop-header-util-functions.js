@@ -66,11 +66,9 @@ function createHeaderPagesLink(parent, link, className, slug){
 }
 
 function addInformationsToHeaderPagesLink(parent){
-    let slugs = siteConfig.slugs;
-    let WHICH_SLUG = 0 
-    new Map (Object.entries(siteConfig.header.pages)).forEach((link, className) =>{
-        createHeaderPagesLink(parent, link, className, slugs[WHICH_SLUG]);
-        WHICH_SLUG += 1;
+    new Map (Object.entries(siteConfig.header.pages)).forEach((link, slug) =>{
+        let className = slug+'-page-link';
+        createHeaderPagesLink(parent, link, className, slug);
     });
 }
 
