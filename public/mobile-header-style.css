@@ -33,6 +33,7 @@ nav {
 
 .nav-item > a:hover {
     color: #F1BF11;
+    cursor: pointer;
 }
 
 .mobile-active-link, .mobile-active-link > a{

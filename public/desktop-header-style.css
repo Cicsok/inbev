@@ -39,6 +39,10 @@ body{
     margin-right: 1vw;
 }
 
+.pages > a:hover{
+    cursor: pointer;
+}
+
 .pages, .informationsDiv{
     margin-bottom: 2vw;
     font-size: 1.3vw;
