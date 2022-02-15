@@ -59,27 +59,23 @@ function createPagesLinkDiv(parent){
 
 function createHeaderPagesLink(parent, link, classNames, slug){
     let page = createNode('a');
-    
     classNames.forEach((className) => {
         page.classList.add(className);
     })
-
     page.innerHTML = link;
-
     let menuNavigatorEventListener = new MenuNavigatorEventListener("desktop-active-link");
-
     page.addEventListener('click', function (){menuNavigatorEventListener.navigate(slug, page)});
-
     append(parent, page);
 }
 
 function addInformationsToHeaderPagesLink(parent){
     new Map (Object.entries(siteConfig.header.pages)).forEach((link, slug) =>{
         let activePageLink = siteConfig.header.activePageLink;
-        let className = slug+'-page-link';
+        let className = [slug+'-page-link'];
+        let classNames = [className, "desktop-active-link"]
         activePageLink == link 
-        ? createHeaderPagesLink(parent, link, [className, "desktop-active-link"], slug)
-        : createHeaderPagesLink(parent, link, [className], slug);
+        ? createHeaderPagesLink(parent, link, classNames, slug)
+        : createHeaderPagesLink(parent, link, className, slug);
     });
 }
 

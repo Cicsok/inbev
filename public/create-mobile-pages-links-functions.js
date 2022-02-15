@@ -29,10 +29,7 @@ function createLinks(parent, linkContent, slug) {
   let className = slug+'-page-link-mobile';
   link.classList.add(className, 'nav-link');
   link.innerHTML = linkContent;
-
   let menuNavigatorEventListener = new MenuNavigatorEventListener("mobile-active-link");
-
   link.addEventListener('click', function (){menuNavigatorEventListener.navigate(slug, link)});
-
   append(parent, link);
 }
