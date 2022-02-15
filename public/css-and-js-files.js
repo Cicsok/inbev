@@ -43,6 +43,7 @@ function includeCss(file) {
 
 function includeToEveryPages(){
     includeJavasScript('siteConfig.js');
+    includeJavasScript('menu-navigator-event-listener.js');
     includeJavasScript('node-functions.js');
     includeJavasScript('desktop-header-util-functions.js');
     includeJavasScript('create-mobile-pages-links-functions.js');

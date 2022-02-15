@@ -1,33 +1,38 @@
-function createLinksToMobileHeader(parent){
+function createLinksToMobileHeader(parent) {
   let activePageLink = siteConfig.header.activePageLink;
   let linkDiv = null;
-  new Map (Object.entries(siteConfig.header.pages)).forEach((link, slug) => {
-    link == activePageLink 
-    ? linkDiv = createFirstNavItem(parent) 
-    : linkDiv = createNavItem(parent);
+  new Map(Object.entries(siteConfig.header.pages)).forEach((link, slug) => {
+    link == activePageLink
+      ? linkDiv = createFirstNavItem(parent)
+      : linkDiv = createNavItem(parent);
     createLinks(linkDiv, link, slug);
   })
 }
-  
-function createFirstNavItem(){
+
+function createFirstNavItem() {
   let navItem = createNode('li');
-  navItem.classList.add('nav-item', 'active', 'my-active-link');
+  navItem.classList.add('nav-item', 'active', 'mobile-active-link');
   navItem.setAttribute('aria-current', 'page');
   append(parent, navItem);
   return navItem;
 }
-  
-function createNavItem(parent){
+
+function createNavItem(parent) {
   let navItem = createNode('li');
   navItem.classList.add('nav-item');
   append(parent, navItem);
   return navItem;
 }
-  
-function createLinks(parent, linkContent, slug){
+
+function createLinks(parent, linkContent, slug) {
   let link = createNode('a');
-  link.classList.add('nav-link');
-  link.href = slug;
+  let className = slug+'-page-link-mobile';
+  link.classList.add(className, 'nav-link');
   link.innerHTML = linkContent;
+
+  let menuNavigatorEventListener = new MenuNavigatorEventListener("mobile-active-link");
+
+  link.addEventListener('click', function (){menuNavigatorEventListener.navigate(slug, link)});
+
   append(parent, link);
 }

@@ -57,35 +57,20 @@ function createPagesLinkDiv(parent){
     return pagesDiv;
 }
 
-function loadPage(href)
-            {
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET", href, false);
-                xmlhttp.send();
-                return xmlhttp.responseText;
-            }
-
-function createFirstHeaderPagesLink(parent, link, className, slug){
+function createHeaderPagesLink(parent, link, classNames, slug){
     let page = createNode('a');
-    page.classList.add(className, 'my-active-link');
-    page.innerHTML = link;
-    page.addEventListener('click', function (){operatingTheNavigation(className, slug)});
-    append(parent, page);
-}
+    
+    classNames.forEach((className) => {
+        page.classList.add(className);
+    })
 
-function createHeaderPagesLink(parent, link, className, slug){
-    let page = createNode('a');
-    page.classList.add(className);
     page.innerHTML = link;
-    page.addEventListener('click', function(){ operatingTheNavigation(className, slug)});
-    append(parent, page);
-}
 
-function operatingTheNavigation(className, slug){
-        console.log(slug + " KATTINTOTTAK!!");
-        document.getElementById('spesific-content').innerHTML = loadPage(window.location.origin+'/public/'+slug+'.html');
-        window.history.replaceState(null, document.title, slug);
-        console.log(window.location.origin+'/public/'+slug+'.html');
+    let menuNavigatorEventListener = new MenuNavigatorEventListener("desktop-active-link");
+
+    page.addEventListener('click', function (){menuNavigatorEventListener.navigate(slug, page)});
+
+    append(parent, page);
 }
 
 function addInformationsToHeaderPagesLink(parent){
@@ -93,8 +78,8 @@ function addInformationsToHeaderPagesLink(parent){
         let activePageLink = siteConfig.header.activePageLink;
         let className = slug+'-page-link';
         activePageLink == link 
-        ? createFirstHeaderPagesLink(parent, link, className, slug)
-        : createHeaderPagesLink(parent, link, className, slug);
+        ? createHeaderPagesLink(parent, link, [className, "desktop-active-link"], slug)
+        : createHeaderPagesLink(parent, link, [className], slug);
     });
 }
 
