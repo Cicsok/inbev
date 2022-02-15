@@ -57,18 +57,44 @@ function createPagesLinkDiv(parent){
     return pagesDiv;
 }
 
+function loadPage(href)
+            {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("GET", href, false);
+                xmlhttp.send();
+                return xmlhttp.responseText;
+            }
+
+function createFirstHeaderPagesLink(parent, link, className, slug){
+    let page = createNode('a');
+    page.classList.add(className, 'my-active-link');
+    page.innerHTML = link;
+    page.addEventListener('click', function (){operatingTheNavigation(className, slug)});
+    append(parent, page);
+}
+
 function createHeaderPagesLink(parent, link, className, slug){
     let page = createNode('a');
-    page.href = slug;
     page.classList.add(className);
     page.innerHTML = link;
+    page.addEventListener('click', function(){ operatingTheNavigation(className, slug)});
     append(parent, page);
+}
+
+function operatingTheNavigation(className, slug){
+        console.log(slug + " KATTINTOTTAK!!");
+        document.getElementById('spesific-content').innerHTML = loadPage(window.location.origin+'/public/'+slug+'.html');
+        window.history.replaceState(null, document.title, slug);
+        console.log(window.location.origin+'/public/'+slug+'.html');
 }
 
 function addInformationsToHeaderPagesLink(parent){
     new Map (Object.entries(siteConfig.header.pages)).forEach((link, slug) =>{
+        let activePageLink = siteConfig.header.activePageLink;
         let className = slug+'-page-link';
-        createHeaderPagesLink(parent, link, className, slug);
+        activePageLink == link 
+        ? createFirstHeaderPagesLink(parent, link, className, slug)
+        : createHeaderPagesLink(parent, link, className, slug);
     });
 }
 

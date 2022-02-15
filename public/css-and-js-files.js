@@ -4,7 +4,7 @@ function  identifyPagePath(){
 
 let pathName = identifyPagePath();
 switch (pathName) {
-    case '/index':
+    case '/public/index.html':
     case '/':
         includeToEveryPages();
         includeOnlyHomePage();
@@ -47,6 +47,7 @@ function includeToEveryPages(){
     includeJavasScript('desktop-header-util-functions.js');
     includeJavasScript('create-mobile-pages-links-functions.js');
     includeJavasScript('https://kit.fontawesome.com/df226d5321.js');
+    includeJavasScript('page-load.js');
     includeJavasScript('mobile-header.js');
     includeJavasScript('desktop-header.js');
     includeJavasScript('footer-abstract-class.js');

@@ -11,7 +11,8 @@ const siteConfig = {
 
   header:{
     pages:{
-      "index": "Főoldal",
+      // don't override the the key!
+      "home-page": "Főoldal",
       "about-me": "Bemutatkozás",
       "reference-works": "Referencia munkáim",
       "contact": "Kapcsolat",
@@ -24,15 +25,7 @@ const siteConfig = {
     getInTouchWithMebuttonText: "Lépj kapcsolatba velem",
     headerLogo: "INBEVLogo.png",
   },
-
-  // don't override the slugs you can add or delete key-value pair from it when you add or delete something to header.pages!!
-  slugs: [
-    "index",
-    "about-me",
-    "reference-works",
-    "contact",
-  ],
-
+   
   favicon: "",
 
   homePage:{

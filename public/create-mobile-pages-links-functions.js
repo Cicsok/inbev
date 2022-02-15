@@ -11,7 +11,7 @@ function createLinksToMobileHeader(parent){
   
 function createFirstNavItem(){
   let navItem = createNode('li');
-  navItem.classList.add('nav-item', 'active');
+  navItem.classList.add('nav-item', 'active', 'my-active-link');
   navItem.setAttribute('aria-current', 'page');
   append(parent, navItem);
   return navItem;

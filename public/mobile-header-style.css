@@ -18,7 +18,11 @@ nav {
     margin-left: 2vw;
 }
 
-.nav-link, .nav-link:active, .nav-link:visited, .nav-link:hover{
+.my-active-link{
+    font-weight: 700;
+}
+
+.nav-link, .nav-link:visited, .nav-link:hover{
     color:#BFBFBF;
     text-decoration: none;
     margin-left: 1.5vw;
@@ -30,6 +34,8 @@ nav {
     font-size: 4vw;
 }
 
+
 .nav-item > a:hover {
     color: #F1BF11;
 }
+

@@ -43,3 +43,7 @@ body{
     margin-bottom: 2vw;
     font-size: 1.3vw;
 }
+
+.my-active-link{
+    font-weight: 700;
+}
