@@ -22,11 +22,10 @@ function createLogoAndButtonInDesktopHeader(){
     let parent = document.getElementById('header-content');
     let LogoAndButtonDiv = createLogoAndButtonDiv(parent);
     let logoDiv = createCol(LogoAndButtonDiv);
-    let logotoLink = createLogoToLink(logoDiv);
+    let logotoLink = addNavigationToLogo(logoDiv);
     addLogoToHeader(logotoLink);
     let buttonDiv = createButtonDiv(LogoAndButtonDiv);
-    let getInTouchWithMebuttonText = siteConfig.header.getInTouchWithMebuttonText;
-    addButton(buttonDiv, getInTouchWithMebuttonText);
+    addButton(buttonDiv);
 }
 
 function createLineToHeader(){

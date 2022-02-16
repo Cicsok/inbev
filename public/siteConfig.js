@@ -17,6 +17,8 @@ const siteConfig = {
       "reference-works": "Referencia munkáim",
       "contact": "Kapcsolat",
     },
+    logoLink: "Főoldal",
+    buttonLink: "Kapcsolat",
     activePageLink: "Főoldal",
     informations:{
       email: "balazs0124@gmail.com",

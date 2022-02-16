@@ -12,9 +12,12 @@ function createCol(parent){
     return col;
 }
 
-function createLogoToLink(parent){
+function createLogoToLink(parent, slug){
     let logoLink = createNode('a');
-    logoLink.href =  'index';
+    let activeLinkClassName = "desktop-active-link";
+    let newActivePage = slug+"-page-link"
+    let logoNavigatorEventListener = new LogoAndButtonEventListener(activeLinkClassName, newActivePage);
+    logoLink.addEventListener('click', function(){logoNavigatorEventListener.navigate(slug)});    
     append(parent, logoLink);
     return logoLink;
 }
@@ -28,6 +31,17 @@ function addLogoToHeader(parent){
     append(parent, logo);
 }
 
+function addNavigationToLogo(parent){
+    let logoLink = siteConfig.header.logoLink;
+    let logoLinkElement = null;
+    new Map (Object.entries(siteConfig.header.pages)).forEach((link, slug) =>{
+        logoLink == link 
+        ? logoLinkElement = createLogoToLink(parent, slug)
+        : false;
+    });
+    return logoLinkElement;
+}
+
 function createButtonDiv(parent){
     let buttonDiv = createNode('div');
     buttonDiv.classList.add('col', 'd-flex', 'justify-content-end');
@@ -35,12 +49,25 @@ function createButtonDiv(parent){
     return buttonDiv;
 }
 
-function addButton(parent, buttonText){
+function createButton(parent, buttonText, slug){
     let button = createNode('a');
-    button.href = 'contact';
+    let activeLinkClassName = "desktop-active-link";
+    let newActivePage = slug+"-page-link"
+    let buttonNavigatorEventListener = new LogoAndButtonEventListener(activeLinkClassName, newActivePage);
+    button.addEventListener('click', function(){buttonNavigatorEventListener.navigate(slug)});
     button.classList.add('my-border');
     button.innerHTML = buttonText;
     append(parent, button);
+}
+
+function addButton(parent){
+    let getInTouchWithMebuttonText = siteConfig.header.getInTouchWithMebuttonText;
+    let buttonLink = siteConfig.header.buttonLink;
+    new Map (Object.entries(siteConfig.header.pages)).forEach((link, slug) =>{
+        buttonLink == link 
+        ? createButton(parent, getInTouchWithMebuttonText, slug)
+        : false;
+    });
 }
 
 function createMenusAndInformationsDiv(parent){
