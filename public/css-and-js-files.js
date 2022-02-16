@@ -4,7 +4,7 @@ function  identifyPagePath(){
 
 let pathName = identifyPagePath();
 switch (pathName) {
-    case '/index':
+    case '/public/index.html':
     case '/':
         includeToEveryPages();
         includeOnlyHomePage();
