@@ -33,13 +33,19 @@ function createLogoToMobileHeader(slug){
   parent = document.getElementById('logo-wrap');
   let activeLinkClassName = "mobile-active-link";
   let newActivePage = slug+"-page-link-mobile"
+
   let logoNavigatorEventListener = new LogoAndButtonEventListener(activeLinkClassName, newActivePage);
-  parent.addEventListener('click', function(){logoNavigatorEventListener.navigate(slug)});    
+  let platformSyncronizer = new PlatformSyncronizer("desktop-active-link", "mobile-active-link");
+
+  parent.addEventListener('click', function(){logoNavigatorEventListener.navigate(slug)});
+  parent.addEventListener('click', function (){platformSyncronizer.syncForDesktop(slug)});    
+
   let logoImg = siteConfig.header.headerLogo;
   let logo = createNode('img');
   logo.src = logoImg;
   logo.classList.add('my-logo');
   logo.alt = 'Az INBE.V. logója';
+
   append(parent, logo);
 }
 

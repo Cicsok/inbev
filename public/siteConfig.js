@@ -7,6 +7,25 @@ const siteConfig = {
    "Kapcsolat":  "image4.jpg",
   },
 
+  menuNavigationPlatformMapping: {
+    "home-page": {
+      desktopClass: "home-page-page-link",
+      mobileClass: "home-page-page-link-mobile",
+    },
+    "about-me": {
+      desktopClass: "about-me-page-link",
+      mobileClass: "about-me-page-link-mobile",
+    },
+    "reference-works": {
+      desktopClass: "reference-works-page-link",
+      mobileClass: "reference-works-page-link-mobile",
+    },
+    "contact": {
+      desktopClass: "contact-page-link",
+      mobileClass: "contact-page-link-mobile",
+    }
+  },
+
   activeSliderImageName: "image1.jpg",
 
   header:{

@@ -29,7 +29,12 @@ function createLinks(parent, linkContent, slug) {
   let className = slug+'-page-link-mobile';
   link.classList.add(className, 'nav-link');
   link.innerHTML = linkContent;
+
   let menuNavigatorEventListener = new MenuNavigatorEventListener("mobile-active-link");
+  let platformSyncronizer = new PlatformSyncronizer("desktop-active-link", "mobile-active-link");
+
   link.addEventListener('click', function (){menuNavigatorEventListener.navigate(slug, link)});
+  link.addEventListener('click', function (){platformSyncronizer.syncForDesktop(slug)});
+
   append(parent, link);
 }

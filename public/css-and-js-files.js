@@ -45,6 +45,7 @@ function includeToEveryPages(){
     includeJavasScript('siteConfig.js');
     includeJavasScript('logo-and-button-event-listener.js');
     includeJavasScript('menu-navigator-event-listener.js');
+    includeJavasScript('platform-syncronizer.js');
     includeJavasScript('node-functions.js');
     includeJavasScript('desktop-header-util-functions.js');
     includeJavasScript('create-mobile-pages-links-functions.js');

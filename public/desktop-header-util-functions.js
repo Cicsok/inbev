@@ -15,9 +15,14 @@ function createCol(parent){
 function createLogoToLink(parent, slug){
     let logoLink = createNode('a');
     let activeLinkClassName = "desktop-active-link";
-    let newActivePage = slug+"-page-link"
+    let newActivePage = slug+"-page-link";
+
     let logoNavigatorEventListener = new LogoAndButtonEventListener(activeLinkClassName, newActivePage);
-    logoLink.addEventListener('click', function(){logoNavigatorEventListener.navigate(slug)});    
+    let platformSyncronizer = new PlatformSyncronizer("desktop-active-link", "mobile-active-link");
+
+    logoLink.addEventListener('click', function(){logoNavigatorEventListener.navigate(slug)});
+    logoLink.addEventListener('click', function (){platformSyncronizer.syncForMobile(slug)});
+    
     append(parent, logoLink);
     return logoLink;
 }
@@ -53,8 +58,13 @@ function createButton(parent, buttonText, slug){
     let button = createNode('a');
     let activeLinkClassName = "desktop-active-link";
     let newActivePage = slug+"-page-link"
+
     let buttonNavigatorEventListener = new LogoAndButtonEventListener(activeLinkClassName, newActivePage);
+    let platformSyncronizer = new PlatformSyncronizer("desktop-active-link", "mobile-active-link");
+
     button.addEventListener('click', function(){buttonNavigatorEventListener.navigate(slug)});
+    button.addEventListener('click', function (){platformSyncronizer.syncForMobile(slug)});
+
     button.classList.add('my-border');
     button.innerHTML = buttonText;
     append(parent, button);
@@ -90,8 +100,13 @@ function createHeaderPagesLink(parent, link, classNames, slug){
         page.classList.add(className);
     })
     page.innerHTML = link;
+
     let menuNavigatorEventListener = new MenuNavigatorEventListener("desktop-active-link");
+    let platformSyncronizer = new PlatformSyncronizer("desktop-active-link", "mobile-active-link");
+
     page.addEventListener('click', function (){menuNavigatorEventListener.navigate(slug, page)});
+    page.addEventListener('click', function (){platformSyncronizer.syncForMobile(slug)});
+
     append(parent, page);
 }
 
