@@ -14,7 +14,7 @@ function initMyMobileHeader(element){
             <i class="fas fa-bars mx-auto"></i>
           </span>
         </button>
-        <a class="navbar-brand mx-auto" href="#" id="logo-wrap">
+        <a class="navbar-brand mx-auto" href="index" id="logo-wrap">
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="nav-items-div">

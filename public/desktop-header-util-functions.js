@@ -37,7 +37,7 @@ function createButtonDiv(parent){
 
 function addButton(parent, buttonText){
     let button = createNode('a');
-    button.href = '#';
+    button.href = 'contact';
     button.classList.add('my-border');
     button.innerHTML = buttonText;
     append(parent, button);
@@ -57,17 +57,25 @@ function createPagesLinkDiv(parent){
     return pagesDiv;
 }
 
-function createHeaderPagesLink(parent, link, className){
+function createHeaderPagesLink(parent, link, classNames, slug){
     let page = createNode('a');
-    page.href='index.html';
-    page.classList.add(className);
+    classNames.forEach((className) => {
+        page.classList.add(className);
+    })
     page.innerHTML = link;
+    let menuNavigatorEventListener = new MenuNavigatorEventListener("desktop-active-link");
+    page.addEventListener('click', function (){menuNavigatorEventListener.navigate(slug, page)});
     append(parent, page);
 }
 
 function addInformationsToHeaderPagesLink(parent){
-    new Map (Object.entries(siteConfig.header.pages)).forEach((link, className) =>{
-        createHeaderPagesLink(parent, link, className);
+    new Map (Object.entries(siteConfig.header.pages)).forEach((link, slug) =>{
+        let activePageLink = siteConfig.header.activePageLink;
+        let className = [slug+'-page-link'];
+        let classNames = [className, "desktop-active-link"]
+        activePageLink == link 
+        ? createHeaderPagesLink(parent, link, classNames, slug)
+        : createHeaderPagesLink(parent, link, className, slug);
     });
 }
 

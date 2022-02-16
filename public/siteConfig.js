@@ -11,10 +11,11 @@ const siteConfig = {
 
   header:{
     pages:{
-      homePageLink: 'Főoldal',
-      introductionLink: 'Bemutatkozás',
-      referenceWorksLink: 'Referencia munkáim',
-      contactLink: 'Kapcsolat',
+      // don't override the the key!
+      "home-page": "Főoldal",
+      "about-me": "Bemutatkozás",
+      "reference-works": "Referencia munkáim",
+      "contact": "Kapcsolat",
     },
     activePageLink: "Főoldal",
     informations:{
@@ -24,7 +25,7 @@ const siteConfig = {
     getInTouchWithMebuttonText: "Lépj kapcsolatba velem",
     headerLogo: "INBEVLogo.png",
   },
-
+   
   favicon: "",
 
   homePage:{
@@ -55,18 +56,18 @@ const siteConfig = {
 
   desktopFooter:[
     {
-       "className":"desktop-footer-email",
-       "information":{
-          "label":"Email-cím",
-          "content":"balazs0124@gmail.com"
-       }
+      className: "desktop-footer-email",
+      information:{
+        label: "Email-cím",
+        content: "balazs0124@gmail.com"
+      }
     },
     {
-       "className":"desktop-footer-phone",
-       "information":{
-          "label":"Telefonszám",
-          "content":"+36305361223"
-       }
+      className: "desktop-footer-phone",
+      information:{
+        label: "Telefonszám",
+        content: "+36305361223"
+      }
     },
   ],
   
