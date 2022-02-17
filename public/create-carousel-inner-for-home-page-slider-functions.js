@@ -11,6 +11,7 @@ function createCarouselInnerDiv(){
     let parent = document.getElementById('carousel-inner');
     let carouselItem = createNode('div');
     carouselItem.classList.add('carousel-item', 'active');
+    carouselItem.addEventListener('click', function (){console.log("ITEMRE KATTINTOTTAM")} ) ;
     append(parent, carouselItem);
     return carouselItem;
   }
@@ -19,6 +20,7 @@ function createCarouselInnerDiv(){
     let parent = document.getElementById('carousel-inner');
     let carouselItem = createNode('div');
     carouselItem.classList.add('carousel-item');
+    // carouselCaption.addEventListener('click', function (){console.log("ITEMRE KATTINTOTTAM")} ) ;
     append(parent, carouselItem);
     return carouselItem;
   }
@@ -40,35 +42,21 @@ function createCarouselInnerDiv(){
   }
   
   function createCarouselCaption(parent, headerName, slug){
-    let page = createNode('a');
-    
-    page.innerHTML = 'cic';
-
-    let menuNavigatorEventListener = new MenuNavigatorEventListener("desktop-active-link");
-    let platformSyncronizer = new PlatformSyncronizer("desktop-active-link", "mobile-active-link");
-
-    page.addEventListener('click', function (){console.log("cicc")});
-    page.addEventListener('click', function (){platformSyncronizer.syncForMobile(slug)});
-
-    append(parent, page);
-
     console.log("beléptem a createCaptionba!")
 
-    let carouselCaption = createNode('button');
+    var carouselCaption = createNode('button');
     let newActive = document.getElementsByClassName(slug+"-page-link-mobile")[0];
-    console.log(newActive)
     carouselCaption.id = slug;
     let carouselCaptionNavigator = new MenuNavigatorEventListener("mobile-active-link");
     carouselCaption.classList.add('caption', 'mx-auto');
-    console.log("wau")
-    console.log(carouselCaption)
     carouselCaption.innerHTML = headerName;
-    console.log(carouselCaption)
-    carouselCaption.addEventListener('click', function (){console.log("meoo")} ) ;
+    carouselCaption.addEventListener('click', function (){console.log("CAPTIONRA KATTINTOTTAM")} ) ;
     append(parent, carouselCaption);
-    document.getElementById(slug).addEventListener('click', function (){console.log("cicc")})
+ 
 
-
+   
+  
+  
 
 
    

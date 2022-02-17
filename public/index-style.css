@@ -43,6 +43,11 @@
         height: 31.5vw;
     }
 
+
+    .carousel-item:hover{
+        background-color: #FF0000 !important;
+    }
+
     /* Introduction */
     
     .red-line{
@@ -109,9 +114,12 @@
         color: black;
     }
 
-    .caption > button:hover{
+    .caption:hover{
         background-color: aqua !important;
+    }
 
+    .caption:visited{
+        background-color: #FF0000 !important;
     }
 
     .carousel-img{
@@ -134,7 +142,6 @@
 
     .carousel-item:hover{
         background-color: #FF0000 !important;
-        display: none;
     }
 
 

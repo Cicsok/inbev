@@ -22,7 +22,7 @@ function createCarouselInnerForHomePageSlider() {
           ? createActiveClassToFirstCarouselItem()
           : createCarouselItem();
 
-       createCarouselImg(carouselItem, actualSliderImageName);
+      //  createCarouselImg(carouselItem, actualSliderImageName);
        carouselCaptionDiv = createCarouselCaptionDiv(carouselItem);
 
       //  createCarouselCaption(carouselCaptionDiv, actualHeaderName);
