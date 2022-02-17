@@ -25,7 +25,8 @@ function createCarouselInnerForHomePageSlider() {
        createCarouselImg(carouselItem, actualSliderImageName);
        carouselCaptionDiv = createCarouselCaptionDiv(carouselItem);
 
-       createCarouselCaption(carouselCaptionDiv, actualHeaderName);
+      //  createCarouselCaption(carouselCaptionDiv, actualHeaderName);
+       addNavigationToHomePageSlider(carouselCaptionDiv, actualHeaderName)
   });
 }
 

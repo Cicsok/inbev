@@ -104,9 +104,14 @@
         color: rgba(0, 0, 0, 0.945);
     }
 
-    .caption, .caption:active,  .caption:visited,  .caption:hover{
+    .caption, .caption:active,  .caption:visited{
         text-decoration: none;
         color: black;
+    }
+
+    .caption > button:hover{
+        background-color: aqua !important;
+
     }
 
     .carousel-img{
@@ -126,6 +131,13 @@
         border-radius: 100%;
         background-color: rgba(0, 0, 0, 0.945) !important;
     }
+
+    .carousel-item:hover{
+        background-color: #FF0000 !important;
+        display: none;
+    }
+
+
 
     /* Mobile introduction */
         

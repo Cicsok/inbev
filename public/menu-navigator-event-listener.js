@@ -4,6 +4,7 @@ class MenuNavigatorEventListener {
     }
 
     navigate(slug, page) {
+        console.log("kattintottál!!")
         document.getElementById('specific-content').innerHTML = this.loadPage(window.location.origin + '/public/' + slug + '.html');
         window.history.replaceState(null, document.title, slug);
         document.getElementsByClassName(this.activeLinkClassName)[0].classList.remove(this.activeLinkClassName);
