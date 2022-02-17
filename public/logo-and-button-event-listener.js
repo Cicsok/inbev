@@ -9,8 +9,7 @@ class LogoAndButtonEventListener {
         window.history.replaceState(null, document.title, slug);
         let activePage = document.getElementsByClassName(this.activeLinkClassName)[0];
         let newActivePage = document.getElementsByClassName(this.newActivePage)[0];
-        console.log(activePage)
-        console.log(newActivePage)
+
         if( activePage != newActivePage){
             activePage.classList.remove(this.activeLinkClassName);
             newActivePage.classList.add(this.activeLinkClassName);

@@ -5,6 +5,24 @@ class PlatformSyncronizer {
         this.mobileActiveClassName = mobileActiveClassName;
     }
 
+    static createInstance() {
+        return new PlatformSyncronizer("desktop-active-link", "mobile-active-link");
+    }
+
+    sync(slug, platformType) {
+        switch (platformType) {
+            case 'MOBILE':
+                this.syncForMobile(slug);
+                break;
+            case 'DESKTOP':
+                this.syncForDesktop(slug);
+                break;
+
+            default:
+                break;
+        }
+    }
+
     syncForMobile(slug) {
         let toClassName = siteConfig.menuNavigationPlatformMapping[slug].mobileClass;
 

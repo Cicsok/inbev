@@ -11,7 +11,6 @@ function createCarouselInnerDiv(){
     let parent = document.getElementById('carousel-inner');
     let carouselItem = createNode('div');
     carouselItem.classList.add('carousel-item', 'active');
-    carouselItem.addEventListener('click', function (){console.log("ITEMRE KATTINTOTTAM")} ) ;
     append(parent, carouselItem);
     return carouselItem;
   }
@@ -20,7 +19,6 @@ function createCarouselInnerDiv(){
     let parent = document.getElementById('carousel-inner');
     let carouselItem = createNode('div');
     carouselItem.classList.add('carousel-item');
-    // carouselCaption.addEventListener('click', function (){console.log("ITEMRE KATTINTOTTAM")} ) ;
     append(parent, carouselItem);
     return carouselItem;
   }
@@ -41,32 +39,9 @@ function createCarouselInnerDiv(){
     return carouselCaptionDiv;
   }
   
-  function createCarouselCaption(parent, headerName, slug){
-    console.log("beléptem a createCaptionba!")
-
-    var carouselCaption = createNode('button');
-    let newActive = document.getElementsByClassName(slug+"-page-link-mobile")[0];
-    carouselCaption.id = slug;
-    let carouselCaptionNavigator = new MenuNavigatorEventListener("mobile-active-link");
+  function createCarouselCaption(parent, headerName){
+    var carouselCaption = createNode('a');
     carouselCaption.classList.add('caption', 'mx-auto');
     carouselCaption.innerHTML = headerName;
-    carouselCaption.addEventListener('click', function (){console.log("CAPTIONRA KATTINTOTTAM")} ) ;
-    append(parent, carouselCaption);
- 
-
-   
-  
-  
-
-
-   
+    append(parent, carouselCaption); 
   }
-
-  function addNavigationToHomePageSlider(parent, headerName){
-    new Map(Object.entries(siteConfig.header.pages)).forEach((link, slug)=>{
-      link == headerName
-      ? createCarouselCaption(parent, headerName, slug)
-      : false;
-      
-    })
-    }

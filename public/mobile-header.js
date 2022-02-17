@@ -1,11 +1,11 @@
 class MyMobileHeader extends HTMLElement {
-    connectedCallback(){
-      initMyMobileHeader(this);
-      createMobileHeader();
-    }
+  connectedCallback() {
+    initMyMobileHeader(this);
+    createMobileHeader();
+  }
 }
 
-function initMyMobileHeader(element){
+function initMyMobileHeader(element) {
   element.innerHTML = `
     <nav class="navbar navbar-expand-lg d-xs-block d-lg-none">
       <div class="container-fluid">
@@ -24,21 +24,21 @@ function initMyMobileHeader(element){
     </nav>`;
 }
 
-function createMobileHeader(){
+function createMobileHeader() {
   addNavigationToLogoInMobile();
   createMobilePagesLinks();
 }
 
-function createLogoToMobileHeader(slug){
+function createLogoToMobileHeader(slug) {
   parent = document.getElementById('logo-wrap');
   let activeLinkClassName = "mobile-active-link";
-  let newActivePage = slug+"-page-link-mobile"
+  let newActivePage = slug + "-page-link-mobile"
 
   let logoNavigatorEventListener = new LogoAndButtonEventListener(activeLinkClassName, newActivePage);
   let platformSyncronizer = new PlatformSyncronizer("desktop-active-link", "mobile-active-link");
 
-  parent.addEventListener('click', function(){logoNavigatorEventListener.navigate(slug)});
-  parent.addEventListener('click', function (){platformSyncronizer.syncForDesktop(slug)});    
+  parent.addEventListener('click', function () { logoNavigatorEventListener.navigate(slug) });
+  parent.addEventListener('click', function () { platformSyncronizer.syncForDesktop(slug) });
 
   let logoImg = siteConfig.header.headerLogo;
   let logo = createNode('img');
@@ -49,17 +49,17 @@ function createLogoToMobileHeader(slug){
   append(parent, logo);
 }
 
-function addNavigationToLogoInMobile(){
+function addNavigationToLogoInMobile() {
   let logoLink = siteConfig.header.logoLink;
-    new Map (Object.entries(siteConfig.header.pages)).forEach((link, slug) =>{
-      console.log(slug)
-        logoLink == link 
-        ?createLogoToMobileHeader(slug)
-        : false;
-    });
+  new Map(Object.entries(siteConfig.header.pages)).forEach((link, slug) => {
+    if (logoLink == link) {
+      createLogoToMobileHeader(slug);
+    }
+
+  });
 }
 
-function createMobilePagesLinks(){
+function createMobilePagesLinks() {
   parent = document.getElementById('nav-items-div');
   createLinksToMobileHeader(parent);
 }
