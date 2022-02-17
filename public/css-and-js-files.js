@@ -11,14 +11,17 @@ switch (pathName) {
         break;
     case 'about-me':
         includeToEveryPages();
+        includeOnlyHomePage();
         console.log('I am on about-me page!');
         break;
     case 'reference-works':
         includeToEveryPages();
+        includeOnlyHomePage();
         console.log('I am on reference-works page!');
         break;
     case 'contact':
         includeToEveryPages();
+        includeOnlyHomePage();
         console.log('I am on  page contact page!');
         break;
     default:
