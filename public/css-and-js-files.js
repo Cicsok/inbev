@@ -25,7 +25,8 @@ switch (pathName) {
         console.log('I am on  page contact page!');
         break;
     default:
-        console.log('The path you entered does not exist!')
+        console.log('The path you entered does not exist!');
+        console.log(pathName);
         break;
 }
 
