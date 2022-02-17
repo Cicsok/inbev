@@ -3,7 +3,7 @@ class MyHomePageSlider extends HTMLElement{
         initFirstPartOfMyHomePageSlider(this);
         createCarouselInnerForHomePageSlider();
         createCarouselIndicatorsForHomePageSlider();
-        initLastPartOfMyHomePageSlider();
+        initLastPartOfMyHomePageSlider(this);
     }
 }
 
@@ -18,15 +18,20 @@ function createCarouselInnerForHomePageSlider() {
   const activeByDefaultSliderImageName = siteConfig.activeSliderImageName;
   createCarouselInnerDiv();
   new Map(Object.entries(siteConfig.sliderHeaderNameToSliderImageMapping)).forEach((actualSliderImageName, actualHeaderName) => {
-       const carouselItem = actualSliderImageName == activeByDefaultSliderImageName
+       let carouselItem = actualSliderImageName == activeByDefaultSliderImageName
           ? createActiveClassToFirstCarouselItem()
           : createCarouselItem();
 
-      //  createCarouselImg(carouselItem, actualSliderImageName);
+       createCarouselImg(carouselItem, actualSliderImageName);
        carouselCaptionDiv = createCarouselCaptionDiv(carouselItem);
 
-      //  createCarouselCaption(carouselCaptionDiv, actualHeaderName);
-       addNavigationToHomePageSlider(carouselCaptionDiv, actualHeaderName)
+
+      addNavigationToHomePageSlider(carouselCaptionDiv, actualHeaderName);
+      Array.from(document.getElementsByClassName('caption')).forEach(
+        (element, index, array) => {
+           element.click();
+        }
+    );
   });
 }
 
@@ -60,8 +65,9 @@ function createButton(parent, buttonIndex){
   append(parent, button);
 }
 
-function initLastPartOfMyHomePageSlider(){
-  document.getElementById('carouselExampleIndicators').innerHTML += `
+function initLastPartOfMyHomePageSlider(element){
+  console.log(document.getElementById('carouselExampleIndicators'));
+  element.innerHTML += `
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
@@ -71,6 +77,8 @@ function initLastPartOfMyHomePageSlider(){
         <span class="visually-hidden">Next</span>
       </button>
     </div>`;
+
+    console.log(element.innerHTML);
 }
 
 customElements.define('my-home-page-slider', MyHomePageSlider);

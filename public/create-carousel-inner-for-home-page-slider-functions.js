@@ -11,7 +11,7 @@ function createCarouselInnerDiv(){
     let parent = document.getElementById('carousel-inner');
     let carouselItem = createNode('div');
     carouselItem.classList.add('carousel-item', 'active');
-    carouselItem.addEventListener('click', function (){console.log("ITEMRE KATTINTOTTAM")} ) ;
+    carouselItem.addEventListener('click', function (){console.log("ITEMRE KATTINTOTTAM - first active")} ) ;
     append(parent, carouselItem);
     return carouselItem;
   }
@@ -20,7 +20,8 @@ function createCarouselInnerDiv(){
     let parent = document.getElementById('carousel-inner');
     let carouselItem = createNode('div');
     carouselItem.classList.add('carousel-item');
-    // carouselCaption.addEventListener('click', function (){console.log("ITEMRE KATTINTOTTAM")} ) ;
+    carouselItem.addEventListener('click', function (){console.log("ITEMRE KATTINTOTTAM - non active")} ) ;
+    console.log("TTTTTTTTTTTTTTTT");
     append(parent, carouselItem);
     return carouselItem;
   }
