@@ -26,6 +26,7 @@ class MenuNavigatorEventListener {
     }
 
     loadPage(href) {
+        console.log(href);
         let xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", href, false);
         xmlhttp.send();
