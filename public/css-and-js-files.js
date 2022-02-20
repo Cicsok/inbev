@@ -9,15 +9,15 @@ switch (pathName) {
         includeToEveryPages();
         includeOnlyHomePage();
         break;
-    case 'about-me':
+    case '/about-me':
         includeToEveryPages();
         console.log('I am on about-me page!');
         break;
-    case 'reference-works':
+    case '/reference-works':
         includeToEveryPages();
         console.log('I am on reference-works page!');
         break;
-    case 'contact':
+    case '/contact':
         includeToEveryPages();
         console.log('I am on  page contact page!');
         break;

@@ -38,12 +38,11 @@ function addLogoToHeader(parent){
 
 function addNavigationToLogo(parent){
     let logoLink = siteConfig.header.logoLink;
+    let object = siteConfig.header.pages
     let logoLinkElement = null;
-    new Map (Object.entries(siteConfig.header.pages)).forEach((link, slug) =>{
-        logoLink == link 
-        ? logoLinkElement = createLogoToLink(parent, slug)
-        : false;
-    });
+    let indexOfLogoLink = Object.values(object).indexOf(logoLink);
+    let slug = Object.keys(object)[indexOfLogoLink];
+    logoLinkElement = createLogoToLink(parent, slug);
     return logoLinkElement;
 }
 
@@ -70,14 +69,13 @@ function createButton(parent, buttonText, slug){
     append(parent, button);
 }
 
-function addButton(parent){
+function addGetInTouchWithMebuttonButton(parent){
     let getInTouchWithMebuttonText = siteConfig.header.getInTouchWithMebuttonText;
     let buttonLink = siteConfig.header.buttonLink;
-    new Map (Object.entries(siteConfig.header.pages)).forEach((link, slug) =>{
-        buttonLink == link 
-        ? createButton(parent, getInTouchWithMebuttonText, slug)
-        : false;
-    });
+    let object = siteConfig.header.pages;
+    let indexOfButtonLink = Object.values(object).indexOf(buttonLink);
+    let slug = Object.keys(object)[indexOfButtonLink];
+    createButton(parent, getInTouchWithMebuttonText, slug)
 }
 
 function createMenusAndInformationsDiv(parent){

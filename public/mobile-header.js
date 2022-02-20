@@ -51,12 +51,9 @@ function createLogoToMobileHeader(slug) {
 
 function addNavigationToLogoInMobile() {
   let logoLink = siteConfig.header.logoLink;
-  new Map(Object.entries(siteConfig.header.pages)).forEach((link, slug) => {
-    if (logoLink == link) {
-      createLogoToMobileHeader(slug);
-    }
-
-  });
+  let indexOfLogoLink = Object.values(siteConfig.header.pages).indexOf(logoLink);
+  let slug = Object.keys(siteConfig.header.pages)[indexOfLogoLink];
+  createLogoToMobileHeader(slug);
 }
 
 function createMobilePagesLinks() {
