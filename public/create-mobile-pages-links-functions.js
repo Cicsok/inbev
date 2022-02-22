@@ -17,7 +17,7 @@ function createNavItem(parent) {
 function createPagesLink(parent, linkContent, classNames, slug){
   let link = createNode('a');
   classNames.forEach((className) => {
-    link.classList.add(className, 'nav-link');
+    link.classList.add(className);
   })  
   link.innerHTML = linkContent;
 
@@ -36,8 +36,8 @@ function createLinks(parent, linkContent, slug) {
   let end = currentSlug.length+1;
   let neededSlugContent = currentSlug.substring(1, end);
   new Map (Object.entries(siteConfig.header.pages)).forEach((link, slug) =>{
-  let className = slug+'-page-link-mobile';
-  let classNames = [className, "mobile-active-link"];
+  let className = [slug+'-page-link-mobile', 'nav-link'];
+  let classNames = [className, 'mobile-active-link', 'nav-link'];
   console.log(neededSlugContent);
         slug == neededSlugContent 
         ? createPagesLink(parent, link, classNames, slug)
