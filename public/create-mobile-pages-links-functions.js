@@ -14,7 +14,7 @@ function createNavItem(parent) {
   return navItem;
 }
 
-function createMobilePagesLink(parent, linkContent, classNames, slug){
+function createPagesLink(parent, linkContent, classNames, slug){
   let link = createNode('a');
   classNames.forEach((className) => {
     link.classList.add(className, 'nav-link');
@@ -40,7 +40,7 @@ function createLinks(parent, linkContent, slug) {
   let classNames = [className, "mobile-active-link"];
   console.log(neededSlugContent);
         slug == neededSlugContent 
-        ? createMobilePagesLink(parent, link, classNames, slug)
-        : createMobilePagesLink(parent, link, className, slug);
+        ? createPagesLink(parent, link, classNames, slug)
+        : createPagesLink(parent, link, className, slug);
   });
 }
