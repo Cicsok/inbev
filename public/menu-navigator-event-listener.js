@@ -24,8 +24,8 @@ class MenuNavigatorEventListener {
         document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
         window.history.replaceState(null, document.title, slug);
    
-        document.getElementsByClassName(this.activeLinkClassName)[0].classList.remove(this.activeLinkClassName)
-        page.classList.add(this.activeLinkClassName)
+        document.getElementsByClassName(this.activeLinkClassName)[0].classList.remove(this.activeLinkClassName);
+        page.classList.add(this.activeLinkClassName);
     }
 
     loadPage(href) {
