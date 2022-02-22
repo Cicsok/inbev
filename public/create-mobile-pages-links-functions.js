@@ -35,12 +35,11 @@ function createLinks(parent, linkContent, slug) {
   let currentSlug = window.location.pathname;
   let end = currentSlug.length+1;
   let neededSlugContent = currentSlug.substring(1, end);
-  new Map (Object.entries(siteConfig.header.pages)).forEach((link, slug) =>{
   let className = [slug+'-page-link-mobile', 'nav-link'];
   let classNames = [className, 'mobile-active-link', 'nav-link'];
+  
   console.log(neededSlugContent);
         slug == neededSlugContent 
-        ? createPagesLink(parent, link, classNames, slug)
-        : createPagesLink(parent, link, className, slug);
-  });
+        ? createPagesLink(parent, linkContent, classNames, slug)
+        : createPagesLink(parent, linkContent, className, slug);
 }
