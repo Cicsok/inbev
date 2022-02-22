@@ -108,15 +108,15 @@ function createHeaderPagesLink(parent, link, classNames, slug){
 
 function addInformationsToHeaderPagesLink(parent){
     let currentSlug = window.location.pathname;
-    let neededSlugContent = 'home-page';
     new Map (Object.entries(siteConfig.header.pages)).forEach((link, slug) =>{
         let end = currentSlug.length+1;
         let className = [slug+'-page-link'];
         let classNames = [className, "desktop-active-link"];
+        neededSlugContent = currentSlug.substring(1, end);
+        console.log(neededSlugContent);
         slug == neededSlugContent 
         ? createHeaderPagesLink(parent, link, classNames, slug)
         : createHeaderPagesLink(parent, link, className, slug);
-        neededSlugContent = currentSlug.substring(1, end);
     });
 }
 
