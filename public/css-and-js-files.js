@@ -6,6 +6,7 @@ let pathName = identifyPagePath();
 switch (pathName) {
     case '/index':
     case '/':
+    case '/home-page':
         includeToEveryPages();
         includeOnlyHomePage();
         break;
@@ -19,7 +20,7 @@ switch (pathName) {
         break;
     case '/contact':
         includeToEveryPages();
-        console.log('I am on  page contact page!');
+        console.log('I am on contact page!');
         break;
     default:
         console.log('The path you entered does not exist!')
@@ -69,5 +70,5 @@ function includeOnlyHomePage(){
     includeJavasScript('create-carousel-inner-for-home-page-slider-functions.js');
     includeJavasScript('home-page-slider.js');
     includeJavasScript('home-page-introduction.js');
-    includeCss('index-style.css');
+    includeCss('home-page-style.css');
 }
