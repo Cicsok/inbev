@@ -28,10 +28,6 @@ const siteConfig = {
 
   activeSliderImageName: "image1.jpg",
 
-  sliderNavigation: {
-
-  },
-
   header:{
     pages:{
       // don't override the the key!
