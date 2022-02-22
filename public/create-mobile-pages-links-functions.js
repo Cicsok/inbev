@@ -31,10 +31,10 @@ function createLinks(parent, linkContent, slug) {
   link.innerHTML = linkContent;
 
   let menuNavigatorEventListener = new MenuNavigatorEventListener("mobile-active-link");
-  let platformSyncronizer = new PlatformSyncronizer("desktop-active-link", "mobile-active-link");
+  let platformSynchronizer = PlatformSynchronizer.createInstance();
 
   link.addEventListener('click', function (){menuNavigatorEventListener.navigate(slug, link)});
-  link.addEventListener('click', function (){platformSyncronizer.syncForDesktop(slug)});
+  link.addEventListener('click', function (){platformSynchronizer.syncForDesktop(slug)});
 
   append(parent, link);
 }

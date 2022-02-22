@@ -4,7 +4,7 @@ function  identifyPagePath(){
 
 let pathName = identifyPagePath();
 switch (pathName) {
-    case '/public/index.html':
+    case '/index':
     case '/':
         includeToEveryPages();
         includeOnlyHomePage();
@@ -23,6 +23,7 @@ switch (pathName) {
         break;
     default:
         console.log('The path you entered does not exist!')
+        console.log("PathName: "+ pathName);
         break;
 }
 
@@ -45,7 +46,7 @@ function includeToEveryPages(){
     includeJavasScript('siteConfig.js');
     includeJavasScript('logo-and-button-event-listener.js');
     includeJavasScript('menu-navigator-event-listener.js');
-    includeJavasScript('platform-syncronizer.js');
+    includeJavasScript('platform-synchronizer.js');
     includeJavasScript('node-functions.js');
     includeJavasScript('desktop-header-util-functions.js');
     includeJavasScript('create-mobile-pages-links-functions.js');

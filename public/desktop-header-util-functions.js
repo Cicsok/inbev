@@ -18,10 +18,10 @@ function createLogoToLink(parent, slug){
     let newActivePage = slug+"-page-link";
 
     let logoNavigatorEventListener = new LogoAndButtonEventListener(activeLinkClassName, newActivePage);
-    let platformSyncronizer = new PlatformSyncronizer("desktop-active-link", "mobile-active-link");
+    let platformSynchronizer = PlatformSynchronizer.createInstance();
 
     logoLink.addEventListener('click', function(){logoNavigatorEventListener.navigate(slug)});
-    logoLink.addEventListener('click', function (){platformSyncronizer.syncForMobile(slug)});
+    logoLink.addEventListener('click', function (){platformSynchronizer.syncForMobile(slug)});
     
     append(parent, logoLink);
     return logoLink;
@@ -38,10 +38,9 @@ function addLogoToHeader(parent){
 
 function addNavigationToLogo(parent){
     let logoLink = siteConfig.header.logoLink;
-    let object = siteConfig.header.pages
+    let slugAndLinkPair = siteConfig.header.pages
     let logoLinkElement = null;
-    let indexOfLogoLink = Object.values(object).indexOf(logoLink);
-    let slug = Object.keys(object)[indexOfLogoLink];
+    let slug = Object.keys(slugAndLinkPair).find(key => slugAndLinkPair[key] === logoLink);
     logoLinkElement = createLogoToLink(parent, slug);
     return logoLinkElement;
 }
@@ -53,29 +52,28 @@ function createButtonDiv(parent){
     return buttonDiv;
 }
 
-function createButton(parent, buttonText, slug){
+function createGetInTouchWithMeButton(parent, buttonText, slug){
     let button = createNode('a');
-    let activeLinkClassName = "desktop-active-link";
-    let newActivePage = slug+"-page-link"
-
-    let buttonNavigatorEventListener = new LogoAndButtonEventListener(activeLinkClassName, newActivePage);
-    let platformSyncronizer = new PlatformSyncronizer("desktop-active-link", "mobile-active-link");
-
-    button.addEventListener('click', function(){buttonNavigatorEventListener.navigate(slug)});
-    button.addEventListener('click', function (){platformSyncronizer.syncForMobile(slug)});
-
     button.classList.add('my-border');
     button.innerHTML = buttonText;
+
+    let activeLinkClassName = "desktop-active-link";
+    let newActivePage = slug+"-page-link";
+
+    let buttonNavigatorEventListener = new LogoAndButtonEventListener(activeLinkClassName, newActivePage);
+    let platformSynchronizer = PlatformSynchronizer.createInstance();
+    button.addEventListener('click', function(){buttonNavigatorEventListener.navigate(slug, newActivePage)});
+    button.addEventListener('click', function (){platformSynchronizer.syncForMobile(slug)});
+
     append(parent, button);
 }
 
-function addGetInTouchWithMebuttonButton(parent){
+function addGetInTouchWithMeButton(parent){
     let getInTouchWithMebuttonText = siteConfig.header.getInTouchWithMebuttonText;
     let buttonLink = siteConfig.header.buttonLink;
-    let object = siteConfig.header.pages;
-    let indexOfButtonLink = Object.values(object).indexOf(buttonLink);
-    let slug = Object.keys(object)[indexOfButtonLink];
-    createButton(parent, getInTouchWithMebuttonText, slug)
+    let slugAndLinkPair = siteConfig.header.pages;
+    let slug = Object.keys(slugAndLinkPair).find(key => slugAndLinkPair[key] === buttonLink);
+    createGetInTouchWithMeButton(parent, getInTouchWithMebuttonText, slug)
 }
 
 function createMenusAndInformationsDiv(parent){
@@ -100,10 +98,10 @@ function createHeaderPagesLink(parent, link, classNames, slug){
     page.innerHTML = link;
 
     let menuNavigatorEventListener = new MenuNavigatorEventListener("desktop-active-link");
-    let platformSyncronizer = new PlatformSyncronizer("desktop-active-link", "mobile-active-link");
+    let platformSynchronizer = PlatformSynchronizer.createInstance();
 
     page.addEventListener('click', function (){menuNavigatorEventListener.navigate(slug, page)});
-    page.addEventListener('click', function (){platformSyncronizer.syncForMobile(slug)});
+    page.addEventListener('click', function (){platformSynchronizer.syncForMobile(slug)});
 
     append(parent, page);
 }

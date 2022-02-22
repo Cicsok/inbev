@@ -84,7 +84,7 @@ function registerEventListener() {
 function navigateSlider(captionText) {
   let platformType = identifyPlatformType();
   let sliderListener = new MenuNavigatorEventListenerFactory().create(platformType);
-  let platformSyncronizer = PlatformSyncronizer.createInstance();
+  let platformSynchronizer = PlatformSynchronizer.createInstance();
 
   new Map(Object.entries(siteConfig.header.pages)).forEach((pageCaption, slug) => {
     let className = slug + '-page-link';
@@ -93,7 +93,7 @@ function navigateSlider(captionText) {
     if (pageCaption == captionText) {
       let clickedPage = indentifyClickedPage(platformSpecificClassName);
       sliderListener.navigate(slug, clickedPage);
-      platformSyncronizer.sync(slug, platformType);
+      platformSynchronizer.sync(slug, platformType);
     }
   })
 }

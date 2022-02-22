@@ -1,4 +1,4 @@
-class PlatformSyncronizer {
+class PlatformSynchronizer {
 
     constructor(desktopActiveClassName, mobileActiveClassName) {
         this.desktopActiveClassName = desktopActiveClassName;
@@ -6,7 +6,7 @@ class PlatformSyncronizer {
     }
 
     static createInstance() {
-        return new PlatformSyncronizer("desktop-active-link", "mobile-active-link");
+        return new PlatformSynchronizer("desktop-active-link", "mobile-active-link");
     }
 
     sync(slug, platformType) {
@@ -19,6 +19,7 @@ class PlatformSyncronizer {
                 break;
 
             default:
+                console.log("Unrecognized platformType: " + platformType);
                 break;
         }
     }

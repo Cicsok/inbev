@@ -5,15 +5,10 @@ class LogoAndButtonEventListener {
     }
 
     navigate(slug) {
-        document.getElementById('specific-content').innerHTML = this.loadPage(window.location.origin + '/public/' + slug + '.html');
+        document.getElementById('specific-content').innerHTML = this.loadPage(window.location.origin + '/' + slug);
         window.history.replaceState(null, document.title, slug);
-        let activePage = document.getElementsByClassName(this.activeLinkClassName)[0];
-        let newActivePage = document.getElementsByClassName(this.newActivePage)[0];
-
-        if( activePage != newActivePage){
-            activePage.classList.remove(this.activeLinkClassName);
-            newActivePage.classList.add(this.activeLinkClassName);
-        } 
+        document.getElementsByClassName(this.activeLinkClassName)[0];
+        document.getElementsByClassName(this.newActivePage)[0];
     }
 
     loadPage(href) {

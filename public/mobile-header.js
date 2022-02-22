@@ -35,10 +35,10 @@ function createLogoToMobileHeader(slug) {
   let newActivePage = slug + "-page-link-mobile"
 
   let logoNavigatorEventListener = new LogoAndButtonEventListener(activeLinkClassName, newActivePage);
-  let platformSyncronizer = new PlatformSyncronizer("desktop-active-link", "mobile-active-link");
+  let platformSynchronizer = PlatformSynchronizer.createInstance();
 
   parent.addEventListener('click', function () { logoNavigatorEventListener.navigate(slug) });
-  parent.addEventListener('click', function () { platformSyncronizer.syncForDesktop(slug) });
+  parent.addEventListener('click', function () { platformSynchronizer.syncForDesktop(slug) });
 
   let logoImg = siteConfig.header.headerLogo;
   let logo = createNode('img');

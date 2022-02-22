@@ -8,6 +8,7 @@ class MenuNavigatorEventListenerFactory {
                 return new MobileMenuNavigatorEventListener();
                 break;
             default:
+                console.log("Platform: " + platform);
                 break;
         }
     }
@@ -19,7 +20,7 @@ class MenuNavigatorEventListener {
     }
 
     navigate(slug, page) {
-        document.getElementById('specific-content').innerHTML = this.loadPage(window.location.origin + '/public/' + slug + '.html');
+        document.getElementById('specific-content').innerHTML = this.loadPage(window.location.origin + '/' + slug);
         window.history.replaceState(null, document.title, slug);
         document.getElementsByClassName(this.activeLinkClassName)[0].classList.remove(this.activeLinkClassName);
         page.classList.add(this.activeLinkClassName);

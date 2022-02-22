@@ -25,7 +25,7 @@ function createLogoAndButtonInDesktopHeader(){
     let logotoLink = addNavigationToLogo(logoDiv);
     addLogoToHeader(logotoLink);
     let buttonDiv = createButtonDiv(LogoAndButtonDiv);
-    addGetInTouchWithMebuttonButton(buttonDiv);
+    addGetInTouchWithMeButton(buttonDiv);
 }
 
 function createLineToHeader(){
