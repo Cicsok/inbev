@@ -13,14 +13,11 @@
         let xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", href, false);
         xmlhttp.send();
-        let parser = new DOMParser ();
-        let responseDoc = parser.parseFromString (xmlhttp.responseText, "text/html");
-        let neededContent = responseDoc.getElementById('specific-content');
-        return neededContent;
+        return xmlhttp.responseText;
     }
-      loadPage(window.location.origin + '/home-page');
+    document.getElementById('index-page').appendChild(window.location.origin + '/home-page');
     </script>
   </head>
-  <body class="home-page">
+  <body id="index-page">
   </body>
 </html>
