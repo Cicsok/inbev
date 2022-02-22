@@ -9,6 +9,15 @@
 
     <script src="css-and-js-files.js"></script>
     <script>
+      function loadPage(href) {
+        let xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", href, false);
+        xmlhttp.send();
+        let parser = new DOMParser ();
+        let responseDoc = parser.parseFromString (xmlhttp.responseText, "text/html");
+        let neededContent = responseDoc.getElementById('specific-content');
+        return neededContent;
+    }
       loadPage(window.location.origin + '/home-page');
     </script>
   </head>
