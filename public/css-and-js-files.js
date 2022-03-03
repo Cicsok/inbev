@@ -8,6 +8,7 @@ switch (pathName) {
     case '/':
         includeToEveryPages();
         includeOnlyHomePage();
+        includeOnlyAboutMePage();
         break;
     case '/public/about-me.html':
         includeToEveryPages();

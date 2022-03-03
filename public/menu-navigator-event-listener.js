@@ -33,7 +33,8 @@ class MenuNavigatorEventListener {
         let parser = new DOMParser ();
         let responseDoc = parser.parseFromString (xmlhttp.responseText, "text/html");
         let neededContent = responseDoc.getElementById('specific-content');
-        return neededContent;    }
+        return neededContent;    
+    }
 }
 
 class MobileMenuNavigatorEventListener extends MenuNavigatorEventListener {
