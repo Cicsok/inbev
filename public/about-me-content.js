@@ -5,7 +5,7 @@ class AboutMeContent extends HTMLElement{
 }
 
 function createAboutMeContent(){
-    parent = document.getElementById('about-me-parent');
+    let parent = document.getElementById('about-me-parent');
     createAboutMeTitle(parent);
     createAboutMeImageContainer(parent);
     addImageToImageContainer();
@@ -13,15 +13,15 @@ function createAboutMeContent(){
 }
 
 function createAboutMeTitle(parent){
-    title = createNode('div');
-    titleText = siteConfig.aboutMePage.aboutMeTitle;
+    let title = createNode('div');
+    let titleText = siteConfig.aboutMePage.aboutMeTitle;
     title.innerHTML = titleText;
     title.classList.add('about-me-title', 'text-center');
     append(parent, title);
 }
 
 function createAboutMeImageContainer(parent){
-    imageContainer = createNode('div');
+    let imageContainer = createNode('div');
     imageContainer.id = 'about-me-image';
     imageContainer.classList.add('about-me-image', 'mx-auto');
     append(parent, imageContainer);
@@ -33,8 +33,8 @@ function addImageToImageContainer(){
 }
 
 function createIntroductionText(parent){
-    introductionTextContainer = createNode('div');
-    introductionText = siteConfig.aboutMePage.aboutMeIntroductionText;
+    let introductionTextContainer = createNode('div');
+    let introductionText = siteConfig.aboutMePage.aboutMeIntroductionText;
     introductionTextContainer.innerHTML = introductionText;
     introductionTextContainer.classList.add('introduction-text', 'text-center');
     append(parent, introductionTextContainer);
