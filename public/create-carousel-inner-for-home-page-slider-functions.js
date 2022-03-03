@@ -40,9 +40,8 @@ function createCarouselInnerDiv(){
   }
   
   function createCarouselCaption(parent, headerName){
-    let carouselCaption = createNode('a');
-    carouselCaption.href= '#';
+    var carouselCaption = createNode('a');
     carouselCaption.classList.add('caption', 'mx-auto');
     carouselCaption.innerHTML = headerName;
-    append(parent, carouselCaption);
+    append(parent, carouselCaption); 
   }

@@ -31,6 +31,7 @@
     .caption, .caption:active,  .caption:visited,  .caption:hover{
         text-decoration: none;
         color: black;
+        cursor: pointer;
     }
 
     .carousel-control-prev-icon, .carousel-control-next-icon{
@@ -42,6 +43,7 @@
     .carousel-img{
         height: 31.5vw;
     }
+
 
     /* Introduction */
     
@@ -104,9 +106,10 @@
         color: rgba(0, 0, 0, 0.945);
     }
 
-    .caption, .caption:active,  .caption:visited,  .caption:hover{
+    .caption, .caption:active,  .caption:visited{
         text-decoration: none;
         color: black;
+        cursor: pointer;
     }
 
     .carousel-img{
@@ -126,6 +129,7 @@
         border-radius: 100%;
         background-color: rgba(0, 0, 0, 0.945) !important;
     }
+
 
     /* Mobile introduction */
         

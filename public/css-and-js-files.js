@@ -9,20 +9,21 @@ switch (pathName) {
         includeToEveryPages();
         includeOnlyHomePage();
         break;
-    case 'about-me':
+    case '/about-me':
         includeToEveryPages();
         console.log('I am on about-me page!');
         break;
-    case 'reference-works':
+    case '/reference-works':
         includeToEveryPages();
         console.log('I am on reference-works page!');
         break;
-    case 'contact':
+    case '/contact':
         includeToEveryPages();
         console.log('I am on  page contact page!');
         break;
     default:
         console.log('The path you entered does not exist!')
+        console.log("PathName: "+ pathName);
         break;
 }
 
@@ -43,7 +44,9 @@ function includeCss(file) {
 
 function includeToEveryPages(){
     includeJavasScript('siteConfig.js');
+    includeJavasScript('logo-and-button-event-listener.js');
     includeJavasScript('menu-navigator-event-listener.js');
+    includeJavasScript('platform-synchronizer.js');
     includeJavasScript('node-functions.js');
     includeJavasScript('desktop-header-util-functions.js');
     includeJavasScript('create-mobile-pages-links-functions.js');
