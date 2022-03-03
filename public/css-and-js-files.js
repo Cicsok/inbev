@@ -9,7 +9,7 @@ switch (pathName) {
         includeToEveryPages();
         includeOnlyHomePage();
         break;
-    case '/about-me':
+    case '/public/about-me.html':
         includeToEveryPages();
         includeOnlyAboutMePage();
         console.log('I am on about-me page!');
