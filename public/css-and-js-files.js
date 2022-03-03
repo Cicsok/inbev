@@ -11,6 +11,7 @@ switch (pathName) {
         break;
     case 'about-me':
         includeToEveryPages();
+        includeOnlyAboutMePage();
         console.log('I am on about-me page!');
         break;
     case '/reference-works':
@@ -70,4 +71,9 @@ function includeOnlyHomePage(){
     includeJavasScript('home-page-slider.js');
     includeJavasScript('home-page-introduction.js');
     includeCss('index-style.css');
+}
+
+function includeOnlyAboutMePage(){
+    includeJavasScript('about-me-content.js');
+    includeCss('about-me-style.css');
 }

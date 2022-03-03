@@ -8,10 +8,19 @@
     <!-- My JS and CSS -->
     <script src="css-and-js-files.js"></script>
   </head>
-  
   <body>
   
-    <div style="background-color: aqua;">EZ AZ ABOUT ME OLDAL</div>
+    <my-mobile-header></my-mobile-header>
+    <div class="container">
+      <my-desktop-header></my-desktop-header> 
+    </div>
+    <div id="specific-content">
+      <div class="container" id="about-me-parent">
+          <about-me-content></about-me-content>
+      </div>
+    </div>
+    <my-desktop-footer></my-desktop-footer>
+    <my-mobile-footer></my-mobile-footer>
   
   </body>
 </html>
