@@ -56,6 +56,7 @@ const siteConfig = {
   },
 
   aboutMePage:{
+    aboutMeTitle: "Bemutatkozás",
     aboutMeImage: "aboutMeImage.jpg",
     aboutMeIntroductionText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam felis est, rhoncus quis odio nec, tempus gravida arcu. Pellentesque eget iaculis urna, quis pharetra justo. Maecenas est tellus, consequat a odio ac, hendrerit maximus nulla. Duis commodo ligula ut ullamcorper congue. Vivamus egestas libero mi, vitae ultrices leo dignissim nec."
   },
@@ -94,12 +95,12 @@ const siteConfig = {
   
   mobileFooter:[
     {
-      information: "+36305361223",
-      className: "mobile-footer-phone",
-    },
-    {
       information: "balazs0124@gmail.com",
       className: "mobile-footer-email",
+    },
+    {
+      information: "+36305361223",
+      className: "mobile-footer-phone",
     },
   ]
 };
