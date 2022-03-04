@@ -5,17 +5,22 @@ class LogoAndButtonEventListener {
     }
 
     navigate(slug) {
-        document.getElementById('specific-content').innerHTML = this.loadPage(window.location.origin + '/' + slug);
+        document.getElementById('specific-content').innerHTML = '';
+        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
         window.history.replaceState(null, document.title, slug);
-        document.getElementsByClassName(this.activeLinkClassName)[0];
-        document.getElementsByClassName(this.newActivePage)[0];
+
+        document.getElementsByClassName(this.activeLinkClassName)[0].classList.remove(this.activeLinkClassName);
+        document.getElementsByClassName(this.newActivePage)[0].classList.add(this.activeLinkClassName);
     }
 
     loadPage(href) {
         let xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", href, false);
         xmlhttp.send();
-        return xmlhttp.responseText;
+        let parser = new DOMParser ();
+        let responseDoc = parser.parseFromString (xmlhttp.responseText, "text/html");
+        let neededContent = responseDoc.getElementById('specific-content');
+        return neededContent;
     }
 }
 
