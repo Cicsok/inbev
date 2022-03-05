@@ -34,10 +34,10 @@ function createLogoToMobileHeader(slug) {
   let activeLinkClassName = "mobile-active-link";
   let newActivePage = slug + "-page-link-mobile"
 
-  let logoNavigatorEventListener = new LogoAndButtonEventListener(activeLinkClassName, newActivePage);
+  let logoNavigator = new LogoAndButtonNavigator(activeLinkClassName, newActivePage);
   let platformSynchronizer = PlatformSynchronizer.createInstance();
 
-  parent.addEventListener('click', function () { logoNavigatorEventListener.navigate(slug) });
+  parent.addEventListener('click', function () { logoNavigator.navigate(slug) });
   parent.addEventListener('click', function () { platformSynchronizer.syncForDesktop(slug) });
 
   let logoImg = siteConfig.header.headerLogo;

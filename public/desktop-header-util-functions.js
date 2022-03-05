@@ -17,10 +17,10 @@ function createLogoToLink(parent, slug){
     let activeLinkClassName = "desktop-active-link";
     let newActivePage = slug+"-page-link";
 
-    let logoNavigatorEventListener = new LogoAndButtonEventListener(activeLinkClassName, newActivePage);
+    let logoNavigator = new LogoAndButtonNavigator(activeLinkClassName, newActivePage);
     let platformSynchronizer = PlatformSynchronizer.createInstance();
 
-    logoLink.addEventListener('click', function(){logoNavigatorEventListener.navigate(slug)});
+    logoLink.addEventListener('click', function(){logoNavigator.navigate(slug)});
     logoLink.addEventListener('click', function (){platformSynchronizer.syncForMobile(slug)});
     
     append(parent, logoLink);
@@ -60,9 +60,9 @@ function createGetInTouchWithMeButton(parent, buttonText, slug){
     let activeLinkClassName = "desktop-active-link";
     let newActivePage = slug+"-page-link";
 
-    let buttonNavigatorEventListener = new LogoAndButtonEventListener(activeLinkClassName, newActivePage);
+    let buttonNavigator = new LogoAndButtonNavigator(activeLinkClassName, newActivePage);
     let platformSynchronizer = PlatformSynchronizer.createInstance();
-    button.addEventListener('click', function(){buttonNavigatorEventListener.navigate(slug, newActivePage)});
+    button.addEventListener('click', function(){buttonNavigator.navigate(slug, newActivePage)});
     button.addEventListener('click', function (){platformSynchronizer.syncForMobile(slug)});
 
     append(parent, button);
@@ -97,10 +97,10 @@ function createHeaderPagesLink(parent, link, classNames, slug){
     })
     page.innerHTML = link;
 
-    let menuNavigatorEventListener = new MenuNavigatorEventListener("desktop-active-link");
+    let menuNavigator = new MenuNavigator("desktop-active-link");
     let platformSynchronizer = PlatformSynchronizer.createInstance();
 
-    page.addEventListener('click', function (){menuNavigatorEventListener.navigate(slug, page)});
+    page.addEventListener('click', function (){menuNavigator.navigate(slug, page)});
     page.addEventListener('click', function (){platformSynchronizer.syncForMobile(slug)});
 
     append(parent, page);

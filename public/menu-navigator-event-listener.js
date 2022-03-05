@@ -15,8 +15,8 @@ class MenuNavigatorEventListenerFactory {
 }
 
 class NavigatorEventListener{
-    constructor(activeLinkClassNamem, newActivePage = null){
-        this.activeLinkClassName = activeLinkClassNamem;
+    constructor(activeLinkClassName, newActivePage = null){
+        this.activeLinkClassName = activeLinkClassName;
         this.newActivePage = newActivePage;
     }
 
@@ -28,13 +28,13 @@ class NavigatorEventListener{
         xmlhttp.send();
         let parser = new DOMParser ();
         let responseDoc = parser.parseFromString (xmlhttp.responseText, "text/html");
-        let neededContent = responseDoc.getElementById('specific-content');
-        return neededContent;
+        let specificContent = responseDoc.getElementById('specific-content');
+        return specificContent;
     }
 }
 
-class MenuNavigatorEventListener extends NavigatorEventListener{
-
+class MenuNavigator extends NavigatorEventListener{
+   
     navigate(slug, page) {
         document.getElementById('specific-content').innerHTML = '';
         document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
@@ -45,7 +45,7 @@ class MenuNavigatorEventListener extends NavigatorEventListener{
     }
 }
 
-class LogoAndButtonEventListener extends NavigatorEventListener{
+class LogoAndButtonNavigator extends NavigatorEventListener{
 
     navigate(slug) {
         document.getElementById('specific-content').innerHTML = '';
@@ -57,13 +57,13 @@ class LogoAndButtonEventListener extends NavigatorEventListener{
     }
 }
 
-class MobileMenuNavigatorEventListener extends MenuNavigatorEventListener {
+class MobileMenuNavigatorEventListener extends MenuNavigator {
     constructor(){
         super('mobile-active-link');
     }
 }
 
-class DesktopMenuNavigatorEventListener extends MenuNavigatorEventListener {
+class DesktopMenuNavigatorEventListener extends MenuNavigator {
     constructor(){
         super('desktop-active-link');
     }
