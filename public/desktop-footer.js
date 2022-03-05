@@ -1,4 +1,4 @@
-class MyDesktopFooter extends AbstractFooter {
+class InbevDesktopFooter extends AbstractFooter {
     initFooter(){
         this.innerHTML = `
             <footer class="d-none d-lg-block">
@@ -30,4 +30,4 @@ class MyDesktopFooter extends AbstractFooter {
         append(parent, typeOfInformation);
     }
 }
-customElements.define('my-desktop-footer', MyDesktopFooter);
+customElements.define('inbev-desktop-footer', InbevDesktopFooter);

@@ -1,4 +1,4 @@
-class MyMobileFooter extends AbstractFooter {   
+class InbevMobileFooter extends AbstractFooter {   
 
     initFooter(){
         this.innerHTML = `
@@ -24,4 +24,4 @@ class MyMobileFooter extends AbstractFooter {
     }
 }
 
-customElements.define('my-mobile-footer', MyMobileFooter);
+customElements.define('inbev-mobile-footer', InbevMobileFooter);

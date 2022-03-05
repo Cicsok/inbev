@@ -1,4 +1,4 @@
-class MyMobileHeader extends HTMLElement {
+class InbevMobileHeader extends HTMLElement {
   connectedCallback() {
     initMyMobileHeader(this);
     createMobileHeader();
@@ -61,4 +61,4 @@ function createMobilePagesLinks() {
   createLinksToMobileHeader(parent);
 }
 
-customElements.define('my-mobile-header', MyMobileHeader);
+customElements.define('inbev-mobile-header', InbevMobileHeader);

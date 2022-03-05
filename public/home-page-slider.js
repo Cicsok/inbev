@@ -1,4 +1,4 @@
-class MyHomePageSlider extends HTMLElement {
+class InbevHomePageSlider extends HTMLElement {
   connectedCallback() {
     initFirstPartOfMyHomePageSlider(this);
     createCarouselInnerForHomePageSlider();
@@ -114,4 +114,4 @@ function identifyPlatformType() {
     : 'MOBILE';
 }
 
-customElements.define('my-home-page-slider', MyHomePageSlider);
+customElements.define('inbev-home-page-slider', InbevHomePageSlider);

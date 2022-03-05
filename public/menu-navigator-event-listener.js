@@ -14,19 +14,13 @@ class MenuNavigatorEventListenerFactory {
     }
 }
 
-class MenuNavigatorEventListener {
-    constructor(activeLinkClassName) {
-        this.activeLinkClassName = activeLinkClassName;
+class NavigatorEventListener{
+    constructor(activeLinkClassNamem, newActivePage = null){
+        this.activeLinkClassName = activeLinkClassNamem;
+        this.newActivePage = newActivePage;
     }
 
-    navigate(slug, page) {
-        document.getElementById('specific-content').innerHTML = '';
-        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
-        window.history.replaceState(null, document.title, slug);
-   
-        document.getElementsByClassName(this.activeLinkClassName)[0].classList.remove(this.activeLinkClassName);
-        page.classList.add(this.activeLinkClassName);
-    }
+    navigate(slug, page = null){}
 
     loadPage(href) {
         let xmlhttp = new XMLHttpRequest();
@@ -36,6 +30,30 @@ class MenuNavigatorEventListener {
         let responseDoc = parser.parseFromString (xmlhttp.responseText, "text/html");
         let neededContent = responseDoc.getElementById('specific-content');
         return neededContent;
+    }
+}
+
+class MenuNavigatorEventListener extends NavigatorEventListener{
+
+    navigate(slug, page) {
+        document.getElementById('specific-content').innerHTML = '';
+        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/public/' + slug +'.html'));
+        window.history.replaceState(null, document.title, slug);
+   
+        document.getElementsByClassName(this.activeLinkClassName)[0].classList.remove(this.activeLinkClassName);
+        page.classList.add(this.activeLinkClassName);
+    }
+}
+
+class LogoAndButtonEventListener extends NavigatorEventListener{
+
+    navigate(slug) {
+        document.getElementById('specific-content').innerHTML = '';
+        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/public/' + slug + '.html'));
+        window.history.replaceState(null, document.title, slug);
+
+        document.getElementsByClassName(this.activeLinkClassName)[0].classList.remove(this.activeLinkClassName);
+        document.getElementsByClassName(this.newActivePage)[0].classList.add(this.activeLinkClassName);
     }
 }
 

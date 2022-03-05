@@ -1,4 +1,4 @@
-class MyDesktopHeader extends HTMLElement {
+class InbevDesktopHeader extends HTMLElement {
     connectedCallback(){
         initMyDesktopHeader(this);
         craeteDesktopHeader();
@@ -50,4 +50,4 @@ function createLineDiv(parent){
     return lineDiv;
 }
 
-customElements.define('my-desktop-header', MyDesktopHeader);
+customElements.define('inbev-desktop-header', InbevDesktopHeader);

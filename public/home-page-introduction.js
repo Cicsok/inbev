@@ -1,4 +1,4 @@
-class MyHomePageIntroduction extends HTMLElement {
+class InbevHomePageIntroduction extends HTMLElement {
     connectedCallback(){
         const introductionTitle = siteConfig.homePage.homePageIntroductionTitle;
         const homePageIntroductionText = siteConfig.homePage.homePageIntroductionText;
@@ -22,4 +22,4 @@ class MyHomePageIntroduction extends HTMLElement {
     }
 }
 
-customElements.define('my-home-page-introduction', MyHomePageIntroduction);
+customElements.define('inbev-home-page-introduction', InbevHomePageIntroduction);
