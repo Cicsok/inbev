@@ -15,12 +15,29 @@ class MenuNavigatorEventListenerFactory {
 }
 
 class NavigatorEventListener{
-    constructor(activeLinkClassName, newActivePage = null){
+    constructor(activeLinkClassName){
         this.activeLinkClassName = activeLinkClassName;
-        this.newActivePage = newActivePage;
     }
 
-    navigate(slug, page = null){}
+    urlRewriter(slug){
+        document.getElementById('specific-content').innerHTML = '';
+        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/public/' + slug + '.html'));
+        window.history.replaceState(null, document.title, slug);
+    }
+
+    navigate(slug) {
+        this.urlRewriter(slug);
+   
+        document.getElementsByClassName(this.activeLinkClassName)[0].classList.remove(this.activeLinkClassName);
+
+        let slugAndLinkPair = siteConfig.header.pages;
+        let newActivePageSlug = Object.keys(slugAndLinkPair).find(key => key == slug);
+
+        let platform = identifyPlatformType();
+        platform == 'DESKTOP' 
+        ? document.getElementsByClassName(newActivePageSlug + '-page-link')[0].classList.add(this.activeLinkClassName)
+        : document.getElementsByClassName(newActivePageSlug + '-page-link-mobile')[0].classList.add(this.activeLinkClassName);
+    }
 
     loadPage(href) {
         let xmlhttp = new XMLHttpRequest();
@@ -33,37 +50,13 @@ class NavigatorEventListener{
     }
 }
 
-class MenuNavigator extends NavigatorEventListener{
-   
-    navigate(slug, page) {
-        document.getElementById('specific-content').innerHTML = '';
-        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
-        window.history.replaceState(null, document.title, slug);
-   
-        document.getElementsByClassName(this.activeLinkClassName)[0].classList.remove(this.activeLinkClassName);
-        page.classList.add(this.activeLinkClassName);
-    }
-}
-
-class LogoAndButtonNavigator extends NavigatorEventListener{
-
-    navigate(slug) {
-        document.getElementById('specific-content').innerHTML = '';
-        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
-        window.history.replaceState(null, document.title, slug);
-
-        document.getElementsByClassName(this.activeLinkClassName)[0].classList.remove(this.activeLinkClassName);
-        document.getElementsByClassName(this.newActivePage)[0].classList.add(this.activeLinkClassName);
-    }
-}
-
-class MobileMenuNavigatorEventListener extends MenuNavigator {
+class MobileMenuNavigatorEventListener extends NavigatorEventListener {
     constructor(){
         super('mobile-active-link');
     }
 }
 
-class DesktopMenuNavigatorEventListener extends MenuNavigator {
+class DesktopMenuNavigatorEventListener extends NavigatorEventListener {
     constructor(){
         super('desktop-active-link');
     }

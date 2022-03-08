@@ -108,10 +108,4 @@ function indentifyClickedPage(platformSpecificClassName) {
   return document.getElementsByClassName(platformSpecificClassName)[0];
 }
 
-function identifyPlatformType() {
-  return window.innerWidth >= 992
-    ? 'DESKTOP'
-    : 'MOBILE';
-}
-
 customElements.define('inbev-home-page-slider', InbevHomePageSlider);

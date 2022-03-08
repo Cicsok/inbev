@@ -4,21 +4,21 @@ function  identifyPagePath(){
 
 let pathName = identifyPagePath();
 switch (pathName) {
-    case '/index':
-    case '/':
-    case '/home-page':
+    case '/public/index.html':
+    case '/public/':
+    case '/public/home-page.html':
         includeToEveryPages();
         includeOnlyHomePage();
         break;
-    case '/about-me':
+    case '/public/about-me.html':
         includeToEveryPages();
         console.log('I am on about-me page!');
         break;
-    case '/reference-works':
+    case '/public/reference-works.html':
         includeToEveryPages();
         console.log('I am on reference-works page!');
         break;
-    case '/contact':
+    case '/public/contact.html':
         includeToEveryPages();
         console.log('I am on  page contact page!');
         break;
@@ -45,9 +45,9 @@ function includeCss(file) {
 
 function includeToEveryPages(){
     includeJavasScript('siteConfig.js');
+    includeJavasScript('node-functions.js');
     includeJavasScript('menu-navigator-event-listener.js');
     includeJavasScript('platform-synchronizer.js');
-    includeJavasScript('node-functions.js');
     includeJavasScript('desktop-header-util-functions.js');
     includeJavasScript('create-mobile-pages-links-functions.js');
     includeJavasScript('https://kit.fontawesome.com/df226d5321.js');

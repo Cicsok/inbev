@@ -30,10 +30,10 @@ function createLinks(parent, linkContent, slug) {
   link.classList.add(className, 'nav-link');
   link.innerHTML = linkContent;
 
-  let menuNavigator = new MenuNavigator("mobile-active-link");
+  let menuNavigator = new MenuNavigatorEventListenerFactory().create('MOBILE');
   let platformSynchronizer = PlatformSynchronizer.createInstance();
 
-  link.addEventListener('click', function (){menuNavigator.navigate(slug, link)});
+  link.addEventListener('click', function (){menuNavigator.navigate(slug)});
   link.addEventListener('click', function (){platformSynchronizer.syncForDesktop(slug)});
 
   append(parent, link);

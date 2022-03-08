@@ -31,10 +31,8 @@ function createMobileHeader() {
 
 function createLogoToMobileHeader(slug) {
   parent = document.getElementById('logo-wrap');
-  let activeLinkClassName = "mobile-active-link";
-  let newActivePage = slug + "-page-link-mobile"
 
-  let logoNavigator = new LogoAndButtonNavigator(activeLinkClassName, newActivePage);
+  let logoNavigator = new MenuNavigatorEventListenerFactory().create('MOBILE');
   let platformSynchronizer = PlatformSynchronizer.createInstance();
 
   parent.addEventListener('click', function () { logoNavigator.navigate(slug) });
