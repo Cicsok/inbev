@@ -1,0 +1,66 @@
+#specific-content{
+    background-color: #F0F0F0;
+}
+
+@media (min-width: 992px) { 
+    
+    /* Desktop */
+    
+    .contact-main-text{
+        font-size: 4.6vw;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding-top: 3.9vw;
+        font-weight: 500;
+        padding-bottom: 1.56vw;
+        color: #FF0000;
+    }
+    
+    .contact-email, .contact-phone{
+        font-family: 'Raleway', sans-serif;
+        font-size: 2.8vw;
+        padding: 1.56vw 0;
+    }
+    
+    .contact-phone{
+        padding-bottom: 3.9vw;
+    }
+    
+    .contact-image{
+        height: 34.5vw;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+    
+}
+
+@media (max-width: 991px) { 
+
+    /* Mobile */
+
+    .contact-main-text{
+        font-size: 8vw;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding-top: 8vw;
+        font-weight: 500;
+        padding-bottom: 2vw;
+        color: #FF0000;
+    }
+    
+    .contact-email, .contact-phone{
+        font-family: 'Raleway', sans-serif;
+        font-size: 5vw;
+        padding: 3vw 0;
+    }
+    
+    .contact-phone{
+        padding-bottom: 10vw;
+    }
+    
+    .contact-image{
+        height: 50.5vw;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+}
