@@ -20,7 +20,8 @@ switch (pathName) {
         break;
     case '/contact':
         includeToEveryPages();
-        console.log('I am on  page contact page!');
+        includeOnlyContactPage();
+        console.log('I am on contact page!');
         break;
     default:
         console.log('The path you entered does not exist!')
@@ -70,4 +71,9 @@ function includeOnlyHomePage(){
     includeJavasScript('home-page-slider.js');
     includeJavasScript('home-page-introduction.js');
     includeCss('index-style.css');
+}
+
+function includeOnlyContactPage(){
+    includeJavasScript('contact-content.js');
+    includeCss('contact-style.css');
 }

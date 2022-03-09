@@ -70,9 +70,9 @@ const siteConfig = {
 
   contact:{
     mainText: "Keress bizalommal!",
-    information1: "balazs0124@gmail.com",
-    information2: "+36305361223",
-    contactImage: "",
+    email: "balazs0124@gmail.com",
+    phone: "+36305361223",
+    contactImage: "image2.jpg",
   },
 
   desktopFooter:[
