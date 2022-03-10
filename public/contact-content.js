@@ -5,7 +5,7 @@ class ContactContent extends HTMLElement{
 }
 
 function createContactContent(){
-    let parent = document.getElementById('conact-parent');
+    let parent = document.getElementById('contact-parent');
     createMainText(parent);
     createEmail(parent);
     createPhone(parent);
@@ -31,8 +31,8 @@ function createEmail(parent){
 
 function createPhone(parent){
     let phoneContainer = createNode('div');
-    let phone = siteConfig.contact.phone;
-    phoneContainer.innerHTML = phone;
+    let phoneNumber  = siteConfig.contact.phone;
+    phoneContainer.innerHTML = phoneNumber;
     phoneContainer.classList.add('contact-phone', 'text-center');
     append(parent, phoneContainer);
 }
