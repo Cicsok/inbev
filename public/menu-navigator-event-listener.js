@@ -1,6 +1,6 @@
 class MenuNavigatorEventListenerFactory{
     create(platform){
-        switch (platform) {
+        switch (platform){
             case 'DESKTOP':
                 return new DesktopMenuNavigatorEventListener();
                 break;
@@ -25,6 +25,14 @@ class NavigatorEventListener{
         window.history.replaceState(null, document.title, slug);
     }
 
+    addActiveLinkToNewActivePageOnDesktop(newActivePageSlug){
+        document.getElementsByClassName(newActivePageSlug + '-page-link')[0].classList.add(this.activeLinkClassName);
+    }
+
+    addActiveLinkToNewActivePageOnMobile(newActivePageSlug){
+        document.getElementsByClassName(newActivePageSlug + '-page-link-mobile')[0].classList.add(this.activeLinkClassName);
+    }
+
     navigate(slug){
         this.urlRewriter(slug);
    
@@ -35,15 +43,15 @@ class NavigatorEventListener{
 
         let platform = identifyPlatformType();
         platform == 'DESKTOP' 
-        ? document.getElementsByClassName(newActivePageSlug + '-page-link')[0].classList.add(this.activeLinkClassName)
-        : document.getElementsByClassName(newActivePageSlug + '-page-link-mobile')[0].classList.add(this.activeLinkClassName);
+        ? this.addActiveLinkToNewActivePageOnDesktop(newActivePageSlug)
+        : this.addActiveLinkToNewActivePageOnMobile(newActivePageSlug);
     }
 
     loadPage(href){
         let xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", href, false);
         xmlhttp.send();
-        let parser = new DOMParser ();
+        let parser = new DOMParser();
         let responseDoc = parser.parseFromString (xmlhttp.responseText, "text/html");
         let specificContent = responseDoc.getElementById('specific-content');
         return specificContent;
