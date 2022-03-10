@@ -51,7 +51,7 @@ class NavigatorEventListener{
         let xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", href, false);
         xmlhttp.send();
-        let parser = new DOMParser ();
+        let parser = new DOMParser();
         let responseDoc = parser.parseFromString (xmlhttp.responseText, "text/html");
         let specificContent = responseDoc.getElementById('specific-content');
         return specificContent;
