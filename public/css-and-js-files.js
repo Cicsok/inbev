@@ -6,6 +6,7 @@ let pathName = identifyPagePath();
 switch (pathName) {
     case '/index':
     case '/':
+    case '/home-page':
         includeToEveryPages();
         includeOnlyHomePage();
         break;
@@ -44,10 +45,9 @@ function includeCss(file) {
 
 function includeToEveryPages(){
     includeJavasScript('siteConfig.js');
-    includeJavasScript('logo-and-button-event-listener.js');
+    includeJavasScript('node-functions.js');
     includeJavasScript('menu-navigator-event-listener.js');
     includeJavasScript('platform-synchronizer.js');
-    includeJavasScript('node-functions.js');
     includeJavasScript('desktop-header-util-functions.js');
     includeJavasScript('create-mobile-pages-links-functions.js');
     includeJavasScript('https://kit.fontawesome.com/df226d5321.js');

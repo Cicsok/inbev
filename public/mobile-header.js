@@ -1,4 +1,4 @@
-class MyMobileHeader extends HTMLElement {
+class InbevMobileHeader extends HTMLElement {
   connectedCallback() {
     initMyMobileHeader(this);
     createMobileHeader();
@@ -31,13 +31,11 @@ function createMobileHeader() {
 
 function createLogoToMobileHeader(slug) {
   parent = document.getElementById('logo-wrap');
-  let activeLinkClassName = "mobile-active-link";
-  let newActivePage = slug + "-page-link-mobile"
 
-  let logoNavigatorEventListener = new LogoAndButtonEventListener(activeLinkClassName, newActivePage);
+  let logoNavigator = new MenuNavigatorEventListenerFactory().create('MOBILE');
   let platformSynchronizer = PlatformSynchronizer.createInstance();
 
-  parent.addEventListener('click', function () { logoNavigatorEventListener.navigate(slug) });
+  parent.addEventListener('click', function () { logoNavigator.navigate(slug) });
   parent.addEventListener('click', function () { platformSynchronizer.syncForDesktop(slug) });
 
   let logoImg = siteConfig.header.headerLogo;
@@ -61,4 +59,4 @@ function createMobilePagesLinks() {
   createLinksToMobileHeader(parent);
 }
 
-customElements.define('my-mobile-header', MyMobileHeader);
+customElements.define('inbev-mobile-header', InbevMobileHeader);

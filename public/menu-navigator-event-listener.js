@@ -1,6 +1,6 @@
-class MenuNavigatorEventListenerFactory {
+class MenuNavigatorEventListenerFactory{
     create(platform){
-        switch (platform) {
+        switch (platform){
             case 'DESKTOP':
                 return new DesktopMenuNavigatorEventListener();
                 break;
@@ -14,33 +14,57 @@ class MenuNavigatorEventListenerFactory {
     }
 }
 
-class MenuNavigatorEventListener {
-    constructor(activeLinkClassName) {
+class NavigatorEventListener{
+    constructor(activeLinkClassName){
         this.activeLinkClassName = activeLinkClassName;
     }
 
-    navigate(slug, page) {
-        document.getElementById('specific-content').innerHTML = this.loadPage(window.location.origin + '/' + slug);
+    urlRewriter(slug){
+        document.getElementById('specific-content').innerHTML = '';
+        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
         window.history.replaceState(null, document.title, slug);
-        document.getElementsByClassName(this.activeLinkClassName)[0].classList.remove(this.activeLinkClassName);
-        page.classList.add(this.activeLinkClassName);
     }
 
-    loadPage(href) {
+    addActiveLinkToNewActivePageOnDesktop(newActivePageSlug){
+        document.getElementsByClassName(newActivePageSlug + '-page-link')[0].classList.add(this.activeLinkClassName);
+    }
+
+    addActiveLinkToNewActivePageOnMobile(newActivePageSlug){
+        document.getElementsByClassName(newActivePageSlug + '-page-link-mobile')[0].classList.add(this.activeLinkClassName);
+    }
+
+    navigate(slug){
+        this.urlRewriter(slug);
+   
+        document.getElementsByClassName(this.activeLinkClassName)[0].classList.remove(this.activeLinkClassName);
+
+        let slugAndLinkPair = siteConfig.header.pages;
+        let newActivePageSlug = Object.keys(slugAndLinkPair).find(key => key == slug);
+
+        let platform = identifyPlatformType();
+        platform == 'DESKTOP' 
+        ? this.addActiveLinkToNewActivePageOnDesktop(newActivePageSlug)
+        : this.addActiveLinkToNewActivePageOnMobile(newActivePageSlug);
+    }
+
+    loadPage(href){
         let xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", href, false);
         xmlhttp.send();
-        return xmlhttp.responseText;
+        let parser = new DOMParser();
+        let responseDoc = parser.parseFromString (xmlhttp.responseText, "text/html");
+        let specificContent = responseDoc.getElementById('specific-content');
+        return specificContent;
     }
 }
 
-class MobileMenuNavigatorEventListener extends MenuNavigatorEventListener {
+class MobileMenuNavigatorEventListener extends NavigatorEventListener{
     constructor(){
         super('mobile-active-link');
     }
 }
 
-class DesktopMenuNavigatorEventListener extends MenuNavigatorEventListener {
+class DesktopMenuNavigatorEventListener extends NavigatorEventListener{
     constructor(){
         super('desktop-active-link');
     }
