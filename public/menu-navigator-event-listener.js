@@ -1,6 +1,6 @@
-class MenuNavigatorEventListenerFactory {
+class MenuNavigatorEventListenerFactory{
     create(platform){
-        switch (platform) {
+        switch (platform){
             case 'DESKTOP':
                 return new DesktopMenuNavigatorEventListener();
                 break;
@@ -25,7 +25,15 @@ class NavigatorEventListener{
         window.history.replaceState(null, document.title, slug);
     }
 
-    navigate(slug) {
+    addActiveLinkToNewActivePageOnDesktop(newActivePageSlug){
+        document.getElementsByClassName(newActivePageSlug + '-page-link')[0].classList.add(this.activeLinkClassName);
+    }
+
+    addActiveLinkToNewActivePageOnMobile(newActivePageSlug){
+        document.getElementsByClassName(newActivePageSlug + '-page-link-mobile')[0].classList.add(this.activeLinkClassName);
+    }
+
+    navigate(slug){
         this.urlRewriter(slug);
    
         document.getElementsByClassName(this.activeLinkClassName)[0].classList.remove(this.activeLinkClassName);
@@ -35,11 +43,11 @@ class NavigatorEventListener{
 
         let platform = identifyPlatformType();
         platform == 'DESKTOP' 
-        ? document.getElementsByClassName(newActivePageSlug + '-page-link')[0].classList.add(this.activeLinkClassName)
-        : document.getElementsByClassName(newActivePageSlug + '-page-link-mobile')[0].classList.add(this.activeLinkClassName);
+        ? this.addActiveLinkToNewActivePageOnDesktop(newActivePageSlug)
+        : this.addActiveLinkToNewActivePageOnMobile(newActivePageSlug);
     }
 
-    loadPage(href) {
+    loadPage(href){
         let xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", href, false);
         xmlhttp.send();
@@ -50,13 +58,13 @@ class NavigatorEventListener{
     }
 }
 
-class MobileMenuNavigatorEventListener extends NavigatorEventListener {
+class MobileMenuNavigatorEventListener extends NavigatorEventListener{
     constructor(){
         super('mobile-active-link');
     }
 }
 
-class DesktopMenuNavigatorEventListener extends NavigatorEventListener {
+class DesktopMenuNavigatorEventListener extends NavigatorEventListener{
     constructor(){
         super('desktop-active-link');
     }
