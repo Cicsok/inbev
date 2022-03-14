@@ -4,20 +4,20 @@ function  identifyPagePath(){
 
 let pathName = identifyPagePath();
 switch (pathName) {
-    case '/index':
-    case '/':
-    case '/home-page':
+    case '/public/index.html':
+    case '/public/':
+    case '/public/home-page.html':
         includeToEveryPages();
         break;
-    case '/about-me':
+    case '/public/about-me.html':
         includeToEveryPages();
         console.log('I am on about-me page!');
         break;
-    case '/reference-works':
+    case '/public/reference-works.html':
         includeToEveryPages();
         console.log('I am on reference-works page!');
         break;
-    case '/contact':
+    case '/public/contact.html':
         includeToEveryPages();
         console.log('I am on contact page!');
         break;

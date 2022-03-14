@@ -21,7 +21,7 @@ class NavigatorEventListener{
 
     urlRewriter(slug){
         document.getElementById('specific-content').innerHTML = '';
-        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
+        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/public/' + slug +'.html'));
         window.history.replaceState(null, document.title, slug);
     }
 

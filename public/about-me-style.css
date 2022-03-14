@@ -30,7 +30,7 @@
         font-size: 2vw;
         line-height: normal;
         padding: 0 11.71875vw;
-        margin-bottom: 5.46875vw;
+        padding-bottom: 5.46875vw;
         font-weight: 400;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
@@ -65,7 +65,7 @@
         font-size: 4vw;
         line-height: normal;
         padding: 0 5vw;
-        margin-bottom: 7.46875vw;
+        padding-bottom: 7.46875vw;
         font-weight: 400;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }

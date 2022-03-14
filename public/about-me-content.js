@@ -8,7 +8,7 @@ function createAboutMeContent(){
     let parent = document.getElementById('about-me-parent');
     createAboutMeTitle(parent);
     createAboutMeImageContainer(parent);
-    addImageToImageContainer();
+    addImageToImageContainerOnAboutMePage();
     createIntroductionText(parent);
 }
 
@@ -27,7 +27,7 @@ function createAboutMeImageContainer(parent){
     append(parent, imageContainer);
 }
 
-function addImageToImageContainer(){
+function addImageToImageContainerOnAboutMePage(){
     let aboutMeIntroductionImage = siteConfig.aboutMePage.aboutMeImage;
     document.getElementById('about-me-image').style.backgroundImage = 'url('+aboutMeIntroductionImage+')';
 }
