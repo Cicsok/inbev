@@ -4,7 +4,7 @@ window.onpopstate = function(event) {
     alert(event.state);
     alert(event);
 
-    let factory = MenuNavigatorEventListenerFactory.createInstance();
+    let factory = new MenuNavigatorEventListenerFactory();
     let navigator = factory.create(identifyPlatformType());
     navigator.navigate(event.state);
  };
