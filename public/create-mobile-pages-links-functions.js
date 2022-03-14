@@ -1,20 +1,10 @@
 function createLinksToMobileHeader(parent) {
   let activePageLink = siteConfig.header.activePageLink;
-  let linkDiv = null;
+  let linkDiv = createNavItem(parent);
   new Map(Object.entries(siteConfig.header.pages)).forEach((link, slug) => {
-    link == activePageLink
-      ? linkDiv = createFirstNavItem(parent)
-      : linkDiv = createNavItem(parent);
+
     createLinks(linkDiv, link, slug);
   })
-}
-
-function createFirstNavItem() {
-  let navItem = createNode('li');
-  navItem.classList.add('nav-item', 'active', 'mobile-active-link');
-  navItem.setAttribute('aria-current', 'page');
-  append(parent, navItem);
-  return navItem;
 }
 
 function createNavItem(parent) {
@@ -24,17 +14,32 @@ function createNavItem(parent) {
   return navItem;
 }
 
-function createLinks(parent, linkContent, slug) {
+function createPagesLink(parent, linkContent, classNames, slug){
   let link = createNode('a');
-  let className = slug+'-page-link-mobile';
-  link.classList.add(className, 'nav-link');
+  classNames.forEach((className) => {
+    link.classList.add(className);
+  })  
   link.innerHTML = linkContent;
 
-  let menuNavigator = new MenuNavigatorEventListenerFactory().create('MOBILE');
+
+  let menuNavigatorEventListener = new MenuNavigatorEventListener("mobile-active-link");
   let platformSynchronizer = PlatformSynchronizer.createInstance();
 
-  link.addEventListener('click', function (){menuNavigator.navigate(slug)});
+  link.addEventListener('click', function (){menuNavigatorEventListener.navigate(slug, link)});
   link.addEventListener('click', function (){platformSynchronizer.syncForDesktop(slug)});
 
   append(parent, link);
+}
+
+function createLinks(parent, linkContent, slug) {
+  let currentSlug = window.location.pathname;
+  let end = currentSlug.length+1;
+  let neededSlugContent = currentSlug.substring(1, end);
+  let className = [slug+'-page-link-mobile', 'nav-link'];
+  let classNames = [className, 'mobile-active-link', 'nav-link'];
+
+  console.log(neededSlugContent);
+        slug == neededSlugContent 
+        ? createPagesLink(parent, linkContent, classNames, slug)
+        : createPagesLink(parent, linkContent, className, slug);
 }
