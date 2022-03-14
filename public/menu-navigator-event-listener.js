@@ -63,6 +63,39 @@ class NavigatorEventListener{
         let specificContent = responseDoc.getElementById('specific-content');
         return specificContent;
     }
+
+
+
+
+
+
+
+    urlRewriterForBackArrow(slug){
+        document.getElementById('specific-content').innerHTML = '';
+        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
+        //window.history.replaceState("back arrow button", document.title, slug);
+        //window.history.pushState("fw arrow button", document.title, slug);
+        
+        window.history.replaceState(window.location.pathname, document.title, slug);
+    }
+
+
+    navigateForBackArrow(slug){
+        this.urlRewriterForBackArrow(slug);
+   
+        document.getElementsByClassName(this.activeLinkClassName)[0].classList.remove(this.activeLinkClassName);
+
+        let slugAndLinkPair = siteConfig.header.pages;
+        let newActivePageSlug = Object.keys(slugAndLinkPair).find(key => key == slug);
+        
+        console.log(slugAndLinkPair);
+        console.log(newActivePageSlug);
+
+        let platform = identifyPlatformType();
+        platform == 'DESKTOP' 
+        ? this.addActiveLinkToNewActivePageOnDesktop(newActivePageSlug)
+        : this.addActiveLinkToNewActivePageOnMobile(newActivePageSlug);
+    }
 }
 
 class MobileMenuNavigatorEventListener extends NavigatorEventListener{
