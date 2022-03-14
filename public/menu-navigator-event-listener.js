@@ -22,8 +22,8 @@ class NavigatorEventListener{
     urlRewriter(slug){
         document.getElementById('specific-content').innerHTML = '';
         document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
-        window.history.pushState(slug, document.title, slug);
-        //window.history.replaceState(slug, document.title, slug);
+        window.history.replaceState("fw arrow button", document.title, slug);
+        window.history.pushState("back arrow button", document.title, slug);
     }
 
     addActiveLinkToNewActivePageOnDesktop(newActivePageSlug){
