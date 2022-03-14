@@ -22,8 +22,10 @@ class NavigatorEventListener{
     urlRewriter(slug){
         document.getElementById('specific-content').innerHTML = '';
         document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
-        window.history.replaceState("fw arrow button", document.title, slug);
-        window.history.pushState("back arrow button", document.title, slug);
+        //window.history.replaceState("back arrow button", document.title, slug);
+        //window.history.pushState("fw arrow button", document.title, slug);
+        window.history.replaceState(window.location.pathname, document.title, slug);
+        window.history.pushState(slug, document.title, slug);
     }
 
     addActiveLinkToNewActivePageOnDesktop(newActivePageSlug){
