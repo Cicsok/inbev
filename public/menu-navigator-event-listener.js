@@ -77,6 +77,7 @@ class NavigatorEventListener{
         //window.history.pushState("fw arrow button", document.title, slug);
         
         window.history.replaceState(window.location.pathname, document.title, slug);
+        // window.history.pushState(slug, document.title, slug); -- THIS IS THE ONLY CHANGE -> THE FW BUTTON WORKS DUE TO THIS CHANGE
     }
 
 
