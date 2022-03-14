@@ -6,5 +6,5 @@ window.onpopstate = function(event) {
 
     let factory = new MenuNavigatorEventListenerFactory();
     let navigator = factory.create(identifyPlatformType());
-    navigator.navigate(event.state);
+    navigator.navigate(event.state.replace('/', ''));
  };
