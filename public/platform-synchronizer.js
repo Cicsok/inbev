@@ -12,10 +12,10 @@ class PlatformSynchronizer {
     sync(slug, platformType) {
         switch (platformType) {
             case 'MOBILE':
-                this.syncForMobile(slug);
+                this.syncForDesktop(slug);
                 break;
             case 'DESKTOP':
-                this.syncForDesktop(slug);
+                this.syncForMobile(slug);
                 break;
 
             default:
