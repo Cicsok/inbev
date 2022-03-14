@@ -1,6 +1,10 @@
 window.onpopstate = function(event) {
 
-    alert("clicked back button");
+    alert("clicked button");
     alert(event.state);
     alert(event);
- }; history.pushState({}, '');
+
+    let factory = MenuNavigatorEventListenerFactory.createInstance();
+    let navigator = factory.create(identifyPlatformType());
+    navigator.navigate(event.state);
+ };
