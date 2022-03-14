@@ -22,7 +22,7 @@ class NavigatorEventListener{
     urlRewriter(slug){
         document.getElementById('specific-content').innerHTML = '';
         document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
-        window.history.replaceState(null, document.title, slug);
+        window.history.replaceState("cat", document.title, slug);
     }
 
     addActiveLinkToNewActivePageOnDesktop(newActivePageSlug){
