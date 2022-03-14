@@ -5,19 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INBEV</title>
+    <!-- My JS and CSS -->
     <script src="css-and-js-files.js"></script>
   </head>
-  
   <body>
-    <inbev-mobile-header></inbev-mobile-header>
+  
+    <my-mobile-header></my-mobile-header>
     <div class="container">
-      <inbev-desktop-header></inbev-desktop-header> 
+      <my-desktop-header></my-desktop-header> 
     </div>
     <div id="specific-content">
-      <div style="background-color: aqua;">EZ AZ ABOUT ME OLDAL</div>
+      <div class="container" id="about-me-parent">
+          <about-me-content></about-me-content>
+      </div>
     </div>
-    <inbev-desktop-footer></inbev-desktop-footer>
-    <inbev-mobile-footer></inbev-mobile-footer>
+    <my-desktop-footer></my-desktop-footer>
+    <my-mobile-footer></my-mobile-footer>
   
   </body>
 </html>
