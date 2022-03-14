@@ -43,6 +43,9 @@ class NavigatorEventListener{
 
         let slugAndLinkPair = siteConfig.header.pages;
         let newActivePageSlug = Object.keys(slugAndLinkPair).find(key => key == slug);
+        
+        console.log(slugAndLinkPair);
+        console.log(newActivePageSlug);
 
         let platform = identifyPlatformType();
         platform == 'DESKTOP' 
