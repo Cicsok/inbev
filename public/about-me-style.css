@@ -1,0 +1,72 @@
+.about-me-parent{
+    background-color: #F0F0F0;
+}
+
+@media (min-width: 992px) { 
+    
+    /* Desktop */
+    
+    .about-me-title{
+        padding: 4vw;
+        padding-bottom: 2.9vw;
+        font-weight: 450;
+        text-transform: uppercase;
+        font-size: 4.3vw;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .about-me-image{
+        height: 31vw;
+        width: 31vw;
+        border-radius: 100%;
+        margin-bottom: 3.5vw;
+        background-size: cover;
+        min-height: 2vw;
+        background-position: center;
+        border: #707070 solid 1.5px;
+    }
+    
+    .introduction-text{
+        font-size: 2vw;
+        line-height: normal;
+        padding: 0 11.71875vw;
+        padding-bottom: 5.46875vw;
+        font-weight: 400;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+}
+
+@media (max-width: 992px) { 
+
+    /* Mobile */
+
+    .about-me-title{
+        padding: 3.3vw 0;
+        padding-bottom: 6vw;
+        font-weight: 450;
+        text-transform: uppercase;
+        font-size: 5.5vw;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .about-me-image{
+        height: 45vw;
+        width: 45vw;
+        border-radius: 100%;
+        margin-bottom: 4vw;
+        background-size: cover;
+        min-height: 2vw;
+        background-position: center;
+        border: #707070 solid 2px;
+    }
+    
+    .introduction-text{
+        font-size: 4vw;
+        line-height: normal;
+        padding: 0 5vw;
+        padding-bottom: 7.46875vw;
+        font-weight: 400;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+}

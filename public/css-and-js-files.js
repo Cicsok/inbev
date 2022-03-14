@@ -67,5 +67,7 @@ function includeToEveryPages(){
     includeCss('index-style.css');
     includeJavasScript('contact-content.js');
     includeCss('contact-style.css');
+    includeJavasScript('about-me-content.js');
+    includeCss('about-me-style.css');
     includeJavasScript('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js');
 }
