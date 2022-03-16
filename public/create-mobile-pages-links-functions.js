@@ -32,7 +32,6 @@ function createPagesLink(parent, linkContent, classNames, slug){
 function createLinks(parent, linkContent, slug) {
   let currentSlug = window.location.pathname;
   let slugWithoutSlash  = currentSlug.substring(1);
-
   slugWithoutSlash = createActiveLinkPageOnFirstPageLoadMobile(slugWithoutSlash);
   createActiveLinkPageMobile(slug, slugWithoutSlash, parent, linkContent); 
 }
