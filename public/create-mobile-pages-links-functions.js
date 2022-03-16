@@ -31,15 +31,23 @@ function createPagesLink(parent, linkContent, classNames, slug){
 
 function createLinks(parent, linkContent, slug) {
   let currentSlug = window.location.pathname;
-  let neededSlugContent = currentSlug.substring(1);slug+'-page-link-mobile';
+  let neededSlugContent = currentSlug.substring(1);
+
+  firstPageLoadMobile(neededSlugContent);
+  createActiveLinkPageMobile(slug, neededSlugContent, parent, linkContent); 
+}
+
+function firstPageLoadMobile(neededSlugContent){
+  neededSlugContent.length == 0 
+      ? neededSlugContent = 'home-page'
+      : neededSlugContent;
+}
+
+function createActiveLinkPageMobile(slug, neededSlugContent, parent, linkContent){
   let classNameMobile = slug+'-page-link-mobile';
   let className = [classNameMobile, 'nav-link'];
   let classNames = [classNameMobile, 'mobile-active-link', 'nav-link'];
-  neededSlugContent.length == 0 
-  ? neededSlugContent = 'home-page'
-  : neededSlugContent;
-  console.log(neededSlugContent);
-        slug == neededSlugContent 
-        ? createPagesLink(parent, linkContent, classNames, slug)
-        : createPagesLink(parent, linkContent, className, slug);
+  slug == neededSlugContent 
+    ? createPagesLink(parent, linkContent, classNames, slug)
+    : createPagesLink(parent, linkContent, className, slug);
 }
