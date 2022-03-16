@@ -1,8 +1,9 @@
 window.addEventListener('popstate', function(event){
     this.alert(event.state);
+    doSomething()
     
 })
- function doSomething(event) {
+ function doSomething() {
     let factory = new NavigatorEventListener();
     let currentSlug = window.location.pathname.replace('/', '');
     let platformType = identifyPlatformType();
@@ -10,5 +11,5 @@ window.addEventListener('popstate', function(event){
     factory.navigate(currentSlug);
 
     let platformSynchronizer = PlatformSynchronizer.createInstance();
-    platformSynchronizer.sync(event.state.replace('/', ''), platformType);
+    platformSynchronizer.sync(currentSlug, platformType);
  }
