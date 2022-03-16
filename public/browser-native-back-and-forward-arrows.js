@@ -8,10 +8,12 @@ window.onpopstate = function(event) {
  };
 
  function doSomething(event) {
-    let factory = new MenuNavigatorEventListenerFactory();
-    let platformType = identifyPlatformType();
-    let navigator = factory.create(platformType);
-    navigator.navigateForBackArrow(event.state.replace('/', ''));
+    let factory = new NavigatorEventListener();
+
+   //  let platformType = identifyPlatformType();
+   //  let navigator = factory.create(platformType);
+   let currentSlug = window.location.pathname.replace('/', '');
+    factory.urlRewriter(currentSlug);
 
     let platformSynchronizer = PlatformSynchronizer.createInstance();
     platformSynchronizer.sync(event.state.replace('/', ''), platformType);

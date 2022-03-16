@@ -21,12 +21,12 @@ class NavigatorEventListener{
 
     urlRewriter(slug){
         document.getElementById('specific-content').innerHTML = '';
-        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
+        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug +'.html'));
         //window.history.replaceState("back arrow button", document.title, slug);
         //window.history.pushState("fw arrow button", document.title, slug);
-        
-        window.history.replaceState(window.location.pathname, document.title, slug);
-        window.history.pushState(slug, document.title, slug);
+        console.log(slug);
+        // window.history.replaceState(window.location.pathname, document.title, slug+'html');
+        window.history.pushState(null, null, slug);
     }
 
     addActiveLinkToNewActivePageOnDesktop(newActivePageSlug){
@@ -57,6 +57,7 @@ class NavigatorEventListener{
     loadPage(href){
         let xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", href, false);
+        console.log(href);
         xmlhttp.send();
         let parser = new DOMParser();
         let responseDoc = parser.parseFromString (xmlhttp.responseText, "text/html");
@@ -72,11 +73,11 @@ class NavigatorEventListener{
 
     urlRewriterForBackArrow(slug){
         document.getElementById('specific-content').innerHTML = '';
-        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
+        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug+'.html'));
         //window.history.replaceState("back arrow button", document.title, slug);
         //window.history.pushState("fw arrow button", document.title, slug);
         
-        window.history.replaceState(window.location.pathname, document.title, slug);
+        window.history.replaceState(null, null, slug+'.html');
         // window.history.pushState(slug, document.title, slug); -- THIS IS THE ONLY CHANGE -> THE FW BUTTON WORKS DUE TO THIS CHANGE
     }
 
