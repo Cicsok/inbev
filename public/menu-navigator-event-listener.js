@@ -20,13 +20,13 @@ class NavigatorEventListener{
     }
 
     urlRewriter(slug){
+        window.history.pushState(null, null, slug);
         document.getElementById('specific-content').innerHTML = '';
         document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug +'.html'));
         //window.history.replaceState("back arrow button", document.title, slug);
         //window.history.pushState("fw arrow button", document.title, slug);
         console.log(slug);
         // window.history.replaceState(window.location.pathname, document.title, slug+'html');
-        window.history.pushState(null, null, slug);
     }
 
     addActiveLinkToNewActivePageOnDesktop(newActivePageSlug){
