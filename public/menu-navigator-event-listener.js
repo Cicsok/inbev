@@ -20,12 +20,12 @@ class NavigatorEventListener{
     }
 
     urlRewriter(slug){
-        window.history.pushState(null, null, slug);
+        console.log(slug);
+        window.history.pushState(slug, null, slug);
         document.getElementById('specific-content').innerHTML = '';
-        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug +'.html'));
+        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
         //window.history.replaceState("back arrow button", document.title, slug);
         //window.history.pushState("fw arrow button", document.title, slug);
-        console.log(slug);
         // window.history.replaceState(window.location.pathname, document.title, slug+'html');
     }
 
