@@ -102,26 +102,25 @@ function createHeaderPagesLink(parent, link, classNames, slug){
 }
 
 function addInformationsToHeaderPagesLink(parent){
-    let currentSlug = window.location.pathname;
-    let slugWithoutSlash = currentSlug.substring(1);
+    let currentSlug = window.location.pathname.replace('/', '');
     new Map (Object.entries(siteConfig.header.pages)).forEach((link, slug) =>{
-        slugWithoutSlash = createActiveLinkPageOnFirstPageLoad(slugWithoutSlash);
-        createActiveLinkPage(slug, slugWithoutSlash, parent, link);
+        currentSlug = createActiveLinkPageOnFirstPageLoad(currentSlug);
+        createActiveLinkPage(slug, currentSlug, parent, link);
     });
 }
 
-function createActiveLinkPageOnFirstPageLoad(slugWithoutSlash){
-    slugWithoutSlash.length == 0 
-        ? slugWithoutSlash = 'home-page'
-        : slugWithoutSlash;
-    return slugWithoutSlash;
+function createActiveLinkPageOnFirstPageLoad(currentSlug){
+    currentSlug.length == 0 
+        ? currentSlug = 'home-page'
+        : currentSlug;
+    return currentSlug;
 }
 
-function createActiveLinkPage(slug, slugWithoutSlash, parent, link){
+function createActiveLinkPage(slug, currentSlug, parent, link){
     let classNameDesktop = slug+'-page-link';
     let className = [classNameDesktop];
     let classNames = [classNameDesktop, "desktop-active-link"];
-    slug == slugWithoutSlash 
+    slug == currentSlug 
         ? createHeaderPagesLink(parent, link, classNames, slug)
         : createHeaderPagesLink(parent, link, className, slug);
 }
