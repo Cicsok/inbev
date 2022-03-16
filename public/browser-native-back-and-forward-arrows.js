@@ -7,7 +7,7 @@ window.addEventListener('popstate', function(event){
     let currentSlug = window.location.pathname.replace('/', '');
     let platformType = identifyPlatformType();
    //  let navigator = factory.create(platformType);
-    factory.urlRewriter(currentSlug);
+    factory.navigate(currentSlug);
 
     let platformSynchronizer = PlatformSynchronizer.createInstance();
     platformSynchronizer.sync(event.state.replace('/', ''), platformType);
