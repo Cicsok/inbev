@@ -33,7 +33,7 @@ function createLinks(parent, linkContent, slug) {
   let currentSlug = window.location.pathname;
   let neededSlugContent = currentSlug.substring(1);
 
-  firstPageLoadMobile(neededSlugContent);
+  neededSlugContent = firstPageLoadMobile(neededSlugContent);
   createActiveLinkPageMobile(slug, neededSlugContent, parent, linkContent); 
 }
 
@@ -41,6 +41,7 @@ function firstPageLoadMobile(neededSlugContent){
   neededSlugContent.length == 0 
       ? neededSlugContent = 'home-page'
       : neededSlugContent;
+  return neededSlugContent;
 }
 
 function createActiveLinkPageMobile(slug, neededSlugContent, parent, linkContent){
