@@ -1,5 +1,6 @@
-window.addEventListener('popstate', function(){
-    this.alert("KATTINTOTTAM");
+window.addEventListener('popstate', function(event){
+    this.alert(event.state);
+    
 })
  function doSomething(event) {
     let factory = new NavigatorEventListener();
