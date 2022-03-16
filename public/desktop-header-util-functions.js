@@ -105,12 +105,12 @@ function addInformationsToHeaderPagesLink(parent){
     let currentSlug = window.location.pathname;
     let neededSlugContent = currentSlug.substring(1);
     new Map (Object.entries(siteConfig.header.pages)).forEach((link, slug) =>{
-        neededSlugContent = firstPageLoad(neededSlugContent);
+        neededSlugContent = createActiveLinkPageOnFirstPageLoad(neededSlugContent);
         createActiveLinkPage(slug, neededSlugContent, parent, link);
     });
 }
 
-function firstPageLoad(neededSlugContent){
+function createActiveLinkPageOnFirstPageLoad(neededSlugContent){
     neededSlugContent.length == 0 
         ? neededSlugContent = 'home-page'
         : neededSlugContent;

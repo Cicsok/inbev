@@ -5,59 +5,61 @@ function  identifyPagePath(){
 let pathName = identifyPagePath();
 
 // onLocal(pathName);
-onGlobal(pathName);
+// onGlobal(pathName);
 
-function onLocal(pathName){
-    switch (pathName) {
-        case '/public/index.html':
-        case '/public/':
-        case '/public/home-page.html':
-            includeToEveryPages();
-            break;
-        case '/public/about-me.html':
-            includeToEveryPages();
-            console.log('I am on about-me page!');
-            break;
-        case '/public/reference-works.html':
-            includeToEveryPages();
-            console.log('I am on reference-works page!');
-            break;
-        case '/public/contact.html':
-            includeToEveryPages();
-            console.log('I am on contact page!');
-            break;
-        default:
-            console.log('The path you entered does not exist!');
-            console.log("PathName: "+ pathName);
-            break;
-    }
-}
+// function onLocal(pathName){
+//     switch (pathName) {
+//         case '/public/index.html':
+//         case '/public/':
+//         case '/public/home-page.html':
+//             includeToEveryPages();
+//             break;
+//         case '/public/about-me.html':
+//             includeToEveryPages();
+//             console.log('I am on about-me page!');
+//             break;
+//         case '/public/reference-works.html':
+//             includeToEveryPages();
+//             console.log('I am on reference-works page!');
+//             break;
+//         case '/public/contact.html':
+//             includeToEveryPages();
+//             console.log('I am on contact page!');
+//             break;
+//         default:
+//             console.log('The path you entered does not exist!');
+//             console.log("PathName: "+ pathName);
+//             break;
+//     }
+// }
 
-function onGlobal(pathName){
-    switch (pathName) {
-        case '/index':
-        case '/':
-        case '/home-page':
-            includeToEveryPages();
-            break;
-        case '/about-me':
-            includeToEveryPages();
-            console.log('I am on about-me page!');
-            break;
-         case '/reference-works':
-            includeToEveryPages();
-            console.log('I am on reference-works page!');
-            break;
-         case '/contact':
-            includeToEveryPages();
-            console.log('I am on contact page!');
-            break;
-        default:
-            console.log('The path you entered does not exist!');
-            console.log("PathName: "+ pathName);
-            break;
-    }
-}
+// function onGlobal(pathName){
+//     switch (pathName) {
+//         case '/index':
+//         case '/':
+//         case '/home-page':
+//             includeToEveryPages();
+//             break;
+//         case '/about-me':
+//             includeToEveryPages();
+//             console.log('I am on about-me page!');
+//             break;
+//          case '/reference-works':
+//             includeToEveryPages();
+//             console.log('I am on reference-works page!');
+//             break;
+//          case '/contact':
+//             includeToEveryPages();
+//             console.log('I am on contact page!');
+//             break;
+//         default:
+//             console.log('The path you entered does not exist!');
+//             console.log("PathName: "+ pathName);
+//             break;
+//     }
+// }
+
+includeToEveryPages();
 
 function includeJavasScript(file) {
     var script = document.createElement('script');
