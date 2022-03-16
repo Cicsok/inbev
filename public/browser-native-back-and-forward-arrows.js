@@ -8,9 +8,8 @@ window.onpopstate = function(event) {
  function doSomething(event) {
     let factory = new NavigatorEventListener();
 
-   //  let platformType = identifyPlatformType();
+    let platformType = identifyPlatformType();
    //  let navigator = factory.create(platformType);
-   let currentSlug = window.location.pathname.replace('/', '');
     console.log(event.state);
     factory.urlRewriter(event.state);
 
