@@ -109,6 +109,9 @@ function addInformationsToHeaderPagesLink(parent){
         let className = [classNameDesktop];
         let classNames = [classNameDesktop, "desktop-active-link"];
         console.log(neededSlugContent);
+        neededSlugContent.length == 0 
+        ? neededSlugContent = 'home-page'
+        : neededSlugContent;
         slug == neededSlugContent 
         ? createHeaderPagesLink(parent, link, classNames, slug)
         : createHeaderPagesLink(parent, link, className, slug);

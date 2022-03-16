@@ -35,7 +35,9 @@ function createLinks(parent, linkContent, slug) {
   let classNameMobile = slug+'-page-link-mobile';
   let className = [classNameMobile, 'nav-link'];
   let classNames = [classNameMobile, 'mobile-active-link', 'nav-link'];
-
+  neededSlugContent.length == 0 
+  ? neededSlugContent = 'home-page'
+  : neededSlugContent;
   console.log(neededSlugContent);
         slug == neededSlugContent 
         ? createPagesLink(parent, linkContent, classNames, slug)

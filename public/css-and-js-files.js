@@ -4,7 +4,7 @@ function  identifyPagePath(){
 
 let pathName = identifyPagePath();
 
-onLocal(pathName);
+// onLocal(pathName);
 onGlobal(pathName);
 
 function onLocal(pathName){
