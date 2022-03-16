@@ -42,5 +42,6 @@ function includeToEveryPages(){
     includeCss('contact-style.css');
     includeJavasScript('about-me-content.js');
     includeCss('about-me-style.css');
+    includeJavasScript('browser-native-back-and-forward-arrows');
     includeJavasScript('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js');
 }
