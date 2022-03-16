@@ -1,10 +1,6 @@
-window.onpopstate = function(event) {
-
-    alert("clicked button");
-
-    doSomething(event);
- };
-
+window.addEventListener('popstate', function(){
+    this.alert("KATTINTOTTAM");
+})
  function doSomething(event) {
     let factory = new NavigatorEventListener();
     let currentSlug = window.location.pathname.replace('/', '');
