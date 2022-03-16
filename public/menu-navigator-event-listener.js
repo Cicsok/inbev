@@ -21,9 +21,9 @@ class NavigatorEventListener{
 
     urlRewriter(slug){
         console.log(slug);
-        window.history.pushState(null, null, slug);
         document.getElementById('specific-content').innerHTML = '';
         document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
+        window.history.pushState(null, null, slug);
         // window.history.replaceState(window.location.pathname, document.title, slug+'html');
     }
 
@@ -53,6 +53,7 @@ class NavigatorEventListener{
     }
 
     loadPage(href){
+        console.log("ONLOADBA LÉPTEM!")
         let xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", href, false);
         console.log(href);
@@ -60,6 +61,7 @@ class NavigatorEventListener{
         let parser = new DOMParser();
         let responseDoc = parser.parseFromString (xmlhttp.responseText, "text/html");
         let specificContent = responseDoc.getElementById('specific-content');
+        console.log(specificContent);
         return specificContent;
     }
 
