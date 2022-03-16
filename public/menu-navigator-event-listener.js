@@ -21,11 +21,12 @@ class NavigatorEventListener{
 
     urlRewriter(slug){
         document.getElementById('specific-content').innerHTML = '';
-        // USE COMMENTED ROW WHEN YOU ARE TESTING ON LOCAL
-        // document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/public/' + slug + '.html'));
-        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
-        // window.history.replaceState(null, document.title, slug+'.html');
-        window.history.replaceState(null, document.title, slug);
+        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug +'.html'));
+        //window.history.replaceState("back arrow button", document.title, slug);
+        //window.history.pushState("fw arrow button", document.title, slug);
+        console.log(slug);
+        // window.history.replaceState(window.location.pathname, document.title, slug+'html');
+        window.history.pushState(null, null, slug);
     }
 
     addActiveLinkToNewActivePageOnDesktop(newActivePageSlug){
@@ -43,6 +44,9 @@ class NavigatorEventListener{
 
         let slugAndLinkPair = siteConfig.header.pages;
         let newActivePageSlug = Object.keys(slugAndLinkPair).find(key => key == slug);
+        
+        console.log(slugAndLinkPair);
+        console.log(newActivePageSlug);
 
         let platform = identifyPlatformType();
         platform == 'DESKTOP' 
@@ -53,11 +57,46 @@ class NavigatorEventListener{
     loadPage(href){
         let xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", href, false);
+        console.log(href);
         xmlhttp.send();
         let parser = new DOMParser();
         let responseDoc = parser.parseFromString (xmlhttp.responseText, "text/html");
         let specificContent = responseDoc.getElementById('specific-content');
         return specificContent;
+    }
+
+
+
+
+
+
+
+    urlRewriterForBackArrow(slug){
+        document.getElementById('specific-content').innerHTML = '';
+        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug+'.html'));
+        //window.history.replaceState("back arrow button", document.title, slug);
+        //window.history.pushState("fw arrow button", document.title, slug);
+        
+        window.history.replaceState(null, null, slug+'.html');
+        // window.history.pushState(slug, document.title, slug); -- THIS IS THE ONLY CHANGE -> THE FW BUTTON WORKS DUE TO THIS CHANGE
+    }
+
+
+    navigateForBackArrow(slug){
+        this.urlRewriterForBackArrow(slug);
+   
+        document.getElementsByClassName(this.activeLinkClassName)[0].classList.remove(this.activeLinkClassName);
+
+        let slugAndLinkPair = siteConfig.header.pages;
+        let newActivePageSlug = Object.keys(slugAndLinkPair).find(key => key == slug);
+        
+        console.log(slugAndLinkPair);
+        console.log(newActivePageSlug);
+
+        let platform = identifyPlatformType();
+        platform == 'DESKTOP' 
+        ? this.addActiveLinkToNewActivePageOnDesktop(newActivePageSlug)
+        : this.addActiveLinkToNewActivePageOnMobile(newActivePageSlug);
     }
 }
 
