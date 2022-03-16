@@ -37,7 +37,7 @@ function createLinks(parent, linkContent, slug) {
   createActiveLinkPageMobile(slug, slugWithoutSlash, parent, linkContent); 
 }
 
-function createActiveLinkPageOnFirstPageLoad(slugWithoutSlash){
+function createActiveLinkPageOnFirstPageLoadMobile(slugWithoutSlash){
   slugWithoutSlash.length == 0 
       ? slugWithoutSlash = 'home-page'
       : slugWithoutSlash;
