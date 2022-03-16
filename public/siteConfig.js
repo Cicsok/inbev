@@ -32,6 +32,7 @@ const siteConfig = {
     pages:{
       // don't override the the key!
       "home-page": "Főoldal",
+      "/": "Főoldal",
       "about-me": "Bemutatkozás",
       "reference-works": "Referencia munkáim",
       "contact": "Kapcsolat",
