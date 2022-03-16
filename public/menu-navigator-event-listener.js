@@ -22,10 +22,10 @@ class NavigatorEventListener{
     urlRewriter(slug){
         document.getElementById('specific-content').innerHTML = '';
         // USE COMMENTED ROW WHEN YOU ARE TESTING ON LOCAL
-        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/public/' + slug + '.html'));
-        // document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
-        window.history.replaceState(null, document.title, slug+'.html');
-        // window.history.replaceState(null, document.title, slug);
+        // document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/public/' + slug + '.html'));
+        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
+        // window.history.replaceState(null, document.title, slug+'.html');
+        window.history.replaceState(null, document.title, slug);
     }
 
     addActiveLinkToNewActivePageOnDesktop(newActivePageSlug){
