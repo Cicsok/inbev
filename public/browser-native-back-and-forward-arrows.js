@@ -11,6 +11,7 @@ window.onpopstate = function(event) {
    //  let platformType = identifyPlatformType();
    //  let navigator = factory.create(platformType);
    let currentSlug = window.location.pathname.replace('/', '');
+    console.log(event.state);
     factory.urlRewriter(event.state);
 
     let platformSynchronizer = PlatformSynchronizer.createInstance();
