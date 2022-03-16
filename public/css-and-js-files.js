@@ -4,25 +4,32 @@ function  identifyPagePath(){
 
 let pathName = identifyPagePath();
 switch (pathName) {
-    case '/index':
-    case '/':
-    case '/home-page':
+    // USE COMMENTED CASES WHEN YOU ARE TESTING ON LOCAL AND COMMENTED OUT ACTIVE CASES
+    case '/public/index.html':
+    case '/public/':
+    case '/public/home-page.html':
+    // case '/index':
+    // case '/':
+    // case '/home-page':
         includeToEveryPages();
         break;
-    case '/about-me':
+    case '/public/about-me.html':
+    // case '/about-me':
         includeToEveryPages();
         console.log('I am on about-me page!');
         break;
-    case '/reference-works':
+    case '/public/reference-works.html':
+    //  case '/reference-works':
         includeToEveryPages();
         console.log('I am on reference-works page!');
         break;
-    case '/contact':
+    case '/public/contact.html':
+    //  case '/contact':
         includeToEveryPages();
         console.log('I am on contact page!');
         break;
     default:
-        console.log('The path you entered does not exist!')
+        console.log('The path you entered does not exist!');
         console.log("PathName: "+ pathName);
         break;
 }

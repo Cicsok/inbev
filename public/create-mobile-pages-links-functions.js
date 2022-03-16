@@ -22,7 +22,7 @@ function createPagesLink(parent, linkContent, classNames, slug){
   link.innerHTML = linkContent;
 
 
-  let menuNavigatorEventListener = new MenuNavigatorEventListener("mobile-active-link");
+  let menuNavigatorEventListener = new MenuNavigatorEventListenerFactory().create('MOBILE');
   let platformSynchronizer = PlatformSynchronizer.createInstance();
 
   link.addEventListener('click', function (){menuNavigatorEventListener.navigate(slug, link)});
@@ -33,8 +33,7 @@ function createPagesLink(parent, linkContent, classNames, slug){
 
 function createLinks(parent, linkContent, slug) {
   let currentSlug = window.location.pathname;
-  let end = currentSlug.length+1;
-  let neededSlugContent = currentSlug.substring(1, end);
+  let neededSlugContent = currentSlug.substring(1);
   let className = [slug+'-page-link-mobile', 'nav-link'];
   let classNames = [className, 'mobile-active-link', 'nav-link'];
 
