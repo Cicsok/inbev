@@ -31,24 +31,24 @@ function createPagesLink(parent, linkContent, classNames, slug){
 
 function createLinks(parent, linkContent, slug) {
   let currentSlug = window.location.pathname;
-  let neededSlugContent = currentSlug.substring(1);
+  let slugWithoutSlash  = currentSlug.substring(1);
 
-  neededSlugContent = createActiveLinkPageOnFirstPageLoadMobile(neededSlugContent);
-  createActiveLinkPageMobile(slug, neededSlugContent, parent, linkContent); 
+  slugWithoutSlash = createActiveLinkPageOnFirstPageLoadMobile(slugWithoutSlash);
+  createActiveLinkPageMobile(slug, slugWithoutSlash, parent, linkContent); 
 }
 
-function createActiveLinkPageOnFirstPageLoad(neededSlugContent){
-  neededSlugContent.length == 0 
-      ? neededSlugContent = 'home-page'
-      : neededSlugContent;
-  return neededSlugContent;
+function createActiveLinkPageOnFirstPageLoad(slugWithoutSlash){
+  slugWithoutSlash.length == 0 
+      ? slugWithoutSlash = 'home-page'
+      : slugWithoutSlash;
+  return slugWithoutSlash;
 }
 
-function createActiveLinkPageMobile(slug, neededSlugContent, parent, linkContent){
+function createActiveLinkPageMobile(slug, slugWithoutSlash, parent, linkContent){
   let classNameMobile = slug+'-page-link-mobile';
-  let className = [classNameMobile, 'nav-link'];
-  let classNames = [classNameMobile, 'mobile-active-link', 'nav-link'];
-  slug == neededSlugContent 
-    ? createPagesLink(parent, linkContent, classNames, slug)
-    : createPagesLink(parent, linkContent, className, slug);
+  let classNames = [classNameMobile, 'nav-link'];
+  let ClassNamesWithActiveClass = [classNameMobile, 'mobile-active-link', 'nav-link'];
+  slug == slugWithoutSlash 
+    ? createPagesLink(parent, linkContent, ClassNamesWithActiveClass, slug)
+    : createPagesLink(parent, linkContent, classNames, slug);
 }
