@@ -36,10 +36,13 @@ nav {
     font-size: 5vw;
 }
 
-
 .nav-item > a:hover {
     color: #F1BF11;
     cursor: pointer;
+}
+
+.nav-item{
+    margin-top: 2.5vw;
 }
 
 .mobile-active-link, .mobile-active-link > a{
