@@ -9,12 +9,12 @@ function initMyMobileHeader(element) {
   element.innerHTML = `
     <nav class="navbar navbar-expand-lg d-xs-block d-lg-none">
       <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon d-flex align-items-center">
-            <i class="fas fa-bars mx-auto"></i>
-          </span>
-        </button>
         <a class="navbar-brand mx-auto" id="logo-wrap">
+          <button class="navbar-toggler py-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon d-flex align-items-center">
+              <i class="fas fa-bars mx-auto"></i>
+            </span>
+          </button>
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="nav-items-div">
@@ -32,17 +32,18 @@ function createMobileHeader() {
 function createLogoToMobileHeader(slug) {
   parent = document.getElementById('logo-wrap');
 
-  let logoNavigator = new MenuNavigatorEventListenerFactory().create('MOBILE');
-  let platformSynchronizer = PlatformSynchronizer.createInstance();
-
-  parent.addEventListener('click', function () { logoNavigator.navigate(slug) });
-  parent.addEventListener('click', function () { platformSynchronizer.syncForDesktop(slug) });
-
+  
   let logoImg = siteConfig.header.headerLogo;
   let logo = createNode('img');
   logo.src = logoImg;
   logo.classList.add('my-logo');
   logo.alt = 'Az INBE.V. logója';
+  
+  let logoNavigator = new MenuNavigatorEventListenerFactory().create('MOBILE');
+  let platformSynchronizer = PlatformSynchronizer.createInstance();
+
+  logo.addEventListener('click', function () { logoNavigator.navigate(slug) });
+  logo.addEventListener('click', function () { platformSynchronizer.syncForDesktop(slug) });
 
   append(parent, logo);
 }
