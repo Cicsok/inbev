@@ -1,31 +1,4 @@
-function  identifyPagePath(){
-    return window.location.pathname;
-}
-
-let pathName = identifyPagePath();
-switch (pathName) {
-    case '/index':
-    case '/':
-    case '/home-page':
-        includeToEveryPages();
-        break;
-    case '/about-me':
-        includeToEveryPages();
-        console.log('I am on about-me page!');
-        break;
-    case '/reference-works':
-        includeToEveryPages();
-        console.log('I am on reference-works page!');
-        break;
-    case '/contact':
-        includeToEveryPages();
-        console.log('I am on contact page!');
-        break;
-    default:
-        console.log('The path you entered does not exist!')
-        console.log("PathName: "+ pathName);
-        break;
-}
+includeToEveryPages();
 
 function includeJavasScript(file) {
     var script = document.createElement('script');
