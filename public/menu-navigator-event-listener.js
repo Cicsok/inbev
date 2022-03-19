@@ -21,6 +21,8 @@ class NavigatorEventListener{
 
     urlRewriter(slug){
         document.getElementById('specific-content').innerHTML = '';
+        // USE COMMENTED ROW WHEN YOU ARE TESTING ON LOCAL
+        // document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/public/' + slug + '.html'));
         document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
         //window.history.replaceState("back arrow button", document.title, slug);
         //window.history.pushState("fw arrow button", document.title, slug);

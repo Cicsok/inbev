@@ -1,20 +1,8 @@
 function createLinksToMobileHeader(parent) {
-  let activePageLink = siteConfig.header.activePageLink;
-  let linkDiv = null;
+  let linkDiv = createNavItem(parent);
   new Map(Object.entries(siteConfig.header.pages)).forEach((link, slug) => {
-    link == activePageLink
-      ? linkDiv = createFirstNavItem(parent)
-      : linkDiv = createNavItem(parent);
     createLinks(linkDiv, link, slug);
   })
-}
-
-function createFirstNavItem() {
-  let navItem = createNode('li');
-  navItem.classList.add('nav-item', 'active', 'mobile-active-link');
-  navItem.setAttribute('aria-current', 'page');
-  append(parent, navItem);
-  return navItem;
 }
 
 function createNavItem(parent) {
@@ -24,17 +12,41 @@ function createNavItem(parent) {
   return navItem;
 }
 
-function createLinks(parent, linkContent, slug) {
+function createPagesLink(parent, linkContent, classNames, slug){
   let link = createNode('a');
-  let className = slug+'-page-link-mobile';
-  link.classList.add(className, 'nav-link');
+  classNames.forEach((className) => {
+    link.classList.add(className);
+  })  
   link.innerHTML = linkContent;
 
-  let menuNavigator = new MenuNavigatorEventListenerFactory().create('MOBILE');
+
+  let menuNavigatorEventListener = new MenuNavigatorEventListenerFactory().create('MOBILE');
   let platformSynchronizer = PlatformSynchronizer.createInstance();
 
-  link.addEventListener('click', function (){menuNavigator.navigate(slug)});
+  link.addEventListener('click', function (){menuNavigatorEventListener.navigate(slug, link)});
   link.addEventListener('click', function (){platformSynchronizer.syncForDesktop(slug)});
 
   append(parent, link);
+}
+
+function createLinks(parent, linkContent, slug) {
+  let currentSlug = window.location.pathname.replace('/', '');
+  currentSlug = createActiveLinkPageOnFirstPageLoadMobile(currentSlug);
+  createActiveLinkPageMobile(slug, currentSlug, parent, linkContent); 
+}
+
+function createActiveLinkPageOnFirstPageLoadMobile(currentSlug){
+  currentSlug.length == 0 
+      ? currentSlug = 'home-page'
+      : currentSlug;
+  return currentSlug;
+}
+
+function createActiveLinkPageMobile(slug, currentSlug, parent, linkContent){
+  let classNameMobile = slug+'-page-link-mobile';
+  let classNames = [classNameMobile, 'nav-link'];
+  let ClassNamesWithActiveClass = [classNameMobile, 'mobile-active-link', 'nav-link'];
+  slug == currentSlug 
+    ? createPagesLink(parent, linkContent, ClassNamesWithActiveClass, slug)
+    : createPagesLink(parent, linkContent, classNames, slug);
 }

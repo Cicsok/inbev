@@ -1,6 +1,7 @@
 .my-logo{
     width: 30vw;
-    height: 10vw;
+    height: 9vw;
+    margin-right: 10.5%;
 }
 
 nav {
@@ -11,11 +12,16 @@ nav {
     padding: 8vw 0vw;
 }
 
+#logo-wrap{
+    display: flex;
+    justify-content: space-between;
+}
+
 .navbar-toggler {
     font-size: 3vw;
-    padding: 1.5vw 1.5vw;
+    padding: 0vw 2.5vw;
     border-color:#BFBFBF;
-    margin-left: 2vw;
+    margin-left: -68.5%;
 }
 
 .nav-link, .nav-link:visited, .nav-link:hover{
@@ -27,13 +33,16 @@ nav {
 
 .fa-bars{
     color: #BFBFBF;
-    font-size: 4vw;
+    font-size: 5vw;
 }
-
 
 .nav-item > a:hover {
     color: #F1BF11;
     cursor: pointer;
+}
+
+.nav-item{
+    margin-top: 2.5vw;
 }
 
 .mobile-active-link, .mobile-active-link > a{

@@ -102,14 +102,27 @@ function createHeaderPagesLink(parent, link, classNames, slug){
 }
 
 function addInformationsToHeaderPagesLink(parent){
+    let currentSlug = window.location.pathname.replace('/', '');
     new Map (Object.entries(siteConfig.header.pages)).forEach((link, slug) =>{
-        let activePageLink = siteConfig.header.activePageLink;
-        let className = [slug+'-page-link'];
-        let classNames = [className, "desktop-active-link"]
-        activePageLink == link 
+        currentSlug = createActiveLinkPageOnFirstPageLoad(currentSlug);
+        createActiveLinkPage(slug, currentSlug, parent, link);
+    });
+}
+
+function createActiveLinkPageOnFirstPageLoad(currentSlug){
+    currentSlug.length == 0 
+        ? currentSlug = 'home-page'
+        : currentSlug;
+    return currentSlug;
+}
+
+function createActiveLinkPage(slug, currentSlug, parent, link){
+    let classNameDesktop = slug+'-page-link';
+    let className = [classNameDesktop];
+    let classNames = [classNameDesktop, "desktop-active-link"];
+    slug == currentSlug 
         ? createHeaderPagesLink(parent, link, classNames, slug)
         : createHeaderPagesLink(parent, link, className, slug);
-    });
 }
 
 function addHeaderInformations(parent, informationContent, className){
