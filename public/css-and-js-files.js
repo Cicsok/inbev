@@ -18,6 +18,7 @@ function includeCss(file) {
 function includeToEveryPages(){
     includeJavasScript('siteConfig.js');
     includeJavasScript('node-functions.js');
+    includeJavasScript('navigation-history.js');
     includeJavasScript('menu-navigator-event-listener.js');
     includeJavasScript('platform-synchronizer.js');
     includeJavasScript('desktop-header-util-functions.js');
@@ -29,7 +30,6 @@ function includeToEveryPages(){
     includeJavasScript('desktop-footer.js');
     includeJavasScript('mobile-footer.js');
     includeJavasScript('browser-native-back-and-forward-arrows.js');
-    includeJavasScript('navigation-history.js');
     includeCss('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;800&display=swap');
     includeCss('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css');
     includeCss('mobile-header-style.css');
