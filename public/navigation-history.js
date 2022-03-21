@@ -48,7 +48,7 @@ class NavigationHistoryController {
     }
 
     invalidateUnreachableHistoryData() {
-        this.data = this.data.slice(this.index, this.data.length);
+        this.data = this.data.slice(0, this.index);
     }
 
     calculateNewIndex() {
