@@ -17,6 +17,7 @@ class MenuNavigatorEventListenerFactory{
 class NavigatorEventListener{
     constructor(activeLinkClassName){
         this.activeLinkClassName = activeLinkClassName;
+        this.navigationHistoryController = NavigatorHistoryControllerFactory.getInstance();
     }
 
     urlRewriter(slug){
@@ -28,7 +29,11 @@ class NavigatorEventListener{
         //window.history.pushState("fw arrow button", document.title, slug);
         
         window.history.replaceState(window.location.pathname, document.title, slug);
-        window.history.pushState(slug, document.title, slug);
+
+        this.navigationHistoryController.update("PAGE_NAVIGATION_BY_MENU", slug);
+        console.log(this.navigationHistoryController);
+
+        //window.history.pushState(slug, document.title, slug);
     }
 
     addActiveLinkToNewActivePageOnDesktop(newActivePageSlug){

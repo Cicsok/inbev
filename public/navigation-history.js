@@ -1,8 +1,8 @@
-var NavigatorHistoryFactory = (function () {
+var NavigatorHistoryControllerFactory = (function () {
     var instance;
 
     function createInstance() {
-        return new NavigatorHistory();
+        return new NavigationHistoryController();
     }
 
     return {
@@ -15,9 +15,7 @@ var NavigatorHistoryFactory = (function () {
     };
 })();
 
-
-
-class NavigatorHistory {
+class NavigationHistoryController {
 
      constructor() {
         this.data = [];
@@ -31,6 +29,7 @@ class NavigatorHistory {
     update(event, element) {
         switch (event) {
             case "PAGE_NAVIGATION_BY_MENU":
+                this.invalidateUnreachableHistoryData();
                 let newIndex = this.calculateNewIndex();
                 this.add(newIndex, element);
                 this.moveIndexToEnd();
@@ -46,6 +45,10 @@ class NavigatorHistory {
 
     add(newIndex, element) {
         this.data[newIndex] = element;
+    }
+
+    invalidateUnreachableHistoryData() {
+        this.data = this.data.slice(this.index, this.data.length);
     }
 
     calculateNewIndex() {
