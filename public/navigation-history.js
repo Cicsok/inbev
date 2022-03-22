@@ -29,7 +29,7 @@ class NavigationHistoryController {
     update(event, element) {
         switch (event) {
             case "PAGE_NAVIGATION_BY_MENU":
-                this.invalidateUnreachableHistoryData();
+                //this.invalidateUnreachableHistoryData();
                 let newIndex = this.calculateNewIndex();
                 this.add(newIndex, element);
                 this.moveIndexToEnd();
