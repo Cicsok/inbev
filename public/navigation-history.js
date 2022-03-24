@@ -31,7 +31,7 @@ class NavigationHistoryController {
             case "PAGE_NAVIGATION_BY_MENU":
                 this.invalidateUnreachableHistoryData();
                 let newIndex = this.calculateNewIndex();
-                this.add(newIndex, element);
+                this.addNewElement(newIndex, element);
                 this.moveIndexToEnd();
                 break;
             case "PAGE_NAVIGATION_BY_BROWSER_NATIVE_BACK_ARROW_BUTTON":
@@ -43,8 +43,12 @@ class NavigationHistoryController {
         }
     }
 
-    add(newIndex, element) {
-        this.data[newIndex] = element;
+    addNewElement(newIndex, element) {
+        let lastNavigationElement = this.retrieve();
+        if (lastNavigationElement != element) {
+            this.data[newIndex] = element;
+        }
+
     }
 
     invalidateUnreachableHistoryData() {
@@ -60,16 +64,14 @@ class NavigationHistoryController {
     }
 
     moveIndexBack() {
-        if(this.index > 0)
-        {
+        if(this.index > 0) {
             this.index -= 1;
         }
     }
     
     moveIndexForward() {
-       if(this.index < this.data.length-1)
-        {
+       if(this.index < this.data.length-1) {
             this.index += 1;
-        }
+       }
     }
 }
