@@ -30,7 +30,7 @@ class NavigatorEventListener{
         
         window.history.replaceState(window.location.pathname, document.title, slug);
 
-        //this.navigationHistoryController.update("PAGE_NAVIGATION_BY_MENU", slug);
+        this.navigationHistoryController.update("PAGE_NAVIGATION_BY_MENU", slug);
         console.log(this.navigationHistoryController);
 
         //window.history.pushState(slug, document.title, slug);

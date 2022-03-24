@@ -4,7 +4,7 @@ window.onpopstate = function(event) {
     alert(event.state);
     alert(event);
 
-    doSomething(event);
+    //doSomething(event);
  };
 
  function doSomething(event) {
