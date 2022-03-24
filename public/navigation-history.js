@@ -29,7 +29,7 @@ class NavigationHistoryController {
     update(event, element) {
         switch (event) {
             case "PAGE_NAVIGATION_BY_MENU":
-                //this.invalidateUnreachableHistoryData();
+                this.invalidateUnreachableHistoryData();
                 let newIndex = this.calculateNewIndex();
                 this.add(newIndex, element);
                 this.moveIndexToEnd();
@@ -48,7 +48,7 @@ class NavigationHistoryController {
     }
 
     invalidateUnreachableHistoryData() {
-        this.data = this.data.slice(0, this.index);
+        this.data = this.data.slice(0, this.index+1);
     }
 
     calculateNewIndex() {
@@ -60,10 +60,16 @@ class NavigationHistoryController {
     }
 
     moveIndexBack() {
-        this.index -= 1;
+        if(this.index > 0)
+        {
+            this.index -= 1;
+        }
     }
-
+    
     moveIndexForward() {
-        this.index += 1;
+       if(this.index < this.data.length-1)
+        {
+            this.index += 1;
+        }
     }
 }
