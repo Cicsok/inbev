@@ -17,7 +17,7 @@ class MenuNavigatorEventListenerFactory{
 class NavigatorEventListener{
     constructor(activeLinkClassName){
         this.activeLinkClassName = activeLinkClassName;
-        this.navigationHistoryController = NavigatorHistoryControllerFactory.getInstance();
+        //this.navigationHistoryController = NavigatorHistoryControllerFactory.getInstance();
     }
 
     urlRewriter(slug){
@@ -31,7 +31,7 @@ class NavigatorEventListener{
         window.history.replaceState(window.location.pathname, document.title, slug);
 
         //this.navigationHistoryController.update("PAGE_NAVIGATION_BY_MENU", slug);
-        console.log(this.navigationHistoryController);
+       // console.log(this.navigationHistoryController);
 
         //window.history.pushState(slug, document.title, slug);
     }
