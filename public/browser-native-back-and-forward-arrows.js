@@ -2,7 +2,7 @@ window.addEventListener("popstate", function(e) { // if a back or forward button
 
     alert("clicked button");
 
-}
+});
 
  function doSomething(event) {
     let factory = new MenuNavigatorEventListenerFactory();
