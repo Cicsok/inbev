@@ -1,11 +1,8 @@
-window.onpopstate = function(event) {
+window.addEventListener("popstate", function(e) { // if a back or forward button is clicked
 
     alert("clicked button");
-    alert(event.state);
-    alert(event);
 
-    //doSomething(event);
- };
+}
 
  function doSomething(event) {
     let factory = new MenuNavigatorEventListenerFactory();
