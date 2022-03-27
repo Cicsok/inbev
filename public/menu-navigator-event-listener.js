@@ -33,7 +33,7 @@ class NavigatorEventListener{
 
 
         let hash = Math.random().toString(36).substr(2, 5);
-        window.location.hash = hash;
+        window.location.hash = "#!" + hash;
         console.log("Hash: ");
         console.log(hash);
         this.navigationHistoryController.update("PAGE_NAVIGATION_BY_MENU", slug, hash);
