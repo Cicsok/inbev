@@ -28,7 +28,7 @@ class NavigatorEventListener{
         //window.history.replaceState("back arrow button", document.title, slug);
         //window.history.pushState("fw arrow button", document.title, slug);
         
-        window.history.replaceState(window.location.pathname, document.title, slug);
+        //window.history.replaceState(window.location.pathname, document.title, slug);
 
 
         let hash = Math.random().toString(36).substr(2, 5);
@@ -90,9 +90,13 @@ class NavigatorEventListener{
         document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
         //window.history.replaceState("back arrow button", document.title, slug);
         //window.history.pushState("fw arrow button", document.title, slug);
-        
+
+
+        let state = { slug: slug, hash: self.window.name};
+        window.history.pushState(state, document.title, slug);
+
         window.history.replaceState(window.location.pathname, document.title, slug);
-        window.history.pushState(slug, document.title, slug); //-- THIS IS THE ONLY CHANGE -> THE FW BUTTON WORKS DUE TO THIS CHANGE
+        window.history.pushState(state, document.title, slug); //-- THIS IS THE ONLY CHANGE -> THE FW BUTTON WORKS DUE TO THIS CHANGE
     }
 
 
