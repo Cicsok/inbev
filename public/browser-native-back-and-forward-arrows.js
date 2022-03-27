@@ -16,4 +16,6 @@ window.onpopstate = function(event) {
 
     let platformSynchronizer = PlatformSynchronizer.createInstance();
     platformSynchronizer.sync(event.state.slug.replace('/', ''), platformType);
+
+    self.window.name = event.state.hash;
  }
