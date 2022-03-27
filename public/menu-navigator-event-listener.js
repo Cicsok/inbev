@@ -94,7 +94,7 @@ class NavigatorEventListener{
 
         window.history.replaceState(window.location.pathname, document.title, slug);
         let state = { slug: slug, hash: self.window.name};
-        window.history.pushState(state, document.title, slug);
+        //window.history.pushState(state, document.title, slug);
 
 
         //window.history.pushState(state, document.title, slug); //-- THIS IS THE ONLY CHANGE -> THE FW BUTTON WORKS DUE TO THIS CHANGE
