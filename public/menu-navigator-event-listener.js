@@ -30,7 +30,6 @@ class NavigatorEventListener{
         
         //window.history.replaceState(window.location.pathname, document.title, slug);
 
-        window.history.pushState(slug, document.title, slug);
 
         let hash = Math.random().toString(36).substr(2, 5);
         self.window.name = hash;
@@ -40,7 +39,8 @@ class NavigatorEventListener{
         console.log(this.navigationHistoryController);
         console.log("=========================")
 
-
+        let state = { slug: slug, hash: hash};
+        window.history.pushState(state, document.title, slug);
 
     }
 
