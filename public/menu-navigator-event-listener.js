@@ -92,8 +92,9 @@ class NavigatorEventListener{
         //window.history.replaceState("back arrow button", document.title, slug);
         //window.history.pushState("fw arrow button", document.title, slug);
 
-        window.history.replaceState(window.location.pathname, document.title, slug);
+
         let state = { slug: slug, hash: self.window.name};
+        window.history.replaceState(state, document.title, slug);
         //window.history.pushState(state, document.title, slug);
 
 
