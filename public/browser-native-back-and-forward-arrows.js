@@ -7,15 +7,6 @@ window.onpopstate = function(event) {
     doSomething(event);
  };
 
- window.onpushstate = function(event) {
-
-     alert("clicked button - push");
-     alert(event.state);
-     alert(event);
-
-     //doSomething(event);
-  };
-
  function doSomething(event) {
     let factory = new MenuNavigatorEventListenerFactory();
     let platformType = identifyPlatformType();
