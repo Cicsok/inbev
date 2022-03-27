@@ -28,7 +28,7 @@ class NavigatorEventListener{
         //window.history.replaceState("back arrow button", document.title, slug);
         //window.history.pushState("fw arrow button", document.title, slug);
         
-        window.history.replaceState(window.location.pathname, document.title, slug);
+
 
 
 
@@ -40,6 +40,7 @@ class NavigatorEventListener{
         console.log(this.navigationHistoryController);
         console.log("=========================")
 
+        window.history.replaceState(window.location.pathname, document.title, slug);
         window.history.pushState(slug, document.title, slug);
     }
 
