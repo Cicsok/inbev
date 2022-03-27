@@ -1,7 +1,8 @@
 window.onpopstate = function(event) {
 
     alert("clicked button - pop");
-    alert(event.state);
+    alert(event.state.slug);
+    alert(event.state.hash);
     alert(event);
 
     doSomething(event);
