@@ -30,8 +30,15 @@ class NavigatorEventListener{
         
         window.history.replaceState(window.location.pathname, document.title, slug);
 
-        this.navigationHistoryController.update("PAGE_NAVIGATION_BY_MENU", slug);
+
+
+        let hash = Math.random().toString(36).substr(2, 5);
+        location.hash = hash;
+        console.log("Hash: ");
+        console.log(hash);
+        this.navigationHistoryController.update("PAGE_NAVIGATION_BY_MENU", slug, hash);
         console.log(this.navigationHistoryController);
+        console.log("=========================")
 
         window.history.pushState(slug, document.title, slug);
     }

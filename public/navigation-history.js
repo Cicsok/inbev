@@ -19,6 +19,7 @@ class NavigationHistoryController {
 
      constructor() {
         this.data = [];
+        this.hashData = [];
         this.index = 0;
      }
 
@@ -26,12 +27,12 @@ class NavigationHistoryController {
         return this.data[this.index];
     }
 
-    update(event, element) {
+    update(event, element, hash) {
         switch (event) {
             case "PAGE_NAVIGATION_BY_MENU":
                 this.invalidateUnreachableHistoryData();
                 let newIndex = this.calculateNewIndex();
-                this.addNewElement(newIndex, element);
+                this.addNewElement(newIndex, element, hash);
                 this.moveIndexToEnd();
                 break;
             case "PAGE_NAVIGATION_BY_BROWSER_NATIVE_BACK_ARROW_BUTTON":
@@ -43,10 +44,11 @@ class NavigationHistoryController {
         }
     }
 
-    addNewElement(newIndex, element) {
+    addNewElement(newIndex, element, hash) {
         let lastNavigationElement = this.retrieve();
         if (lastNavigationElement != element) {
             this.data[newIndex] = element;
+            this.hashData[newIndex] = hash;
         }
 
     }
