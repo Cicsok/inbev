@@ -41,7 +41,7 @@ class NavigatorEventListener{
         console.log("=========================")
 
 
-        window.history.pushState(slug, document.title, slug);
+        //window.history.pushState(slug, document.title, slug);
     }
 
     addActiveLinkToNewActivePageOnDesktop(newActivePageSlug){
