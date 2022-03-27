@@ -40,7 +40,7 @@ class NavigatorEventListener{
         console.log("=========================")
 
         let state = { slug: slug, hash: hash};
-        //window.history.replaceState(state, document.title, slug);
+        window.history.replaceState(state, document.title, slug);
         window.history.pushState(state, document.title, slug);
 
     }
