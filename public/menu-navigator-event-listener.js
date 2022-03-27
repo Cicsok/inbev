@@ -18,8 +18,6 @@ class NavigatorEventListener{
     constructor(activeLinkClassName){
         this.activeLinkClassName = activeLinkClassName;
         this.navigationHistoryController = NavigatorHistoryControllerFactory.getInstance();
-
-        this.urlRewriter("home-page");
     }
 
     urlRewriter(slug){
