@@ -1,11 +1,20 @@
 window.onpopstate = function(event) {
 
-    alert("clicked button");
+    alert("clicked button - pop");
     alert(event.state);
     alert(event);
 
     //doSomething(event);
  };
+
+ window.onpushstate = function(event) {
+
+     alert("clicked button - push");
+     alert(event.state);
+     alert(event);
+
+     //doSomething(event);
+  };
 
  function doSomething(event) {
     let factory = new MenuNavigatorEventListenerFactory();

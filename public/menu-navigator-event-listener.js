@@ -33,7 +33,7 @@ class NavigatorEventListener{
         //this.navigationHistoryController.update("PAGE_NAVIGATION_BY_MENU", slug);
        // console.log(this.navigationHistoryController);
 
-        //window.history.pushState(slug, document.title, slug);
+        window.history.pushState(slug, document.title, slug);
     }
 
     addActiveLinkToNewActivePageOnDesktop(newActivePageSlug){
