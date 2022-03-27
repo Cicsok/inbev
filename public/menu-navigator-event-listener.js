@@ -17,7 +17,7 @@ class MenuNavigatorEventListenerFactory{
 class NavigatorEventListener{
     constructor(activeLinkClassName){
         this.activeLinkClassName = activeLinkClassName;
-        //this.navigationHistoryController = NavigatorHistoryControllerFactory.getInstance();
+        this.navigationHistoryController = NavigatorHistoryControllerFactory.getInstance();
     }
 
     urlRewriter(slug){
