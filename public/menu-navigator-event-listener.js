@@ -28,7 +28,7 @@ class NavigatorEventListener{
         //window.history.replaceState("back arrow button", document.title, slug);
         //window.history.pushState("fw arrow button", document.title, slug);
         
-        //window.history.replaceState(window.location.pathname, document.title, slug);
+        window.history.replaceState(window.location.pathname, document.title, slug);
 
 
         let hash = Math.random().toString(36).substr(2, 5);
