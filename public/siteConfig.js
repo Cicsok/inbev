@@ -27,7 +27,7 @@ const siteConfig = {
   },
 
   pageToURLMapping: {
-    "/" : "/home-page"
+    "/" : "/home-page",
     "home-page": "/home-page",
     "about-me": "/about-me",
     "reference-works": "/reference-works",
