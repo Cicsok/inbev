@@ -21,26 +21,10 @@ class NavigatorEventListener{
 
     urlRewriter(slug){
         document.getElementById('specific-content').innerHTML = '';
-        // USE COMMENTED ROW WHEN YOU ARE TESTING ON LOCAL
-        // document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/public/' + slug + '.html'));
         document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
-        //window.history.replaceState("back arrow button", document.title, slug);
-        //window.history.pushState("fw arrow button", document.title, slug);
-        
 
-
-
-        let hash = Math.random().toString(36).substr(2, 5);
-        //self.window.name = hash;
-        console.log("Hash: ");
-        console.log(hash);
-        console.log("=========================")
 
         let pagePath = siteConfig.pageToURLMapping[slug];
-        console.log("Slug and page path");
-        console.log(slug);
-        console.log(pagePath);
-        console.log("=========================")
 
         let state = { slug: pagePath, hash: hash};
         //window.history.replaceState(state, document.title, slug);
