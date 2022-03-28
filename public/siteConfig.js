@@ -31,7 +31,12 @@ const siteConfig = {
     "home-page": "/home-page",
     "about-me": "/about-me",
     "reference-works": "/reference-works",
-    "contact": "/contact"
+    "contact": "/contact",
+
+    "/home-page": "/home-page",
+    "/about-me": "/about-me",
+    "/reference-works": "/reference-works",
+    "/contact": "/contact"
   },
 
   activeSliderImageName: "image1.jpg",
