@@ -1,4 +1,4 @@
-class MenuNavigatorEventListenerFactory {
+class NavigatorEventListenerFactory {
 
     create(platform, navigationType) {
         if (platform == 'DESKTOP' && navigationType == 'MENU') {
