@@ -25,7 +25,7 @@ class NavigatorEventListener{
         document.getElementById('specific-content').innerHTML = '';
         document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + pagePath));
 
-        let state = { slug: pagePath};
+        let state = { pagePath: pagePath};
         window.history.pushState(state, document.title, pagePath);
 
     }
@@ -77,7 +77,7 @@ class NavigatorEventListener{
         document.getElementById('specific-content').innerHTML = '';
         document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + pagePath));
 
-        let state = { slug: pagePath};
+        let state = { pagePath: pagePath};
         window.history.replaceState(state, document.title, pagePath);
     }
 
