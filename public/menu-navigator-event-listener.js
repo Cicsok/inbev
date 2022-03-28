@@ -40,6 +40,10 @@ class NavigatorEventListener{
         console.log("=========================")
 
         let pagePath = siteConfig.pageToURLMapping[slug];
+        console.log("Slug and page path");
+        console.log(slug);
+        console.log(pagePath);
+        console.log("=========================")
 
         let state = { slug: pagePath, hash: hash};
         //window.history.replaceState(state, document.title, slug);
