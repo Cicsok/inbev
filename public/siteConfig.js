@@ -40,6 +40,14 @@ const siteConfig = {
     "/contact": "/contact"
   },
 
+    URLToPageMapping: {
+      "/" : "home-page",
+      "/home-page": "home-page",
+      "/about-me": "about-me",
+      "/reference-works": "reference-works",
+      "/contact": "contact",
+    },
+
   activeSliderImageName: "image1.jpg",
 
   header:{

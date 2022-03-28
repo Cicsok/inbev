@@ -87,11 +87,8 @@ class NavigatorEventListener{
    
         document.getElementsByClassName(this.activeLinkClassName)[0].classList.remove(this.activeLinkClassName);
 
-        let slugAndLinkPair = siteConfig.header.pages;
-        let newActivePageSlug = Object.keys(slugAndLinkPair).find(key => key == slug);
-        
-        console.log(slugAndLinkPair);
-        console.log(newActivePageSlug);
+        let searchPage = siteConfig.URLToPageMapping[slug];
+        let newActivePageSlug = Object.keys(siteConfig.header.pages).find(key => key == searchPage);
 
         let platform = identifyPlatformType();
         platform == 'DESKTOP' 
