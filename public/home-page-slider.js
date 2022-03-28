@@ -83,7 +83,8 @@ function registerEventListener() {
 
 function navigateSlider(captionText) {
   let platformType = identifyPlatformType();
-  let sliderListener = new NavigatorEventListenerFactory().create(platformType, 'MENU');
+  let factory = new NavigatorEventListenerFactory();
+  let sliderListener = factory.create(platformType, 'MENU');
   let platformSynchronizer = PlatformSynchronizer.createInstance();
 
   new Map(Object.entries(siteConfig.header.pages)).forEach((pageCaption, slug) => {

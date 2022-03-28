@@ -38,8 +38,9 @@ function createLogoToMobileHeader(slug) {
   logo.src = logoImg;
   logo.classList.add('my-logo');
   logo.alt = 'Az INBE.V. logója';
-  
-  let logoNavigator = new NavigatorEventListenerFactory().create('MOBILE', 'MENU');
+
+  let factory = new NavigatorEventListenerFactory();
+  let logoNavigator = factory.create('MOBILE', 'MENU');
   let platformSynchronizer = PlatformSynchronizer.createInstance();
 
   logo.addEventListener('click', function () { logoNavigator.navigate(slug) });

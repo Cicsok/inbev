@@ -19,8 +19,8 @@ function createPagesLink(parent, linkContent, classNames, slug){
   })  
   link.innerHTML = linkContent;
 
-
-  let menuNavigatorEventListener = new NavigatorEventListenerFactory().create('MOBILE', 'MENU');
+  let factory = new NavigatorEventListenerFactory();
+  let menuNavigatorEventListener = factory.create('MOBILE', 'MENU');
   let platformSynchronizer = PlatformSynchronizer.createInstance();
 
   link.addEventListener('click', function (){menuNavigatorEventListener.navigate(slug)});
