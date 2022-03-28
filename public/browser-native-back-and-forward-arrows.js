@@ -1,6 +1,6 @@
 window.onpopstate = function(event) {
 
-    let pathName = event.state.pagePath.replace('/', '');
+    let pathName = event.state.pagePath;
 
     let factory = new MenuNavigatorEventListenerFactory();
     let platformType = identifyPlatformType();
