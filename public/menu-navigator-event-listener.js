@@ -1,17 +1,4 @@
-class MenuNavigatorEventListenerFactory{
-    create(platform) {
-        switch (platform){
-            case 'DESKTOP':
-                return new DesktopMenuNavigatorEventListener();
-                break;
-            case 'MOBILE':
-                return new MobileMenuNavigatorEventListener();
-                break;
-            default:
-                console.log("Platform: " + platform);
-                break;
-        }
-    }
+class MenuNavigatorEventListenerFactory {
 
     create(platform, navigationType) {
         if (platform == 'DESKTOP' && navigationType == 'MENU') {
