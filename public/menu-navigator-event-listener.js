@@ -17,7 +17,6 @@ class MenuNavigatorEventListenerFactory{
 class NavigatorEventListener{
     constructor(activeLinkClassName){
         this.activeLinkClassName = activeLinkClassName;
-        this.navigationHistoryController = NavigatorHistoryControllerFactory.getInstance();
     }
 
     urlRewriter(slug){
@@ -35,8 +34,6 @@ class NavigatorEventListener{
         self.window.name = hash;
         console.log("Hash: ");
         console.log(hash);
-        this.navigationHistoryController.update("PAGE_NAVIGATION_BY_MENU", slug, hash);
-        console.log(this.navigationHistoryController);
         console.log("=========================")
 
         let pagePath = siteConfig.pageToURLMapping[slug];

@@ -18,7 +18,6 @@ function includeCss(file) {
 function includeToEveryPages(){
     includeJavasScript('siteConfig.js');
     includeJavasScript('node-functions.js');
-    includeJavasScript('navigation-history.js');
     includeJavasScript('menu-navigator-event-listener.js');
     includeJavasScript('platform-synchronizer.js');
     includeJavasScript('desktop-header-util-functions.js');
