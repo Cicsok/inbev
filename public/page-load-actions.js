@@ -8,6 +8,8 @@ function test() {
     window.history.replaceState(state, document.title, slug);
 
     console.log("test");
+    console.log(slug);
+    console.log(pagePath);
 }
 
 window.onload = test;
