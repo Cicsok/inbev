@@ -26,7 +26,7 @@ class NavigatorEventListener{
 
         let pagePath = siteConfig.pageToURLMapping[slug];
 
-        let state = { slug: pagePath, hash: hash};
+        let state = { slug: pagePath};
         //window.history.replaceState(state, document.title, slug);
         window.history.pushState(state, document.title, slug);
 
@@ -80,7 +80,7 @@ class NavigatorEventListener{
         //window.history.pushState("fw arrow button", document.title, slug);
 
 
-        let state = { slug: slug, hash: self.window.name};
+        let state = { slug: slug};
         window.history.replaceState(state, document.title, slug);
         //window.history.pushState(state, document.title, slug);
 
