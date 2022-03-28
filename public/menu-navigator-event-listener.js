@@ -1,5 +1,5 @@
 class MenuNavigatorEventListenerFactory{
-    create(platform){
+    create(platform) {
         switch (platform){
             case 'DESKTOP':
                 return new DesktopMenuNavigatorEventListener();
@@ -12,7 +12,18 @@ class MenuNavigatorEventListenerFactory{
                 break;
         }
     }
-}
+
+    create(platform, navigationType) {
+        if (platform == 'DESKTOP' && navigationType == 'MENU') {
+            return new DesktopMenuNavigatorEventListener();
+        } else if (platform == 'DESKTOP' && navigationType == 'BROWSER_ARROW') {
+            return new DesktopBrowserArrowNavigatorEventListener();
+        } else if (platform == 'MOBILE' && navigationType == 'MENU') {
+            return new MobileMenuNavigatorEventListener();
+        } else if (platform == 'MOBILE' && navigationType == 'BROWSER_ARROW') {
+            return new MobileBrowserArrowNavigatorEventListener();
+        }
+    }
 
 class NavigatorEventListener{
     constructor(activeLinkClassName){

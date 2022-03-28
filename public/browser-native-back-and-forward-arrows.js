@@ -5,8 +5,8 @@ window.onpopstate = function(event) {
 
     let factory = new MenuNavigatorEventListenerFactory();
     let platformType = identifyPlatformType();
-    let navigator = factory.create(platformType);
-    navigator.navigateForBackArrow(pagePath);
+    let navigator = factory.create(platformType, 'BROWSER_ARROW');
+    navigator.navigate(pagePath);
 
     let platformSynchronizer = PlatformSynchronizer.createInstance();
     platformSynchronizer.sync(pageName, platformType);
