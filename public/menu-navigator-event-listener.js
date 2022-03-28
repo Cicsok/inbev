@@ -72,11 +72,13 @@ class NavigatorEventListener{
 
 
     urlRewriterForBackArrow(slug){
-        document.getElementById('specific-content').innerHTML = '';
-        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
+        let pagePath = siteConfig.pageToURLMapping[slug];
 
-        let state = { slug: slug};
-        window.history.replaceState(state, document.title, slug);
+        document.getElementById('specific-content').innerHTML = '';
+        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + pagePath));
+
+        let state = { slug: pagePath};
+        window.history.replaceState(state, document.title, pagePath);
     }
 
 
