@@ -20,15 +20,13 @@ class NavigatorEventListener{
     }
 
     urlRewriter(slug){
-        document.getElementById('specific-content').innerHTML = '';
-        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
-
-
         let pagePath = siteConfig.pageToURLMapping[slug];
 
+        document.getElementById('specific-content').innerHTML = '';
+        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + pagePath));
+
         let state = { slug: pagePath};
-        //window.history.replaceState(state, document.title, slug);
-        window.history.pushState(state, document.title, slug);
+        window.history.pushState(state, document.title, pagePath);
 
     }
 
@@ -76,16 +74,9 @@ class NavigatorEventListener{
     urlRewriterForBackArrow(slug){
         document.getElementById('specific-content').innerHTML = '';
         document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
-        //window.history.replaceState("back arrow button", document.title, slug);
-        //window.history.pushState("fw arrow button", document.title, slug);
-
 
         let state = { slug: slug};
         window.history.replaceState(state, document.title, slug);
-        //window.history.pushState(state, document.title, slug);
-
-
-        //window.history.pushState(state, document.title, slug); //-- THIS IS THE ONLY CHANGE -> THE FW BUTTON WORKS DUE TO THIS CHANGE
     }
 
 
