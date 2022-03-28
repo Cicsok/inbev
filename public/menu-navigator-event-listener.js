@@ -97,6 +97,12 @@ class MenuNavigatorEventListener extends NavigatorEventListener {
      }
 }
 
+class BrowserArrowNavigatorEventListener extends NavigatorEventListener {
+     changeHistory(state, title, path) {
+        window.history.replaceState(state, title, path);
+     }
+}
+
 class MobileMenuNavigatorEventListener extends MenuNavigatorEventListener {
     constructor(){
         super('mobile-active-link');
@@ -104,6 +110,18 @@ class MobileMenuNavigatorEventListener extends MenuNavigatorEventListener {
 }
 
 class DesktopMenuNavigatorEventListener extends MenuNavigatorEventListener {
+    constructor(){
+        super('desktop-active-link');
+    }
+}
+
+class MobileBrowserArrowNavigatorEventListener extends BrowserArrowNavigatorEventListener {
+    constructor(){
+        super('mobile-active-link');
+    }
+}
+
+class DesktopBrowserArrowNavigatorEventListener extends BrowserArrowNavigatorEventListener {
     constructor(){
         super('desktop-active-link');
     }
