@@ -24,6 +24,7 @@ class MenuNavigatorEventListenerFactory{
             return new MobileBrowserArrowNavigatorEventListener();
         }
     }
+}
 
 class NavigatorEventListener{
     constructor(activeLinkClassName){
