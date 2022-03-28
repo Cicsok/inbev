@@ -1,21 +1,5 @@
 includeToEveryPages();
 
-test();
-
-function test() {
-    let slug = window.location.pathname;
-    let pagePath = siteConfig.pageToURLMapping[slug];
-    let hash = Math.random().toString(36).substr(2, 5);
-
-    let state = { slug: pagePath, hash: hash};
-            //window.history.replaceState(state, document.title, slug);
-    window.history.pushState(state, document.title, slug);
-
-    console.log("test");
-}
-
-
-
 function includeJavasScript(file) {
     var script = document.createElement('script');
     script.src = file;
@@ -46,6 +30,7 @@ function includeToEveryPages(){
     includeJavasScript('desktop-footer.js');
     includeJavasScript('mobile-footer.js');
     includeJavasScript('browser-native-back-and-forward-arrows.js');
+    includeJavasScript('page-load-actions.js');
     includeCss('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;800&display=swap');
     includeCss('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css');
     includeCss('mobile-header-style.css');
