@@ -5,7 +5,7 @@ window.onload = function(event) {
 
        let state = { slug: pagePath, hash: hash};
                    //window.history.replaceState(state, document.title, slug);
-       window.history.replaceState(state, document.title, slug);
+       window.history.replaceState(state, document.title, pagePath);
 
        console.log("test");
        console.log(slug);
