@@ -10,6 +10,8 @@ function test() {
     let state = { slug: pagePath, hash: hash};
             //window.history.replaceState(state, document.title, slug);
     window.history.pushState(state, document.title, slug);
+
+    console.log("test");
 }
 
 
