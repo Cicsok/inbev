@@ -26,8 +26,7 @@ class NavigatorEventListener{
         document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + pagePath));
 
         let state = { pagePath: pagePath};
-        window.history.pushState(state, document.title, pagePath);
-
+        this.changeHistory(state, document.title, pagePath);
     }
 
     navigate(slug){
@@ -42,6 +41,10 @@ class NavigatorEventListener{
         platform == 'DESKTOP' 
         ? this.addActiveLinkToNewActivePageOnDesktop(newActivePageSlug)
         : this.addActiveLinkToNewActivePageOnMobile(newActivePageSlug);
+    }
+
+    changeHistory(state, title, path) {
+
     }
 
      urlRewriterForBackArrow(slug){
@@ -88,13 +91,19 @@ class NavigatorEventListener{
     }
 }
 
-class MobileMenuNavigatorEventListener extends NavigatorEventListener{
+class MenuNavigatorEventListener extends NavigatorEventListener {
+     changeHistory(state, title, path) {
+        window.history.pushState(state, title, path);
+     }
+}
+
+class MobileMenuNavigatorEventListener extends MenuNavigatorEventListener {
     constructor(){
         super('mobile-active-link');
     }
 }
 
-class DesktopMenuNavigatorEventListener extends NavigatorEventListener{
+class DesktopMenuNavigatorEventListener extends MenuNavigatorEventListener {
     constructor(){
         super('desktop-active-link');
     }
