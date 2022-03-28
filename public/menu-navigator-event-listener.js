@@ -39,7 +39,9 @@ class NavigatorEventListener{
         console.log(this.navigationHistoryController);
         console.log("=========================")
 
-        let state = { slug: slug, hash: hash};
+        let pagePath = siteConfig.pageToURLMapping[slug];
+
+        let state = { slug: pagePath, hash: hash};
         //window.history.replaceState(state, document.title, slug);
         window.history.pushState(state, document.title, slug);
 
