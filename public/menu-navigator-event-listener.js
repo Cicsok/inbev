@@ -31,7 +31,7 @@ class NavigatorEventListener{
 
 
         let hash = Math.random().toString(36).substr(2, 5);
-        self.window.name = hash;
+        //self.window.name = hash;
         console.log("Hash: ");
         console.log(hash);
         console.log("=========================")
