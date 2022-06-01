@@ -62,11 +62,12 @@ const siteConfig = {
   },
 
   referenceWorks:{
-    referenceWorksImage1: "",
-    referenceWorksImage2: "",
-    referenceWorksImage3: "",
-    referenceWorksImage4: "",
-    referenceWorksImage5: "",
+    referenceWorksTitle: "Referencia munkáim",
+    referenceWorksImage1: "image1.jpg",
+    referenceWorksImage2: "image2.jpg",
+    referenceWorksImage3: "image3.jpg",
+    referenceWorksImage4: "image4.jpg",
+    referenceWorksImage5: "image5.jpg",
   },
 
   contact:{

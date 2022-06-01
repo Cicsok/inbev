@@ -36,13 +36,15 @@ function includeToEveryPages(){
     includeCss('desktop-header-style.css');
     includeCss('desktop-footer-style.css');
     includeCss('mobile-footer-style.css');
+    includeCss('reference-works-style.css');
+    includeCss('about-me-style.css');
+    includeCss('contact-style.css');
+    includeCss('index-style.css');
     includeJavasScript('create-carousel-inner-for-home-page-slider-functions.js');
     includeJavasScript('home-page-slider.js');
     includeJavasScript('home-page-introduction.js');
-    includeCss('index-style.css');
     includeJavasScript('contact-content.js');
-    includeCss('contact-style.css');
     includeJavasScript('about-me-content.js');
-    includeCss('about-me-style.css');
     includeJavasScript('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js');
+    includeJavasScript('reference-works-content.js');
 }
