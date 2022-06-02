@@ -19,6 +19,7 @@ for (const link of links) {
       createCarousel(currentImg);
     }
     bsModal.show();
+
   });
 }
 
