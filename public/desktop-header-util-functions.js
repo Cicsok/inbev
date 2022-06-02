@@ -15,7 +15,8 @@ function createCol(parent){
 function createLogoToLink(parent, slug){
     let logoLink = createNode('a');
 
-    let logoNavigator = new MenuNavigatorEventListenerFactory().create('DESKTOP');
+    let factory = new NavigatorEventListenerFactory();
+    let logoNavigator = factory.create('DESKTOP', 'MENU');
     let platformSynchronizer = PlatformSynchronizer.createInstance();
 
     logoLink.addEventListener('click', function(){logoNavigator.navigate(slug)});
@@ -55,7 +56,8 @@ function createGetInTouchWithMeButton(parent, buttonText, slug){
     button.classList.add('my-border');
     button.innerHTML = buttonText;
 
-    let buttonNavigator = new MenuNavigatorEventListenerFactory().create('DESKTOP');
+    let factory = new NavigatorEventListenerFactory();
+    let buttonNavigator = factory.create('DESKTOP', 'MENU');
     let platformSynchronizer = PlatformSynchronizer.createInstance();
     button.addEventListener('click', function(){buttonNavigator.navigate(slug)});
     button.addEventListener('click', function (){platformSynchronizer.syncForMobile(slug)});
@@ -92,7 +94,8 @@ function createHeaderPagesLink(parent, link, classNames, slug){
     })
     page.innerHTML = link;
 
-    let menuNavigator = new MenuNavigatorEventListenerFactory().create('DESKTOP');
+    let factory = new NavigatorEventListenerFactory();
+    let menuNavigator = factory.create('DESKTOP', 'MENU');
     let platformSynchronizer = PlatformSynchronizer.createInstance();
 
     page.addEventListener('click', function (){menuNavigator.navigate(slug)});

@@ -26,6 +26,33 @@ const siteConfig = {
     }
   },
 
+  pageToURLMapping: {
+    "/" : "/home-page",
+    "home-page": "/home-page",
+    "about-me": "/about-me",
+    "reference-works": "/reference-works",
+    "contact": "/contact",
+
+    // First page load via browser includes the "/" character at the beginning of the page path
+    "/home-page": "/home-page",
+    "/about-me": "/about-me",
+    "/reference-works": "/reference-works",
+    "/contact": "/contact"
+  },
+
+    URLToPageMapping: {
+      "/" : "home-page",
+      "/home-page": "home-page",
+      "/about-me": "about-me",
+      "/reference-works": "reference-works",
+      "/contact": "contact",
+
+       "home-page": "home-page",
+       "about-me": "about-me",
+       "reference-works": "reference-works",
+       "contact": "contact",
+    },
+
   activeSliderImageName: "image1.jpg",
 
   header:{

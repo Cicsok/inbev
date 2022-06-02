@@ -1,15 +1,14 @@
-class MenuNavigatorEventListenerFactory{
-    create(platform){
-        switch (platform){
-            case 'DESKTOP':
-                return new DesktopMenuNavigatorEventListener();
-                break;
-            case 'MOBILE':
-                return new MobileMenuNavigatorEventListener();
-                break;
-            default:
-                console.log("Platform: " + platform);
-                break;
+class NavigatorEventListenerFactory {
+
+    create(platform, navigationType) {
+        if (platform == 'DESKTOP' && navigationType == 'MENU') {
+            return new DesktopMenuNavigatorEventListener();
+        } else if (platform == 'DESKTOP' && navigationType == 'BROWSER_ARROW') {
+            return new DesktopBrowserArrowNavigatorEventListener();
+        } else if (platform == 'MOBILE' && navigationType == 'MENU') {
+            return new MobileMenuNavigatorEventListener();
+        } else if (platform == 'MOBILE' && navigationType == 'BROWSER_ARROW') {
+            return new MobileBrowserArrowNavigatorEventListener();
         }
     }
 }
@@ -20,15 +19,31 @@ class NavigatorEventListener{
     }
 
     urlRewriter(slug){
+        let pagePath = siteConfig.pageToURLMapping[slug];
+
         document.getElementById('specific-content').innerHTML = '';
-        // USE COMMENTED ROW WHEN YOU ARE TESTING ON LOCAL
-        // document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/public/' + slug + '.html'));
-        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
-        //window.history.replaceState("back arrow button", document.title, slug);
-        //window.history.pushState("fw arrow button", document.title, slug);
-        
-        window.history.replaceState(window.location.pathname, document.title, slug);
-        window.history.pushState(slug, document.title, slug);
+        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + pagePath));
+
+        let state = { pagePath: pagePath};
+        this.changeHistory(state, document.title, pagePath);
+    }
+
+    navigate(slug){
+        this.urlRewriter(slug);
+   
+        document.getElementsByClassName(this.activeLinkClassName)[0].classList.remove(this.activeLinkClassName);
+
+        let searchPage = siteConfig.URLToPageMapping[slug];
+        let newActivePageSlug = Object.keys(siteConfig.header.pages).find(key => key == searchPage);
+
+        let platform = identifyPlatformType();
+        platform == 'DESKTOP' 
+        ? this.addActiveLinkToNewActivePageOnDesktop(newActivePageSlug)
+        : this.addActiveLinkToNewActivePageOnMobile(newActivePageSlug);
+    }
+
+    changeHistory(state, title, path) {
+
     }
 
     addActiveLinkToNewActivePageOnDesktop(newActivePageSlug){
@@ -37,23 +52,6 @@ class NavigatorEventListener{
 
     addActiveLinkToNewActivePageOnMobile(newActivePageSlug){
         document.getElementsByClassName(newActivePageSlug + '-page-link-mobile')[0].classList.add(this.activeLinkClassName);
-    }
-
-    navigate(slug){
-        this.urlRewriter(slug);
-   
-        document.getElementsByClassName(this.activeLinkClassName)[0].classList.remove(this.activeLinkClassName);
-
-        let slugAndLinkPair = siteConfig.header.pages;
-        let newActivePageSlug = Object.keys(slugAndLinkPair).find(key => key == slug);
-        
-        console.log(slugAndLinkPair);
-        console.log(newActivePageSlug);
-
-        let platform = identifyPlatformType();
-        platform == 'DESKTOP' 
-        ? this.addActiveLinkToNewActivePageOnDesktop(newActivePageSlug)
-        : this.addActiveLinkToNewActivePageOnMobile(newActivePageSlug);
     }
 
     loadPage(href){
@@ -65,49 +63,39 @@ class NavigatorEventListener{
         let specificContent = responseDoc.getElementById('specific-content');
         return specificContent;
     }
-
-
-
-
-
-
-
-    urlRewriterForBackArrow(slug){
-        document.getElementById('specific-content').innerHTML = '';
-        document.getElementById('specific-content').appendChild(this.loadPage(window.location.origin + '/' + slug));
-        //window.history.replaceState("back arrow button", document.title, slug);
-        //window.history.pushState("fw arrow button", document.title, slug);
-        
-        window.history.replaceState(window.location.pathname, document.title, slug);
-        // window.history.pushState(slug, document.title, slug); -- THIS IS THE ONLY CHANGE -> THE FW BUTTON WORKS DUE TO THIS CHANGE
-    }
-
-
-    navigateForBackArrow(slug){
-        this.urlRewriterForBackArrow(slug);
-   
-        document.getElementsByClassName(this.activeLinkClassName)[0].classList.remove(this.activeLinkClassName);
-
-        let slugAndLinkPair = siteConfig.header.pages;
-        let newActivePageSlug = Object.keys(slugAndLinkPair).find(key => key == slug);
-        
-        console.log(slugAndLinkPair);
-        console.log(newActivePageSlug);
-
-        let platform = identifyPlatformType();
-        platform == 'DESKTOP' 
-        ? this.addActiveLinkToNewActivePageOnDesktop(newActivePageSlug)
-        : this.addActiveLinkToNewActivePageOnMobile(newActivePageSlug);
-    }
 }
 
-class MobileMenuNavigatorEventListener extends NavigatorEventListener{
+class MenuNavigatorEventListener extends NavigatorEventListener {
+     changeHistory(state, title, path) {
+        window.history.pushState(state, title, path);
+     }
+}
+
+class BrowserArrowNavigatorEventListener extends NavigatorEventListener {
+     changeHistory(state, title, path) {
+        window.history.replaceState(state, title, path);
+     }
+}
+
+class MobileMenuNavigatorEventListener extends MenuNavigatorEventListener {
     constructor(){
         super('mobile-active-link');
     }
 }
 
-class DesktopMenuNavigatorEventListener extends NavigatorEventListener{
+class DesktopMenuNavigatorEventListener extends MenuNavigatorEventListener {
+    constructor(){
+        super('desktop-active-link');
+    }
+}
+
+class MobileBrowserArrowNavigatorEventListener extends BrowserArrowNavigatorEventListener {
+    constructor(){
+        super('mobile-active-link');
+    }
+}
+
+class DesktopBrowserArrowNavigatorEventListener extends BrowserArrowNavigatorEventListener {
     constructor(){
         super('desktop-active-link');
     }

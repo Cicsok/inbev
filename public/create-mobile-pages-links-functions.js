@@ -19,11 +19,11 @@ function createPagesLink(parent, linkContent, classNames, slug){
   })  
   link.innerHTML = linkContent;
 
-
-  let menuNavigatorEventListener = new MenuNavigatorEventListenerFactory().create('MOBILE');
+  let factory = new NavigatorEventListenerFactory();
+  let menuNavigatorEventListener = factory.create('MOBILE', 'MENU');
   let platformSynchronizer = PlatformSynchronizer.createInstance();
 
-  link.addEventListener('click', function (){menuNavigatorEventListener.navigate(slug, link)});
+  link.addEventListener('click', function (){menuNavigatorEventListener.navigate(slug)});
   link.addEventListener('click', function (){platformSynchronizer.syncForDesktop(slug)});
 
   append(parent, link);
