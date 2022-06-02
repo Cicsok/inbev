@@ -20,6 +20,9 @@ for (const link of links) {
     }
     bsModal.show();
 
+
+
+    
   });
 }
 
